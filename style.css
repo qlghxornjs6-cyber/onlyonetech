@@ -1242,7 +1242,8 @@ a:hover { color: var(--color-primary-hover); }
 .crumbs { font-size: var(--fs-sm); color: var(--color-text-muted); }
 .crumbs ol { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; align-items: center; }
 .crumbs li + li::before { content: "\203A"; margin-inline: var(--space-2); }
-.crumbs a { display: inline-flex; align-items: center; min-height: var(--tap); }
+.crumbs a { display: inline-flex; align-items: center; min-height: var(--tap); padding-inline: var(--space-2); }
+.crumbs ol { margin-inline-start: calc(-1 * var(--space-2)); }
 .crumbs [aria-current="page"] { color: var(--color-text); font-weight: var(--fw-medium); }
 
 /* nav link for a page inside the current section (e.g. one app's policy) */
@@ -1315,6 +1316,10 @@ a:hover { color: var(--color-primary-hover); }
 .jump__list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-2); }
 /* section chips stay in view while reading a long guide (direct child of <main>, so sticky spans the whole page) */
 html:has(.jump-bar) { --header-h: 3.75rem; }
+@media (min-width: 40em) {
+  /* same header height as the other pages, so the logo and nav do not shift between pages */
+  html:has(.jump-bar) { --header-h: 4rem; }
+}
 .jump-bar {
   position: sticky;
   top: 0;
@@ -1328,10 +1333,10 @@ html:has(.jump-bar) { --header-h: 3.75rem; }
    sliding over it. --header-h is the header's own height on guide pages; anchor jumps also clear the jump bar. */
 @media (min-width: 52em) {
   html:has(.jump-bar) {
-    --jump-h: 3.625rem;
+    --jump-h: 3.875rem;
     scroll-padding-top: calc(var(--header-h) + var(--jump-h) + var(--space-2));
   }
-  .jump-bar { top: var(--header-h); }
+  .jump-bar { top: calc(var(--header-h) + 1px); }
 }
 .jump-bar .jump { margin-top: 0; padding-block: var(--space-2); }
 .jump-bar .jump__list {
@@ -1343,7 +1348,7 @@ html:has(.jump-bar) { --header-h: 3.75rem; }
 .jump-bar .jump__list::-webkit-scrollbar { display: none; }
 .jump-bar .jump__list li { flex: none; }
 .jump-bar .jump__list a {
-  min-height: 2.5rem;
+  min-height: var(--tap);
   padding-inline: var(--space-3);
   font-size: 0.875rem;
   white-space: nowrap;
