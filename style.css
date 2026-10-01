@@ -1,5 +1,5 @@
 /* ==========================================================================
-   OnlyOneTech - shared stylesheet (index.html, privacy.html)
+   OnlyOneTech - shared stylesheet (index, guides, privacy pages)
    Static, no build step. Mobile first. Light / dark / system themes.
    Concept: a developer's dot-grid notebook. Warm paper, ink text,
    one blue, and a single amber dot (the "only one").
@@ -10,6 +10,7 @@
      4. Components (skip link, header, buttons, badge, hero, cards, footer)
      5. Policy document page
      6. Utilities, reduced motion, print
+     7. App guides, policy hub, per-app policy pages (appended last)
    ========================================================================== */
 
 /* ---------- 1. Tokens: non-color ---------- */
@@ -938,40 +939,65 @@ a:hover { color: var(--color-primary-hover); }
 .doc__meta-item { overflow-wrap: anywhere; }
 .doc__intro { line-height: var(--lh-doc); max-width: var(--measure); }
 
-/* mobile section chips (the desktop sidebar TOC takes over at 60em) */
+/* mobile table of contents: a collapsible list with the full section titles
+   (the always-visible desktop sidebar TOC takes over at 60em) */
 .doc-toc-m { margin-top: var(--space-4); }
-.doc-toc-m__title {
-  margin-bottom: var(--space-1);
-  font-family: var(--font-mono);
-  font-size: var(--fs-sm);
-  font-weight: var(--fw-medium);
+.doc-toc-m__box {
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  overflow: hidden;
+}
+.doc-toc-m__summary {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: var(--tap);
+  padding: var(--space-2) var(--space-4);
   color: var(--color-primary-text);
+  font-weight: var(--fw-bold);
+  cursor: pointer;
+  list-style: none;
+}
+.doc-toc-m__summary::-webkit-details-marker { display: none; }
+.doc-toc-m__summary::after {
+  content: "";
+  flex: none;
+  width: 0.55rem;
+  height: 0.55rem;
+  margin-top: -0.25rem;
+  border-right: 2px solid var(--color-text-muted);
+  border-bottom: 2px solid var(--color-text-muted);
+  transform: rotate(45deg);
+  transition: transform var(--dur) var(--ease);
+}
+.doc-toc-m__box[open] > .doc-toc-m__summary::after { margin-top: 0.25rem; transform: rotate(-135deg); }
+.doc-toc-m__summary:focus-visible { border-radius: var(--radius-md); outline-offset: -3px; }
+.doc-toc-m__count {
+  margin-left: auto;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-regular);
+  color: var(--color-text-muted);
 }
 .doc-toc-m__list {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-1);
+  border-top: 1px solid var(--color-border);
 }
+.doc-toc-m__list li + li { border-top: 1px solid var(--color-border); }
 .doc-toc-m__list a {
-  display: grid;
-  place-items: center;
-  min-width: var(--tap);
+  display: flex;
+  align-items: center;
   min-height: var(--tap);
-  border: 1px solid var(--color-border-strong);
-  border-radius: var(--radius-md);
-  background: var(--color-surface);
-  color: var(--color-primary-text);
-  font-weight: var(--fw-bold);
+  padding: var(--space-2) var(--space-4);
+  color: var(--color-text);
+  font-size: 0.9375rem;
+  line-height: 1.4;
   text-decoration: none;
 }
-.doc-toc-m__list a:hover { background: var(--color-primary-soft); }
-@media (max-width: 23em) {
-  /* very narrow screens: 4 + 3 instead of 6 + 1 */
-  .doc-toc-m__list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
-}
+.doc-toc-m__list a:hover { background: var(--color-primary-soft); color: var(--color-primary-text); }
+.doc-toc-m__list a:focus-visible { border-radius: 0; outline-offset: -3px; }
 
 /* summary: three core points, each linking to the full clause below */
 .doc-summary {
@@ -1102,4 +1128,553 @@ a:hover { color: var(--color-primary-hover); }
   a { color: inherit; }
   .doc-layout { display: block; }
   .hero, .section, .section--alt, .site-footer { background: #fff; padding-block: var(--space-4); }
+}
+
+/* ==========================================================================
+   7. App guides, policy hub, per-app policy pages
+      (ohneul-guide.html, workout-guide.html, privacy.html,
+       privacy-ohneul.html, privacy-workout.html + home-page additions)
+      Appended after the original sections; nothing above is changed.
+   ========================================================================== */
+
+/* 7.1 Per-app accent: same three variables the home app cards use */
+.accent--today {
+  --card-soft: var(--app-today-soft);
+  --card-text: var(--app-today-text);
+  --card-accent: var(--app-today-accent);
+}
+.accent--fit {
+  --card-soft: var(--app-fit-soft);
+  --card-text: var(--app-fit-text);
+  --card-accent: var(--app-fit-accent);
+}
+
+/* 7.2 Real app icon (square image, rounded like a launcher icon) */
+.app-icon {
+  display: block;
+  flex: none;
+  object-fit: cover;
+  border: 1px solid var(--color-border);
+  border-radius: 22%;
+  background: var(--color-surface-2);
+  box-shadow: var(--shadow-sm);
+}
+.app-icon--md { width: 3.5rem; height: 3.5rem; }
+.app-icon--xl { width: 4.5rem; height: 4.5rem; }
+
+/* 7.3 Home: app card with real icon, guide button, per-app privacy block */
+.app-card__icon--img { padding: 0; overflow: hidden; background: var(--color-surface-2); }
+.app-card__icon--img img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.app-card__body { flex: 1 1 auto; }
+.app-card__actions { padding: 0 var(--space-6) var(--space-5); }
+.app-card__actions .btn { width: 100%; }
+
+.info-list__links { list-style: none; margin: 0; padding: 0; }
+.info-list__links li + li { margin-top: var(--space-1); }
+
+.privacy-grid {
+  list-style: none;
+  margin: var(--space-4) 0 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-5);
+  grid-template-columns: minmax(0, 1fr);
+}
+.privacy-grid > li { min-width: 0; }
+.privacy-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: var(--space-6);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-top: 4px solid var(--card-accent);
+  border-radius: var(--radius-lg);
+}
+.privacy-card__head { display: flex; align-items: center; gap: var(--space-3); }
+.privacy-card__name { font-size: var(--fs-lg); font-weight: var(--fw-bold); }
+.privacy-card__kind { font-size: var(--fs-sm); font-weight: var(--fw-medium); color: var(--card-text); }
+.privacy-card .btn { margin-top: auto; align-self: flex-start; }
+.privacy-card .check-list { margin-bottom: var(--space-5); }
+@media (min-width: 48em) {
+  .privacy-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-6); }
+}
+
+.check-list { list-style: none; margin: var(--space-4) 0 0; padding: 0; display: grid; gap: var(--space-3); }
+.check-list li { position: relative; padding-left: 1.875rem; color: var(--color-text-muted); }
+.check-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.3em;
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+  border: 1px solid var(--card-accent);
+  background: var(--card-soft);
+}
+.check-list li::after {
+  content: "";
+  position: absolute;
+  left: 0.43rem;
+  top: 0.55em;
+  width: 0.3rem;
+  height: 0.55rem;
+  border: solid var(--card-text);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* 7.4 Inline button names: [버튼 이름] written as a small label */
+.ui-label {
+  padding: 0.05em 0.32em;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: var(--color-surface-2);
+  color: var(--color-text);
+  font-size: 0.94em;
+  font-weight: var(--fw-medium);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+/* 7.5 Breadcrumbs */
+.crumbs { font-size: var(--fs-sm); color: var(--color-text-muted); }
+.crumbs ol { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; align-items: center; }
+.crumbs li + li::before { content: "\203A"; margin-inline: var(--space-2); }
+.crumbs a { display: inline-flex; align-items: center; min-height: var(--tap); }
+.crumbs [aria-current="page"] { color: var(--color-text); font-weight: var(--fw-medium); }
+
+/* nav link for a page inside the current section (e.g. one app's policy) */
+.site-nav a[aria-current="true"] { color: var(--color-primary-text); border-bottom-color: var(--color-border-strong); }
+
+/* 7.6 Guide hero */
+.guide-hero {
+  padding-block: var(--space-2) var(--space-8);
+  background:
+    radial-gradient(60% 55% at 92% 0%, var(--card-soft), transparent 72%),
+    radial-gradient(40% 36% at 0% 70%, var(--glow-2), transparent 70%),
+    var(--color-bg);
+}
+.guide-hero__grid { display: grid; gap: var(--space-5); margin-top: var(--space-2); min-width: 0; }
+.guide-hero__copy, .guide-hero__side { min-width: 0; }
+.guide-hero__id { display: flex; align-items: center; gap: var(--space-4); }
+.guide-hero__eyebrow {
+  display: inline-block;
+  margin-bottom: var(--space-2);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-pill);
+  background: var(--card-soft);
+  color: var(--card-text);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  line-height: 1.5;
+}
+.guide-hero__title {
+  font-size: var(--fs-2xl);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-tight);
+  letter-spacing: -0.02em;
+}
+.guide-hero__lead {
+  margin-top: var(--space-4);
+  max-width: 36rem;
+  font-size: var(--fs-md);
+  color: var(--color-text-muted);
+}
+.guide-hero__badges {
+  list-style: none;
+  margin: var(--space-5) 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+.guide-hero__note { margin-top: var(--space-3); font-size: var(--fs-sm); color: var(--color-text-muted); }
+.guide-hero__side-title {
+  margin-bottom: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--card-text);
+}
+.guide-facts { max-width: none; padding-block: 0; }
+/* phones: label and value side by side, so the facts card is a compact table instead of a tall stack */
+.guide-facts .info-list__row {
+  display: grid;
+  grid-template-columns: 6.5rem minmax(0, 1fr);
+  column-gap: var(--space-3);
+  align-items: baseline;
+  padding-block: var(--space-2);
+}
+.guide-facts dd { font-size: 0.9375rem; }
+@media (min-width: 30em) {
+  .guide-facts .info-list__row { grid-template-columns: 10.5rem minmax(0, 1fr); }
+}
+.jump { margin-top: var(--space-8); }
+.jump__list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-2); }
+/* section chips stay in view while reading a long guide (direct child of <main>, so sticky spans the whole page) */
+html:has(.jump-bar) { --header-h: 3.75rem; }
+.jump-bar {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-header);
+  background: var(--header-bg);
+  border-block: 1px solid var(--color-border);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+/* From 52em the main header is sticky as well (see 7.14b), so the chips dock right under it instead of
+   sliding over it. --header-h is the header's own height on guide pages; anchor jumps also clear the jump bar. */
+@media (min-width: 52em) {
+  html:has(.jump-bar) {
+    --jump-h: 3.625rem;
+    scroll-padding-top: calc(var(--header-h) + var(--jump-h) + var(--space-2));
+  }
+  .jump-bar { top: var(--header-h); }
+}
+.jump-bar .jump { margin-top: 0; padding-block: var(--space-2); }
+.jump-bar .jump__list {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.jump-bar .jump__list::-webkit-scrollbar { display: none; }
+.jump-bar .jump__list li { flex: none; }
+.jump-bar .jump__list a {
+  min-height: 2.5rem;
+  padding-inline: var(--space-3);
+  font-size: 0.875rem;
+  white-space: nowrap;
+}
+.jump-bar .jump__list a:focus-visible { outline-offset: -3px; }
+.jump__list a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
+  padding-inline: var(--space-4);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: 0.9375rem;
+  font-weight: var(--fw-medium);
+  text-decoration: none;
+}
+.jump__list a:hover { background: var(--card-soft); border-color: var(--card-accent); color: var(--card-text); }
+.jump__list a:focus-visible { border-radius: var(--radius-pill); }
+@media (min-width: 40em) {
+  .app-icon--xl { width: 6rem; height: 6rem; }
+}
+@media (min-width: 60em) {
+  .guide-hero__grid { grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); align-items: start; gap: var(--space-12); }
+}
+
+/* 7.7 Feature list */
+.feature-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: minmax(0, 1fr);
+}
+.feature {
+  min-width: 0;
+  padding: var(--space-4) var(--space-5);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--card-accent);
+  border-radius: var(--radius-lg);
+}
+.feature__title { font-size: var(--fs-base); font-weight: var(--fw-bold); margin-bottom: var(--space-1); }
+.feature__text { font-size: 0.9375rem; line-height: 1.7; color: var(--color-text-muted); }
+@media (min-width: 40em) {
+  .feature-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-4); }
+}
+
+/* 7.8 Steps: phone = stack (title, screenshot, text); wide = image and text side by side, alternating */
+.steps { list-style: none; margin: 0; padding: 0; }
+.step {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas: "head" "shot" "body";
+  gap: var(--space-5);
+  min-width: 0;
+}
+.step + .step {
+  margin-top: var(--space-12);
+  padding-top: var(--space-12);
+  border-top: 1px dashed var(--color-border-strong);
+}
+.step__head { grid-area: head; display: flex; align-items: flex-start; gap: var(--space-3); min-width: 0; }
+.step__num {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 2px solid var(--card-accent);
+  border-radius: 50%;
+  background: var(--card-soft);
+  color: var(--card-text);
+  font-family: var(--font-mono);
+  font-size: 1.0625rem;
+  font-weight: var(--fw-bold);
+}
+.step__title { padding-top: 0.2rem; font-size: var(--fs-lg); font-weight: var(--fw-bold); line-height: var(--lh-snug); }
+.step__shot {
+  grid-area: shot;
+  /* phones: let the capture use almost the full screen width (>= 340px at 375px) so in-app labels stay readable */
+  width: min(calc(100% + 2 * (var(--gutter) - 0.5rem)), 22.5rem);
+  justify-self: center;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-md);
+}
+.step__shot img { display: block; width: 100%; height: auto; }
+.step__zoom { position: relative; display: block; color: inherit; text-decoration: none; }
+.step__zoom:focus-visible { outline-offset: -3px; border-radius: var(--radius-lg); }
+.step__zoom-hint {
+  display: block;
+  padding: var(--space-2) var(--space-3);
+  border-top: 1px solid var(--color-border);
+  background: var(--color-surface-2);
+  color: var(--color-text-muted);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  line-height: 1.5;
+  text-align: center;
+}
+.step__zoom:hover .step__zoom-hint { color: var(--color-text); }
+.step__body { grid-area: body; min-width: 0; }
+.step__list { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-3); }
+.step__list li { position: relative; padding-left: 1.25rem; }
+.step__list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: var(--card-accent);
+}
+.step__note {
+  margin-top: var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--card-soft);
+  color: var(--card-text);
+  font-size: 0.9375rem;
+  line-height: 1.7;
+}
+@media (min-width: 48em) {
+  .step {
+    grid-template-columns: minmax(0, 21.5rem) minmax(0, 1fr);
+    grid-template-rows: 1fr auto auto 1fr;
+    grid-template-areas: "shot ." "shot head" "shot body" "shot .";
+    column-gap: var(--space-10);
+    row-gap: 0;
+  }
+  .step:nth-child(even) {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 21.5rem);
+    grid-template-areas: ". shot" "head shot" "body shot" ". shot";
+  }
+  .step__head { margin-bottom: var(--space-4); }
+  .step__shot { width: auto; justify-self: stretch; }
+}
+@media (min-width: 64em) {
+  .step { grid-template-columns: minmax(0, 21.5rem) minmax(0, 1fr); column-gap: var(--space-12); }
+  .step:nth-child(even) { grid-template-columns: minmax(0, 1fr) minmax(0, 21.5rem); }
+}
+
+/* 7.9 Tips */
+.tip-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: minmax(0, 1fr);
+}
+.tip {
+  min-width: 0;
+  padding: var(--space-5);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+.tip__tag {
+  display: inline-block;
+  margin-bottom: var(--space-2);
+  padding: 0.125rem var(--space-3);
+  border-radius: var(--radius-pill);
+  background: var(--card-soft);
+  color: var(--card-text);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  line-height: 1.6;
+}
+.tip__title { margin-bottom: var(--space-2); font-size: var(--fs-md); font-weight: var(--fw-bold); line-height: var(--lh-snug); }
+.tip p:not(.tip__tag) { font-size: 0.9375rem; line-height: 1.75; color: var(--color-text-muted); }
+.tip p:not(.tip__tag) + p { margin-top: var(--space-3); }
+.limit-list { max-width: none; margin-bottom: var(--space-3); padding: 0; border: 0; border-radius: 0; background: transparent; }
+.limit-list .info-list__row { padding-block: var(--space-2); }
+.limit-list dd { font-weight: var(--fw-regular); color: var(--color-text-muted); font-size: 0.9375rem; }
+@media (min-width: 30em) {
+  .limit-list .info-list__row { grid-template-columns: 12rem minmax(0, 1fr); }
+}
+@media (min-width: 48em) {
+  .tip-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-5); }
+  .tip--wide { grid-column: 1 / -1; }
+}
+
+/* 7.10 FAQ (details / summary) */
+.faq { display: grid; gap: var(--space-3); max-width: 52rem; }
+.faq__item {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+.faq__item:hover, .faq__item[open] { border-color: var(--color-border-strong); }
+.faq__item summary {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+  min-height: var(--tap);
+  padding: var(--space-4) var(--space-5);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-snug);
+  cursor: pointer;
+  list-style: none;
+}
+.faq__item summary::-webkit-details-marker { display: none; }
+.faq__item summary::after {
+  content: "";
+  flex: none;
+  width: 0.55rem;
+  height: 0.55rem;
+  margin-top: 0.3rem;
+  border-right: 2px solid var(--color-text-muted);
+  border-bottom: 2px solid var(--color-text-muted);
+  transform: rotate(45deg);
+  transition: transform var(--dur) var(--ease);
+}
+.faq__item[open] summary::after { margin-top: 0.5rem; transform: rotate(-135deg); }
+.faq__item summary:focus-visible { border-radius: var(--radius-lg); outline-offset: -3px; }
+.faq__answer { padding: 0 var(--space-5) var(--space-5); color: var(--color-text-muted); }
+.faq__answer p { max-width: var(--measure); }
+
+/* 7.11 "More" link cards */
+.more-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: minmax(0, 1fr);
+}
+.more-grid > li { min-width: 0; }
+.more-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  height: 100%;
+  padding: var(--space-5);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  color: var(--color-text);
+  text-decoration: none;
+}
+.more-card:hover { background: var(--color-surface-2); border-color: var(--color-border-strong); color: var(--color-text); }
+.more-card:focus-visible { border-radius: var(--radius-lg); }
+.more-card__label { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--color-text-muted); }
+.more-card__title { font-size: var(--fs-md); font-weight: var(--fw-bold); line-height: var(--lh-snug); }
+.more-card__title::after { content: "\2192"; margin-left: var(--space-1); }
+.more-card__text { font-size: var(--fs-sm); color: var(--color-text-muted); }
+@media (min-width: 48em) {
+  .more-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-5); }
+}
+
+/* 7.12 Policy documents */
+.doc__id { display: flex; align-items: center; gap: var(--space-4); }
+.doc__id .doc__title { min-width: 0; }
+.doc-list { max-width: var(--measure); margin: 0; padding-left: 1.25rem; line-height: var(--lh-doc); }
+.doc-list li + li { margin-top: var(--space-2); }
+.doc-section p + p,
+.doc-section p + .doc-list,
+.doc-section .doc-list + p { margin-top: var(--space-3); }
+.doc-section strong { font-weight: var(--fw-bold); }
+.doc-related { margin-top: var(--space-10); padding-top: var(--space-6); border-top: 1px solid var(--color-border); }
+.doc-related__title { margin-bottom: var(--space-3); font-size: var(--fs-md); font-weight: var(--fw-bold); }
+.doc-related__list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-3); }
+@media (min-width: 60em) {
+  .doc-toc { max-height: calc(100vh - var(--header-h) - var(--space-8)); overflow-y: auto; }
+}
+
+/* 7.13 Policy hub (privacy.html) */
+.hub { max-width: 54rem; }
+.hub .doc__intro { max-width: var(--measure); }
+.policy-grid {
+  list-style: none;
+  margin: var(--space-8) 0 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-5);
+  grid-template-columns: minmax(0, 1fr);
+}
+.policy-grid > li { min-width: 0; }
+.policy-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  height: 100%;
+  padding: var(--space-6);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-top: 4px solid var(--card-accent);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+}
+.policy-card__head { display: flex; align-items: center; gap: var(--space-4); }
+.policy-card__name { font-size: var(--fs-lg); font-weight: var(--fw-bold); }
+.policy-card__kind { font-size: var(--fs-sm); font-weight: var(--fw-medium); color: var(--card-text); }
+.policy-card__summary { color: var(--color-text-muted); }
+.policy-card__date { font-size: var(--fs-sm); color: var(--color-text-muted); }
+.policy-card .btn { margin-top: auto; align-self: flex-start; }
+.hub-contact { margin-top: var(--space-10); }
+.hub-contact__title { margin-bottom: var(--space-3); font-size: var(--fs-lg); font-weight: var(--fw-bold); }
+@media (min-width: 40em) {
+  .policy-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-6); }
+}
+
+/* 7.14 Footer: several link rows */
+.site-footer__nav ul + ul { margin-top: 0; }
+
+/* 7.14b Header: six links no longer fit one row between 40em and 52em, so keep the two-row (phone) layout there */
+@media (min-width: 40em) and (max-width: 51.99em) {
+  :root { --header-h: 0rem; }
+  .site-header { position: static; -webkit-backdrop-filter: none; backdrop-filter: none; }
+  .site-header__inner {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas: "brand toggle" "nav nav";
+    min-height: 0;
+    column-gap: var(--space-3);
+    padding-block: var(--space-1);
+  }
+  .site-nav__list { justify-content: flex-start; margin: 0 0 0 calc(-1 * var(--space-3)); }
+}
+
+/* 7.15 Print (guide pages) */
+@media print {
+  .jump-bar, .jump, .more-grid, .doc-related, .app-card__actions, .crumbs { display: none !important; }
+  .step { break-inside: avoid; }
+  .step__shot { box-shadow: none; }
 }
