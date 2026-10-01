@@ -1683,3 +1683,155 @@ html:has(.jump-bar) { --header-h: 3.75rem; }
   .step { break-inside: avoid; }
   .step__shot { box-shadow: none; }
 }
+
+/* Homepage art direction. Scoped to protect the existing app guides and policies. */
+html:has(.liquid-home) { color-scheme: dark; scroll-padding-top: 120px; }
+.liquid-home {
+  --color-bg: #000; --color-surface: #0b0b0b; --color-surface-2: #101010;
+  --color-text: #f1f0ed; --color-text-muted: #aaa9a6; --color-border: #282828; --color-border-strong: #666;
+  --color-primary: #f1f0ed; --color-primary-hover: #fff; --color-primary-text: #d6d5d1;
+  --color-primary-soft: #242424; --color-focus: #b9ddd9; --color-on-primary: #000;
+  --app-today-soft: #211c14; --app-today-text: #e8c898; --app-today-accent: #c1a077;
+  --app-fit-soft: #13201e; --app-fit-text: #a5d5c8; --app-fit-accent: #82b6a8;
+  --mark-bg: #dddcd7; --mark-fg: #111; --mark-dot: #777; --container: 78rem;
+  --section-y: clamp(5rem, 10vw, 10rem); background: #000;
+}
+.liquid-home .site-header { position: absolute; top: 22px; width: 100%; background: transparent; border: 0; }
+.liquid-home .site-header__inner { display: flex; justify-content: space-between; gap: 24px; padding-block: 0; }
+.liquid-home .brand { font-size: 17px; letter-spacing: -.04em; }
+.liquid-home .site-nav { padding: 4px 12px; border-radius: 999px; }
+.liquid-home .site-nav__list { margin: 0; gap: 0; }
+.liquid-home .site-nav a { font-size: 12px; font-weight: 400; padding-inline: 13px; border: 0; border-radius: 999px; color: #c9c8c5; }
+.liquid-home .site-nav a:hover { background: #ffffff0c; color: #fff; }
+.liquid-home :is(.glass,.site-nav,.btn,.app-card,.privacy-card,.contact-card,.info-list,.notice) {
+  position: relative; isolation: isolate; background: rgba(255,255,255,.01); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255,255,255,.13); box-shadow: inset 0 1px 0 rgba(255,255,255,.09);
+}
+.liquid-home :is(.glass,.site-nav,.btn,.app-card,.privacy-card,.contact-card)::before {
+  content: ''; position: absolute; inset: -1px; padding: 1.4px; border-radius: inherit; pointer-events: none;
+  background: linear-gradient(180deg,rgba(255,255,255,.38),rgba(255,255,255,.025) 35%,rgba(255,255,255,.025) 65%,rgba(255,255,255,.18));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude;
+}
+.liquid-home .hero { position: relative; min-height: 100svh; padding: 155px 0 100px; display: grid; align-content: center; overflow: hidden; background: radial-gradient(ellipse at 50% 65%,#151818 0,transparent 55%),#000; }
+.liquid-home .hero::before { content:''; position:absolute; width:80%; height:25%; left:10%; bottom:-14%; border-radius:50%; border:1px solid #ffffff26; box-shadow:0 -25px 100px #94aaa610; pointer-events:none; }
+.liquid-home .hero__inner { display: block; }
+.liquid-home .hero__copy { text-align: center; max-width: 1100px; margin: auto; }
+.liquid-home .hero__eyebrow { background: none; padding:0; color:#aaa9a6; font-size:10px; letter-spacing:.2em; margin-bottom:32px; }
+.liquid-home .hero__title,.liquid-home .editorial-title,.featured-visual__word { font-family: 'Instrument Serif',Georgia,'Times New Roman',serif; font-weight:400; letter-spacing:-.035em; }
+.liquid-home .hero__title { font-size:clamp(3.4rem,8.8vw,8rem); line-height:1.02; max-width:none; }
+.liquid-home em { font-weight:400; color:#c4c7c5; }
+.hero__promise { font-size:16px; color:#d4d4d0; margin-top:32px; }
+.liquid-home .hero__lead { max-width:620px; margin:16px auto 0; font-size:13px; line-height:1.9; color:#aaa9a6; }
+.liquid-home .hero__actions { justify-content:center; margin-top:32px; gap:12px; }
+.liquid-home .btn { border-radius:999px; min-height:48px; padding:12px 25px; font-size:12px; font-weight:500; color:#e8e8e3; transition:transform .25s,background .25s; }
+.liquid-home .btn--primary { background:#e7e8e0; color:#101110; border-color:#e7e8e0; }
+.liquid-home .btn:hover { transform:translateY(-2px); background:#ffffff12; color:#fff; }
+.liquid-home .btn--primary:hover { background:#fff; color:#000; }
+.hero__scroll { position:absolute; bottom:28px; left:50%; transform:translateX(-50%); display:flex; align-items:center; gap:20px; text-decoration:none; font-size:10px; letter-spacing:.05em; color:#92938f; min-height:44px; white-space:nowrap; }
+.liquid-home .section__eyebrow { font-family:var(--font-sans); font-size:10px; font-weight:400; letter-spacing:.16em; color:#a3a39e; margin-bottom:28px; }
+.liquid-home .editorial-title { font-size:clamp(3rem,6vw,5.5rem); line-height:1.06; }
+.story-intro { text-align:center; }
+.story-intro__text { font-size:clamp(16px,1.8vw,20px); line-height:1.9; color:#aaa9a6; margin-top:36px; }
+.liquid-home .featured-section { padding-block:20px 80px; }
+.featured-visual { position:relative; aspect-ratio:16/9; min-height:460px; border-radius:32px; overflow:hidden; border:1px solid #ffffff1a; background:radial-gradient(ellipse at 70% 35%,#3b4742,transparent 65%),linear-gradient(145deg,#222824,#050706 65%); }
+.featured-visual__word { position:absolute; top:12%; left:8%; font-size:clamp(3rem,7vw,7rem); line-height:1.05; z-index:2; }
+.glass-orbit { position:absolute; width:65%; aspect-ratio:1; border-radius:50%; border:1px solid #d8eee938; box-shadow:inset 0 2px 22px #e7fff916,0 8px 40px #0009; transform:rotate(-30deg) scaleY(.52); }
+.glass-orbit--one { right:-10%; top:-8%; }
+.glass-orbit--two { width:85%; right:-15%; top:4%; transform:rotate(35deg) scaleY(.55); }
+.featured-note { position:absolute!important; bottom:32px; right:32px; padding:28px; width:360px; border-radius:24px; background:#0609076b!important; z-index:3; }
+.featured-note .section__eyebrow { display:block; margin-bottom:16px; font-size:9px; }
+.featured-note h2 { font-size:18px; font-weight:500; }
+.featured-note p { margin:14px 0; font-size:12px; color:#b9bcb7; line-height:1.9; }
+.featured-note a { display:flex; justify-content:space-between; align-items:center; min-height:44px; font-size:12px; text-decoration:none; }
+.philosophy__grid { display:grid; grid-template-columns:1fr 1fr; gap:9%; align-items:center; }
+.philosophy__visual { position:relative; height:580px; overflow:hidden; border-radius:28px; background:radial-gradient(ellipse at center,#242723,#0b0d0b 70%); border:1px solid #ffffff15; }
+.phone-preview { position:absolute; width:42%; border:5px solid #242724; border-radius:28px; overflow:hidden; box-shadow:0 25px 60px #000b; }
+.phone-preview img { display:block; width:100%; height:auto; }
+.phone-preview--back { top:38px; right:13%; transform:rotate(9deg); }
+.phone-preview--front { top:110px; left:13%; transform:rotate(-8deg); }
+.philosophy__caption { position:absolute; bottom:22px; width:100%; text-align:center; color:#a2a69e; font-family:Georgia,serif; font-size:13px; font-style:italic; }
+.philosophy__copy p:not(.section__eyebrow) { color:#aaa9a6; margin-top:25px; font-size:14px; line-height:2; }
+.philosophy__copy .btn { margin-top:28px; gap:30px; }
+.liquid-home .section__head { max-width:none; margin-bottom:48px; }
+.liquid-home .section__lead { font-size:14px; }
+.liquid-home .app-grid { gap:28px; }
+.liquid-home .app-card { border-radius:28px; overflow:hidden; transition:transform .3s; }
+.liquid-home .app-card:hover { transform:translateY(-4px); }
+.liquid-home .app-card__cover { height:180px; background:radial-gradient(ellipse at right,#443b2b60,transparent 75%),#121410; border:0; }
+.liquid-home .app-card--fit .app-card__cover { background:radial-gradient(ellipse at right,#23463f70,transparent 75%),#0c1210; }
+.liquid-home .app-card__body { padding:32px; }
+.liquid-home .app-card__title { font-size:26px; margin:14px 0; }
+.liquid-home .app-card__desc { font-size:14px; line-height:1.9; }
+.liquid-home .app-card__actions,.liquid-home .app-card__foot { padding-inline:32px; }
+.liquid-home .app-card__foot { background:transparent; padding-block:20px; }
+.liquid-home .chip { background:#ffffff04; border-color:#ffffff20; color:#bbbcb6; font-size:11px; }
+.liquid-home .section--alt { background:transparent; border:0; }
+.liquid-home .about-block + .about-block { margin-top:80px; }
+.liquid-home .info-list { max-width:none; }
+.liquid-home .privacy-card { border-radius:24px; }
+.liquid-home .site-footer { background:#060606; border-color:#252525; }
+.liquid-home .contact-card { border-radius:24px; }
+.liquid-home .contact-card__email { font-size:clamp(18px,3vw,32px); }
+.liquid-home .reveal { opacity:0; transform:translateY(40px); transition:opacity .8s ease,transform .8s ease; }
+.liquid-home .reveal.is-visible { opacity:1; transform:none; }
+@media(max-width:850px) {
+ .liquid-home .site-header__inner { flex-direction:column; gap:8px; }
+ .liquid-home .site-nav { max-width:100%; padding:3px 7px; }
+ .liquid-home .site-nav__list { justify-content:center; }
+ .liquid-home .site-nav a { padding-inline:9px; font-size:11px; }
+ .liquid-home .hero { padding-top:180px; }
+ .philosophy__grid { gap:36px; }
+ .philosophy__visual { height:440px; }
+ .phone-preview { width:48%; }
+ .phone-preview--front { left:8%; }
+ .phone-preview--back { right:8%; }
+}
+@media(max-width:600px) {
+ .liquid-home .hero__title { font-size:clamp(2.9rem,11.2vw,4.2rem); }
+ .liquid-home .hero__promise { font-size:13px; margin-top:24px; }
+ .liquid-home .hero__lead { font-size:12px; }
+ .liquid-home .hero__eyebrow { font-size:9px; }
+ .liquid-home .hero__actions { gap:8px; }
+ .liquid-home .btn { padding-inline:20px; }
+ .liquid-home .editorial-title { font-size:clamp(2.7rem,11vw,4rem); }
+ .featured-visual { min-height:520px; aspect-ratio:auto; }
+ .featured-visual__word { top:40px; left:24px; font-size:3.6rem; }
+ .glass-orbit { width:100%; top:5%; }
+ .glass-orbit--two { width:130%; top:15%; }
+ .featured-note { bottom:20px; left:20px; right:20px; width:auto; padding:24px; }
+ .philosophy__grid { grid-template-columns:1fr; }
+ .philosophy__visual { height:480px; }
+ .phone-preview { width:40%; }
+ .phone-preview--front { left:16%; }
+ .phone-preview--back { right:16%; }
+ .liquid-home .app-card__body { padding:24px; }
+ .liquid-home .app-card__actions,.liquid-home .app-card__foot { padding-inline:24px; }
+ .liquid-home .site-footer__copy { font-size:11px; }
+}
+@media(prefers-reduced-motion:reduce) {
+ .liquid-home .reveal { opacity:1; transform:none; transition:none; }
+ .liquid-home .btn,.liquid-home .app-card { transition:none; }
+}
+@media print {
+ .liquid-home { --color-text:#000; --color-text-muted:#333; background:#fff; }
+ .liquid-home .reveal { opacity:1; transform:none; }
+ .liquid-home .featured-visual,.liquid-home .philosophy__visual { display:none; }
+}
+
+/* Keep the video ratio within narrow tablet containers. */
+.liquid-home .featured-visual { width:100%; }
+.liquid-home .philosophy__grid { grid-template-columns:minmax(0,1fr) minmax(0,1fr); }
+.philosophy__copy { min-width:0; }
+@media(max-width:600px) { .liquid-home .philosophy__grid { grid-template-columns:minmax(0,1fr); } }
+
+.liquid-home .site-header { z-index:50; }
+
+/* Mobile navigation disclosure; links stay available without JavaScript. */
+.liquid-home .menu-toggle { display:none; }
+@media(max-width:600px) {
+ .liquid-home .site-header__inner { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:12px; }
+ .liquid-home .brand { grid-column:1; grid-row:1; }
+ .liquid-home .menu-toggle { display:inline-flex; grid-column:2; grid-row:1; gap:12px; min-width:88px; }
+ .liquid-home .site-nav { grid-column:1 / -1; grid-row:2; width:100%; border-radius:24px; background:rgba(8,10,9,.94); }
+ .liquid-home .site-nav a { min-height:48px; padding-inline:14px; }
+}
