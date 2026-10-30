@@ -1148,6 +1148,11 @@ a:hover { color: var(--color-primary-hover); }
   --card-text: var(--app-fit-text);
   --card-accent: var(--app-fit-accent);
 }
+.accent--game {
+  --card-soft: var(--color-primary-soft);
+  --card-text: var(--color-primary-text);
+  --card-accent: var(--color-primary);
+}
 
 /* 7.2 Real app icon (square image, rounded like a launcher icon) */
 .app-icon {
