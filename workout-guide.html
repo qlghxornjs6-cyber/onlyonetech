@@ -21,6 +21,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="workout-guide.css">
 </head>
 <body>
 <a class="skip-link" href="#main">본문으로 건너뛰기</a>
@@ -70,38 +71,54 @@
   </nav>
 </header>
 
-<main id="main" tabindex="-1" class="accent--fit">
+<main id="main" tabindex="-1" class="accent--fit wg-page">
 
-  <section class="guide-hero" aria-labelledby="guide-title">
+  <section class="guide-hero wg-hero" aria-labelledby="guide-title">
     <div class="container">
       <nav class="crumbs" aria-label="현재 위치"><ol><li><a href="index.html">홈</a></li><li><span aria-current="page">운동 플래너 사용방법</span></li></ol></nav>
-      <div class="guide-hero__grid">
-        <div class="guide-hero__copy">
-          <div class="guide-hero__id">
-            <img class="app-icon app-icon--xl" src="img/icon-workout.webp" width="192" height="192" alt="운동 플래너 앱 아이콘. 연두색 바탕에 덤벨을 쥔 손이 그려져 있어요." decoding="async">
-            <div>
-              <p class="guide-hero__eyebrow">사용방법 안내</p>
-              <h1 id="guide-title" class="guide-hero__title">운동 플래너 사용방법</h1>
-            </div>
-          </div>
-          <p class="guide-hero__lead">363가지 운동을 동작 애니메이션으로 보고, 세트·무게·횟수를 달력에 기록하는 안드로이드 운동 기록 앱이에요.</p>
-          <ul class="guide-hero__badges" role="list">
-            <li><span class="badge badge--status"><span class="badge__dot" aria-hidden="true"></span>출시 준비 중</span></li>
-            <li><span class="badge">안드로이드 앱</span></li>
-          </ul>
-          <p class="guide-hero__note">아직 출시 준비 중이에요. 화면과 기능은 출시 전에 달라질 수 있어요.</p>
+      <div class="wg-stage">
+        <div class="wg-stage__deco" aria-hidden="true">
+          <svg class="wg-stage__bell" viewBox="0 0 320 140" width="320" height="140" focusable="false"><g fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><path d="M96 70h128"/><rect x="70" y="26" width="26" height="88" rx="9"/><rect x="224" y="26" width="26" height="88" rx="9"/><rect x="44" y="44" width="24" height="52" rx="8"/><rect x="252" y="44" width="24" height="52" rx="8"/><path d="M26 58v24M294 58v24"/></g></svg>
+          <svg class="wg-stage__cal" viewBox="0 0 154 88" width="154" height="88" focusable="false"><g class="o"><circle cx="11" cy="11" r="8"/><circle cx="33" cy="11" r="8"/><circle cx="55" cy="11" r="8"/><circle cx="77" cy="11" r="8"/><circle cx="99" cy="11" r="8"/><circle cx="121" cy="11" r="8"/><circle cx="143" cy="11" r="8"/><circle cx="11" cy="33" r="8"/><circle cx="55" cy="33" r="8"/><circle cx="121" cy="33" r="8"/><circle cx="33" cy="55" r="8"/><circle cx="77" cy="55" r="8"/><circle cx="143" cy="55" r="8"/><circle cx="11" cy="77" r="8"/><circle cx="55" cy="77" r="8"/><circle cx="99" cy="77" r="8"/><circle cx="121" cy="77" r="8"/></g><g class="f"><circle cx="33" cy="33" r="8"/><circle cx="77" cy="33" r="8"/><circle cx="99" cy="33" r="8"/><circle cx="143" cy="33" r="8"/><circle cx="11" cy="55" r="8"/><circle cx="55" cy="55" r="8"/><circle cx="99" cy="55" r="8"/><circle cx="121" cy="55" r="8"/><circle cx="33" cy="77" r="8"/><circle cx="77" cy="77" r="8"/><circle cx="143" cy="77" r="8"/></g></svg>
         </div>
-        <div class="guide-hero__side">
-          <h2 class="guide-hero__side-title">앱 정보</h2>
-          <dl class="info-list guide-facts">
-            <div class="info-list__row"><dt>앱 형태</dt><dd>안드로이드 앱</dd></div>
-            <div class="info-list__row"><dt>지원 버전</dt><dd>안드로이드 7.0 이상</dd></div>
-            <div class="info-list__row"><dt>로그인</dt><dd>없어요</dd></div>
-            <div class="info-list__row"><dt>광고</dt><dd>홈·통계·인바디 화면 아래에 배너 1개 (Google AdMob)</dd></div>
-            <div class="info-list__row"><dt>인터넷 권한</dt><dd>있어요 (광고를 불러오는 데 써요. 기록은 휴대폰에만 저장돼요)</dd></div>
-            <div class="info-list__row"><dt>휴대폰에 표시되는 이름</dt><dd>운동플래너</dd></div>
-            <div class="info-list__row"><dt>상태</dt><dd>출시 준비 중</dd></div>
-          </dl>
+        <div class="guide-hero__grid">
+          <div class="guide-hero__copy">
+            <div class="guide-hero__id">
+              <img class="app-icon app-icon--xl wg-icon" src="img/icon-workout.webp" width="192" height="192" alt="운동 플래너 앱 아이콘. 연두색 바탕에 덤벨을 쥔 손이 그려져 있어요." decoding="async">
+              <div>
+                <p class="guide-hero__eyebrow">사용방법 안내</p>
+                <h1 id="guide-title" class="guide-hero__title"><span class="wg-hl">운동 플래너</span> 사용방법</h1>
+              </div>
+            </div>
+            <p class="guide-hero__lead">363가지 운동을 동작 애니메이션으로 보고, 세트·무게·횟수를 달력에 기록하는 안드로이드 운동 기록 앱이에요.</p>
+            <ul class="guide-hero__badges" role="list">
+              <li><span class="badge badge--status"><span class="badge__dot" aria-hidden="true"></span>토스에서 이용 가능</span></li>
+              <li><span class="badge">안드로이드 앱</span></li>
+              <li><span class="badge">토스 미니앱</span></li>
+            </ul>
+            <div class="hero__actions">
+              <!-- 토스 진입 링크: 소유자가 직접 알려 준 공유 링크 (2026-11-02) -->
+              <a class="btn btn--primary" href="https://tossminiapp.com/s/D9om185s" target="_blank" rel="noopener">토스에서 열기<span class="visually-hidden"> (새 창)</span></a>
+            </div>
+            <p class="guide-hero__note">토스 앱 안의 미니앱으로 이용할 수 있어요. 이 사용방법은 안드로이드 앱 화면을 기준으로 해서, 토스 앱 안의 화면과 다를 수 있어요.</p>
+            <ul class="wg-stats" role="list">
+              <li><strong>363</strong><span>가지 운동</span></li>
+              <li><strong>8</strong><span>개 부위</span></li>
+              <li><strong>4</strong><span>가지 테마</span></li>
+            </ul>
+          </div>
+          <div class="guide-hero__side">
+            <h2 class="guide-hero__side-title">앱 정보</h2>
+            <dl class="info-list guide-facts">
+              <div class="info-list__row"><dt>앱 형태</dt><dd>안드로이드 앱</dd></div>
+              <div class="info-list__row"><dt>지원 버전</dt><dd>안드로이드 7.0 이상</dd></div>
+              <div class="info-list__row"><dt>로그인</dt><dd>없어요</dd></div>
+              <div class="info-list__row"><dt>광고</dt><dd>홈·통계·인바디 화면 아래에 배너 1개 (Google AdMob)</dd></div>
+              <div class="info-list__row"><dt>인터넷 권한</dt><dd>있어요 (광고를 불러오는 데 써요. 기록은 휴대폰에만 저장돼요)</dd></div>
+              <div class="info-list__row"><dt>휴대폰에 표시되는 이름</dt><dd>운동플래너</dd></div>
+              <div class="info-list__row"><dt>토스</dt><dd>토스 앱 안의 미니앱으로 이용할 수 있어요</dd></div>
+            </dl>
+          </div>
         </div>
       </div>
     </div>
@@ -129,12 +146,11 @@
       </div>
       <ol class="steps" role="list">
           <li class="step">
-            <div class="step__head">
-              <span class="step__num" aria-hidden="true">1</span>
-              <h3 class="step__title"><span class="visually-hidden">1단계. </span>달력에서 날짜를 골라요</h3>
-            </div>
+            <span class="step__num" aria-hidden="true">1</span>
+            <div class="wg-step__card">
+            <h3 class="step__title"><span class="visually-hidden">1단계. </span>달력에서 날짜를 골라요</h3>
             <figure class="step__shot">
-              <a class="step__zoom" href="img/workout-1-lg.webp" target="_blank" rel="noopener"><img src="img/workout-1.webp" srcset="img/workout-1.webp 675w, img/workout-1-lg.webp 1080w" sizes="(min-width: 48em) 344px, min(360px, calc(100vw - 16px))" width="675" height="1412" alt="운동 플래너 홈, &#x27;운동 캘린더&#x27; 화면. 위에 이번 주 운동 3일, 연속 기록 1일, 이번 달 볼륨 93669kg 카드가 있고, 달력에는 운동한 날이 연두색 원과 가슴·등·하체 같은 부위 이름으로 표시돼요. 아래에 &#x27;운동 선택하기&#x27;, &#x27;세트 불러오기&#x27;, &#x27;루틴&#x27;, &#x27;운동 시작&#x27; 버튼이 보여요." decoding="async"><span class="step__zoom-hint">크게 보기<span class="visually-hidden"> (새 창)</span></span></a>
+              <a class="step__zoom" href="img/workout-1-lg.webp" target="_blank" rel="noopener"><img src="img/workout-1.webp" srcset="img/workout-1.webp 675w, img/workout-1-lg.webp 1080w" sizes="(min-width: 64em) 272px, (min-width: 48em) 248px, min(272px, calc(100vw - 88px))" width="675" height="1412" alt="운동 플래너 홈, &#x27;운동 캘린더&#x27; 화면. 위에 이번 주 운동 3일, 연속 기록 1일, 이번 달 볼륨 93669kg 카드가 있고, 달력에는 운동한 날이 연두색 원과 가슴·등·하체 같은 부위 이름으로 표시돼요. 아래에 &#x27;운동 선택하기&#x27;, &#x27;세트 불러오기&#x27;, &#x27;루틴&#x27;, &#x27;운동 시작&#x27; 버튼이 보여요." decoding="async"><span class="step__zoom-hint">크게 보기<span class="visually-hidden"> (새 창)</span></span></a>
             </figure>
             <div class="step__body">
               <ul class="step__list">
@@ -144,14 +160,14 @@
               </ul>
             <p class="step__note">홈에는 <span class="ui-label">세트 불러오기</span>, <span class="ui-label">루틴</span>, <span class="ui-label">운동 시작</span> 버튼도 있어요. 아래 '팁'에서 설명해요.</p>
             </div>
+            </div>
           </li>
           <li class="step">
-            <div class="step__head">
-              <span class="step__num" aria-hidden="true">2</span>
-              <h3 class="step__title"><span class="visually-hidden">2단계. </span>운동을 골라요</h3>
-            </div>
+            <span class="step__num" aria-hidden="true">2</span>
+            <div class="wg-step__card">
+            <h3 class="step__title"><span class="visually-hidden">2단계. </span>운동을 골라요</h3>
             <figure class="step__shot">
-              <a class="step__zoom" href="img/workout-2-lg.webp" target="_blank" rel="noopener"><img src="img/workout-2.webp" srcset="img/workout-2.webp 675w, img/workout-2-lg.webp 1080w" sizes="(min-width: 48em) 344px, min(360px, calc(100vw - 16px))" width="675" height="1412" alt="&#x27;운동 선택&#x27; 화면. 위에 &#x27;운동 검색&#x27; 입력창과 전체·하체·등·가슴·팔·어깨 부위 칩이 있고, 즐겨찾기한 바벨 백스쿼트·벤치프레스·오버헤드 프레스·컨벤셔널 데드리프트가 하트와 함께 보이고, 아래로 하체 운동 목록이 이어져요." loading="lazy" decoding="async"><span class="step__zoom-hint">크게 보기<span class="visually-hidden"> (새 창)</span></span></a>
+              <a class="step__zoom" href="img/workout-2-lg.webp" target="_blank" rel="noopener"><img src="img/workout-2.webp" srcset="img/workout-2.webp 675w, img/workout-2-lg.webp 1080w" sizes="(min-width: 64em) 272px, (min-width: 48em) 248px, min(272px, calc(100vw - 88px))" width="675" height="1412" alt="&#x27;운동 선택&#x27; 화면. 위에 &#x27;운동 검색&#x27; 입력창과 전체·하체·등·가슴·팔·어깨 부위 칩이 있고, 즐겨찾기한 바벨 백스쿼트·벤치프레스·오버헤드 프레스·컨벤셔널 데드리프트가 하트와 함께 보이고, 아래로 하체 운동 목록이 이어져요." loading="lazy" decoding="async"><span class="step__zoom-hint">크게 보기<span class="visually-hidden"> (새 창)</span></span></a>
             </figure>
             <div class="step__body">
               <ul class="step__list">
@@ -160,14 +176,14 @@
               <li>운동 이름을 누르면 기록 화면이 열려요.</li>
               </ul>
             </div>
+            </div>
           </li>
           <li class="step">
-            <div class="step__head">
-              <span class="step__num" aria-hidden="true">3</span>
-              <h3 class="step__title"><span class="visually-hidden">3단계. </span>무게와 횟수를 적고 저장해요</h3>
-            </div>
+            <span class="step__num" aria-hidden="true">3</span>
+            <div class="wg-step__card">
+            <h3 class="step__title"><span class="visually-hidden">3단계. </span>무게와 횟수를 적고 저장해요</h3>
             <figure class="step__shot">
-              <a class="step__zoom" href="img/workout-4-lg.webp" target="_blank" rel="noopener"><img src="img/workout-4.webp" srcset="img/workout-4.webp 675w, img/workout-4-lg.webp 1080w" sizes="(min-width: 48em) 344px, min(360px, calc(100vw - 16px))" width="675" height="1412" alt="컨벤셔널 데드리프트 기록 화면. 위에 &#x27;최고 기록: 120.0kg x 5회, 추정 1RM 140.0kg&#x27;이 있고, 무게 125 입력과 횟수 입력 칸, &#x27;세트 추가&#x27;와 &#x27;운동 팁&#x27; 버튼, 100kg x 5회부터 125kg x 3회까지 다섯 세트 목록, 맨 아래 &#x27;저장&#x27; 버튼이 보여요." loading="lazy" decoding="async"><span class="step__zoom-hint">크게 보기<span class="visually-hidden"> (새 창)</span></span></a>
+              <a class="step__zoom" href="img/workout-4-lg.webp" target="_blank" rel="noopener"><img src="img/workout-4.webp" srcset="img/workout-4.webp 675w, img/workout-4-lg.webp 1080w" sizes="(min-width: 64em) 272px, (min-width: 48em) 248px, min(272px, calc(100vw - 88px))" width="675" height="1412" alt="컨벤셔널 데드리프트 기록 화면. 위에 &#x27;최고 기록: 120.0kg x 5회, 추정 1RM 140.0kg&#x27;이 있고, 무게 125 입력과 횟수 입력 칸, &#x27;세트 추가&#x27;와 &#x27;운동 팁&#x27; 버튼, 100kg x 5회부터 125kg x 3회까지 다섯 세트 목록, 맨 아래 &#x27;저장&#x27; 버튼이 보여요." loading="lazy" decoding="async"><span class="step__zoom-hint">크게 보기<span class="visually-hidden"> (새 창)</span></span></a>
             </figure>
             <div class="step__body">
               <ul class="step__list">
@@ -178,14 +194,14 @@
               <li>달리기·플랭크처럼 시간으로 재는 운동은 '분'·'초' 칸이 나와요.</li>
               </ul>
             </div>
+            </div>
           </li>
           <li class="step">
-            <div class="step__head">
-              <span class="step__num" aria-hidden="true">4</span>
-              <h3 class="step__title"><span class="visually-hidden">4단계. </span>자세가 헷갈리면 <span class="ui-label">운동 팁</span></h3>
-            </div>
+            <span class="step__num" aria-hidden="true">4</span>
+            <div class="wg-step__card">
+            <h3 class="step__title"><span class="visually-hidden">4단계. </span>자세가 헷갈리면 <span class="ui-label">운동 팁</span></h3>
             <figure class="step__shot">
-              <a class="step__zoom" href="img/workout-3-lg.webp" target="_blank" rel="noopener"><img src="img/workout-3.webp" srcset="img/workout-3.webp 675w, img/workout-3-lg.webp 1080w" sizes="(min-width: 48em) 344px, min(360px, calc(100vw - 16px))" width="675" height="1412" alt="컨벤셔널 데드리프트 팁 화면. 자극받는 근육이 붉게 빛나는 인체 모형이 바벨을 드는 동작 애니메이션 아래에 &#x27;내 사진으로 바꾸기&#x27;와 &#x27;유튜브에서 자세 영상 보기&#x27; 버튼, 1번부터 6번까지 &#x27;자세 순서&#x27;가 보여요." loading="lazy" decoding="async"><span class="step__zoom-hint">크게 보기<span class="visually-hidden"> (새 창)</span></span></a>
+              <a class="step__zoom" href="img/workout-3-lg.webp" target="_blank" rel="noopener"><img src="img/workout-3.webp" srcset="img/workout-3.webp 675w, img/workout-3-lg.webp 1080w" sizes="(min-width: 64em) 272px, (min-width: 48em) 248px, min(272px, calc(100vw - 88px))" width="675" height="1412" alt="컨벤셔널 데드리프트 팁 화면. 자극받는 근육이 붉게 빛나는 인체 모형이 바벨을 드는 동작 애니메이션 아래에 &#x27;내 사진으로 바꾸기&#x27;와 &#x27;유튜브에서 자세 영상 보기&#x27; 버튼, 1번부터 6번까지 &#x27;자세 순서&#x27;가 보여요." loading="lazy" decoding="async"><span class="step__zoom-hint">크게 보기<span class="visually-hidden"> (새 창)</span></span></a>
             </figure>
             <div class="step__body">
               <ul class="step__list">
@@ -195,14 +211,14 @@
               <li><span class="ui-label">내 사진으로 바꾸기</span>로 내가 쓰는 기구 사진을 넣을 수도 있어요.</li>
               </ul>
             </div>
+            </div>
           </li>
           <li class="step">
-            <div class="step__head">
-              <span class="step__num" aria-hidden="true">5</span>
-              <h3 class="step__title"><span class="visually-hidden">5단계. </span>통계로 내 기록을 확인해요</h3>
-            </div>
+            <span class="step__num" aria-hidden="true">5</span>
+            <div class="wg-step__card">
+            <h3 class="step__title"><span class="visually-hidden">5단계. </span>통계로 내 기록을 확인해요</h3>
             <figure class="step__shot">
-              <a class="step__zoom" href="img/workout-5-lg.webp" target="_blank" rel="noopener"><img src="img/workout-5.webp" srcset="img/workout-5.webp 675w, img/workout-5-lg.webp 1080w" sizes="(min-width: 48em) 344px, min(360px, calc(100vw - 16px))" width="675" height="1412" alt="&#x27;운동 통계&#x27; 화면. 2026년 9월 기준 운동일수 16일, 총 볼륨 96294kg, 총 세트 수 218세트 카드와, 레그 프레스·컨벤셔널 데드리프트 등 개인 기록 5개와 추정 1RM, 아래에 볼륨 추이 꺾은선 그래프가 보여요." loading="lazy" decoding="async"><span class="step__zoom-hint">크게 보기<span class="visually-hidden"> (새 창)</span></span></a>
+              <a class="step__zoom" href="img/workout-5-lg.webp" target="_blank" rel="noopener"><img src="img/workout-5.webp" srcset="img/workout-5.webp 675w, img/workout-5-lg.webp 1080w" sizes="(min-width: 64em) 272px, (min-width: 48em) 248px, min(272px, calc(100vw - 88px))" width="675" height="1412" alt="&#x27;운동 통계&#x27; 화면. 2026년 9월 기준 운동일수 16일, 총 볼륨 96294kg, 총 세트 수 218세트 카드와, 레그 프레스·컨벤셔널 데드리프트 등 개인 기록 5개와 추정 1RM, 아래에 볼륨 추이 꺾은선 그래프가 보여요." loading="lazy" decoding="async"><span class="step__zoom-hint">크게 보기<span class="visually-hidden"> (새 창)</span></span></a>
             </figure>
             <div class="step__body">
               <ul class="step__list">
@@ -211,14 +227,14 @@
               <li>개인 기록과 볼륨 추이 그래프도 볼 수 있어요.</li>
               </ul>
             </div>
+            </div>
           </li>
           <li class="step">
-            <div class="step__head">
-              <span class="step__num" aria-hidden="true">6</span>
-              <h3 class="step__title"><span class="visually-hidden">6단계. </span>인바디도 함께 기록해요</h3>
-            </div>
+            <span class="step__num" aria-hidden="true">6</span>
+            <div class="wg-step__card">
+            <h3 class="step__title"><span class="visually-hidden">6단계. </span>인바디도 함께 기록해요</h3>
             <figure class="step__shot">
-              <a class="step__zoom" href="img/workout-6-lg.webp" target="_blank" rel="noopener"><img src="img/workout-6.webp" srcset="img/workout-6.webp 675w, img/workout-6-lg.webp 1080w" sizes="(min-width: 48em) 344px, min(360px, calc(100vw - 16px))" width="675" height="1412" alt="&#x27;인바디 기록&#x27; 화면. 최근 측정 카드에 체중 73.1kg, 골격근량 33.9kg, 체지방률 18.1%와 직전 측정 대비 변화가 있고, 아래에 &#x27;변화 추이&#x27; 선 그래프, 날짜별 &#x27;측정 기록&#x27; 목록, 오른쪽 아래 &#x27;측정 추가&#x27; 버튼이 보여요." loading="lazy" decoding="async"><span class="step__zoom-hint">크게 보기<span class="visually-hidden"> (새 창)</span></span></a>
+              <a class="step__zoom" href="img/workout-6-lg.webp" target="_blank" rel="noopener"><img src="img/workout-6.webp" srcset="img/workout-6.webp 675w, img/workout-6-lg.webp 1080w" sizes="(min-width: 64em) 272px, (min-width: 48em) 248px, min(272px, calc(100vw - 88px))" width="675" height="1412" alt="&#x27;인바디 기록&#x27; 화면. 최근 측정 카드에 체중 73.1kg, 골격근량 33.9kg, 체지방률 18.1%와 직전 측정 대비 변화가 있고, 아래에 &#x27;변화 추이&#x27; 선 그래프, 날짜별 &#x27;측정 기록&#x27; 목록, 오른쪽 아래 &#x27;측정 추가&#x27; 버튼이 보여요." loading="lazy" decoding="async"><span class="step__zoom-hint">크게 보기<span class="visually-hidden"> (새 창)</span></span></a>
             </figure>
             <div class="step__body">
               <ul class="step__list">
@@ -227,6 +243,7 @@
               <li>두 번 이상 기록하면 변화 그래프가 나와요. 그래프에는 체중·골격근량·체지방량(kg)이 그려져요.</li>
               </ul>
             <p class="step__note">체지방률(%)은 맨 위 '최근 측정' 카드와 '측정 기록' 목록에서 볼 수 있어요.</p>
+            </div>
             </div>
           </li>
       </ol>
@@ -241,20 +258,20 @@
         <p class="section__lead">운동 플래너에서 할 수 있는 일이에요.</p>
       </div>
       <ul class="feature-grid" role="list">
-          <li class="feature"><h3 class="feature__title">운동 달력</h3><p class="feature__text">달력에 운동한 날과 그날 세트가 가장 많은 부위(가슴·등·하체 등)가 표시돼요. 위쪽 카드 3개에서 이번 주 운동일·연속 기록·이번 달 볼륨을 봐요.</p></li>
-          <li class="feature"><h3 class="feature__title">363가지 운동</h3><p class="feature__text">부위는 8개예요(하체 118, 등 61, 가슴 37, 팔 30, 어깨 39, 복근 40, 유산소 14, 기타 24). 검색, 부위 칩, 즐겨찾기(하트), 숨기기를 쓸 수 있어요.</p></li>
-          <li class="feature"><h3 class="feature__title">동작 애니메이션</h3><p class="feature__text">기본 363가지 모두에 동작 애니메이션이 연결돼 있어요. 자세 순서와 팁도 363가지 전부 적혀 있어요.</p></li>
-          <li class="feature"><h3 class="feature__title">운동마다 다른 입력 칸</h3><p class="feature__text">무게 x 횟수(257종), 횟수만(74종), 맨몸 횟수+보조중량(7종), 시간(24종), 무게+시간(1종)이에요.</p></li>
-          <li class="feature"><h3 class="feature__title">최고 기록과 추정 1RM</h3><p class="feature__text">무게 x 횟수 운동은 기록 화면 위에 '최고 기록'과 '추정 1RM'이 나와요. 추정 1RM은 무게 x (1 + 횟수/30) 공식이고, 1회면 무게 그대로예요.</p></li>
-          <li class="feature"><h3 class="feature__title">세트 불러오기</h3><p class="feature__text">기본 구성 4개가 들어 있고, 내 구성을 새로 만들 수 있어요. 세트 칩을 차례로 눌러 한 세트씩 체크해요.</p></li>
-          <li class="feature"><h3 class="feature__title">루틴</h3><p class="feature__text">어떤 날의 기록(무게 포함)을 이름 붙여 저장해 두고, 다른 날에 한 번에 추가해요.</p></li>
-          <li class="feature"><h3 class="feature__title">운동 타이머</h3><p class="feature__text"><span class="ui-label">운동 시작</span>으로 운동 시간을 재요. 알림 권한을 허용했다면 진행 중에 알림에 '운동 중'이 뜨고, 알림의 <span class="ui-label">타이머 종료</span>로도 끝낼 수 있어요. 알림이 없어도 홈의 버튼으로 끝낼 수 있어요. 최대 2시간 30분이에요.</p></li>
-          <li class="feature"><h3 class="feature__title">운동 통계</h3><p class="feature__text">주간/월간으로 운동일수·총 볼륨·총 세트 수를 보고, 개인 기록(추정 1RM 상위 5개), 볼륨 추이 그래프, 3대 운동 차트, 운동별 상세 통계 표, 유산소·운동 타이머 시간을 봐요.</p></li>
-          <li class="feature"><h3 class="feature__title">인바디 기록</h3><p class="feature__text">체중·골격근량·체지방량(또는 체지방률)을 기록하고, 직전 측정 대비 변화(▲▼)와 변화 추이 그래프를 봐요.</p></li>
-          <li class="feature"><h3 class="feature__title">운동 알림</h3><p class="feature__text">요일(월~일)과 시간을 골라 매주 반복 운동 알림을 예약해요.</p></li>
-          <li class="feature"><h3 class="feature__title">백업과 복원</h3><p class="feature__text"><span class="ui-label">파일로 저장</span>, <span class="ui-label">백업 공유하기</span>, <span class="ui-label">복원하기</span>로 기록을 옮기거나 보관해요.</p></li>
-          <li class="feature"><h3 class="feature__title">테마 4가지</h3><p class="feature__text">다크 애슬레틱(기본), 라이트 애슬레틱, 클린 소프트, 웜 에너지예요.</p></li>
-          <li class="feature"><h3 class="feature__title">내 운동, 내 사진</h3><p class="feature__text">목록에 없는 운동을 직접 추가하고, 동작 이미지를 내 사진(두 장) 또는 GIF 파일로 바꿀 수 있어요. <span class="ui-label">유튜브에서 자세 영상 보기</span>는 휴대폰의 유튜브 앱이나 브라우저로 넘어가요.</p></li>
+          <li class="feature"><span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" focusable="false"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M8 3v4M16 3v4M3.5 10h17"/><path d="M8.5 14.5h.01M12 14.5h.01M15.5 14.5h.01M8.5 17.5h.01M12 17.5h.01"/></svg></span><h3 class="feature__title">운동 달력</h3><p class="feature__text">달력에 운동한 날과 그날 세트가 가장 많은 부위(가슴·등·하체 등)가 표시돼요. 위쪽 카드 3개에서 이번 주 운동일·연속 기록·이번 달 볼륨을 봐요.</p></li>
+          <li class="feature wg-feature--wide"><span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" focusable="false"><path d="M6.5 7.5v9M17.5 7.5v9M3.5 10v4M20.5 10v4M6.5 12h11"/></svg></span><h3 class="feature__title">363가지 운동</h3><p class="feature__text">부위는 8개예요(하체 118, 등 61, 가슴 37, 팔 30, 어깨 39, 복근 40, 유산소 14, 기타 24). 검색, 부위 칩, 즐겨찾기(하트), 숨기기를 쓸 수 있어요.</p><div class="wg-bars" aria-hidden="true"><span style="--v:118"><i></i>하체</span><span style="--v:61"><i></i>등</span><span style="--v:37"><i></i>가슴</span><span style="--v:30"><i></i>팔</span><span style="--v:39"><i></i>어깨</span><span style="--v:40"><i></i>복근</span><span style="--v:14"><i></i>유산소</span><span style="--v:24"><i></i>기타</span></div></li>
+          <li class="feature"><span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z"/></svg></span><h3 class="feature__title">동작 애니메이션</h3><p class="feature__text">기본 363가지 모두에 동작 애니메이션이 연결돼 있어요. 자세 순서와 팁도 363가지 전부 적혀 있어요.</p></li>
+          <li class="feature"><span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" focusable="false"><path d="M4 7h9M18 7h2M4 17h2M11 17h9"/><circle cx="15.5" cy="7" r="2.3"/><circle cx="8.5" cy="17" r="2.3"/></svg></span><h3 class="feature__title">운동마다 다른 입력 칸</h3><p class="feature__text">무게 x 횟수(257종), 횟수만(74종), 맨몸 횟수+보조중량(7종), 시간(24종), 무게+시간(1종)이에요.</p></li>
+          <li class="feature"><span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" focusable="false"><path d="M8 4h8v5a4 4 0 0 1-8 0zM8 6H5.5a2.5 2.5 0 0 0 2.8 4M16 6h2.5a2.5 2.5 0 0 1-2.8 4M12 13v4M8.5 20h7M9.5 17h5"/></svg></span><h3 class="feature__title">최고 기록과 추정 1RM</h3><p class="feature__text">무게 x 횟수 운동은 기록 화면 위에 '최고 기록'과 '추정 1RM'이 나와요. 추정 1RM은 무게 x (1 + 횟수/30) 공식이고, 1회면 무게 그대로예요.</p></li>
+          <li class="feature"><span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" focusable="false"><path d="M4 7l1.8 1.8L9 5.5M4 16.5l1.8 1.8L9 15M12.5 7.5H20M12.5 17H20"/></svg></span><h3 class="feature__title">세트 불러오기</h3><p class="feature__text">기본 구성 4개가 들어 있고, 내 구성을 새로 만들 수 있어요. 세트 칩을 차례로 눌러 한 세트씩 체크해요.</p></li>
+          <li class="feature"><span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" focusable="false"><path d="M4 11V9.5A3.5 3.5 0 0 1 7.5 6H18l-3-3M20 13v1.5a3.5 3.5 0 0 1-3.5 3.5H6l3 3"/></svg></span><h3 class="feature__title">루틴</h3><p class="feature__text">어떤 날의 기록(무게 포함)을 이름 붙여 저장해 두고, 다른 날에 한 번에 추가해요.</p></li>
+          <li class="feature"><span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" focusable="false"><circle cx="12" cy="13.5" r="7.5"/><path d="M12 9.5v4l2.5 1.5M9.5 3h5"/></svg></span><h3 class="feature__title">운동 타이머</h3><p class="feature__text"><span class="ui-label">운동 시작</span>으로 운동 시간을 재요. 알림 권한을 허용했다면 진행 중에 알림에 '운동 중'이 뜨고, 알림의 <span class="ui-label">타이머 종료</span>로도 끝낼 수 있어요. 알림이 없어도 홈의 버튼으로 끝낼 수 있어요. 최대 2시간 30분이에요.</p></li>
+          <li class="feature"><span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" focusable="false"><path d="M5 20v-8M12 20V4M19 20v-5"/></svg></span><h3 class="feature__title">운동 통계</h3><p class="feature__text">주간/월간으로 운동일수·총 볼륨·총 세트 수를 보고, 개인 기록(추정 1RM 상위 5개), 볼륨 추이 그래프, 3대 운동 차트, 운동별 상세 통계 표, 유산소·운동 타이머 시간을 봐요.</p></li>
+          <li class="feature"><span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" focusable="false"><rect x="4" y="3.5" width="16" height="17" rx="4.5"/><path d="M8.5 10a4.5 4.5 0 0 1 7 0M12 10l1.7-2.2"/><path d="M8.5 16.5h7"/></svg></span><h3 class="feature__title">인바디 기록</h3><p class="feature__text">체중·골격근량·체지방량(또는 체지방률)을 기록하고, 직전 측정 대비 변화(▲▼)와 변화 추이 그래프를 봐요.</p></li>
+          <li class="feature"><span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" focusable="false"><path d="M6 17v-6a6 6 0 0 1 12 0v6l1.5 2h-15zM10 21.5h4"/></svg></span><h3 class="feature__title">운동 알림</h3><p class="feature__text">요일(월~일)과 시간을 골라 매주 반복 운동 알림을 예약해요.</p></li>
+          <li class="feature"><span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" focusable="false"><path d="M12 4v10M8 10.5l4 4 4-4M5 19.5h14"/></svg></span><h3 class="feature__title">백업과 복원</h3><p class="feature__text"><span class="ui-label">파일로 저장</span>, <span class="ui-label">백업 공유하기</span>, <span class="ui-label">복원하기</span>로 기록을 옮기거나 보관해요.</p></li>
+          <li class="feature"><span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg></span><h3 class="feature__title">테마 4가지</h3><p class="feature__text">다크 애슬레틱(기본), 라이트 애슬레틱, 클린 소프트, 웜 에너지예요.</p></li>
+          <li class="feature"><span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" focusable="false"><path d="M4 8.5h3l1.6-2.5h6.8L17 8.5h3a1 1 0 0 1 1 1V18a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5a1 1 0 0 1 1-1z"/><circle cx="12" cy="13.5" r="3.5"/></svg></span><h3 class="feature__title">내 운동, 내 사진</h3><p class="feature__text">목록에 없는 운동을 직접 추가하고, 동작 이미지를 내 사진(두 장) 또는 GIF 파일로 바꿀 수 있어요. <span class="ui-label">유튜브에서 자세 영상 보기</span>는 휴대폰의 유튜브 앱이나 브라우저로 넘어가요.</p></li>
       </ul>
     </div>
   </section>
@@ -368,7 +385,8 @@
         <h2 id="faq-title" class="section__title">자주 묻는 질문</h2>
         <p class="section__lead">질문을 누르면 답이 펼쳐져요.</p>
       </div>
-      <div class="faq">
+      <div class="faq wg-faq">
+        <div class="wg-faq__col">
           <details class="faq__item">
             <summary>회원가입이나 로그인이 필요해요?</summary>
             <div class="faq__answer"><p>아니요. 앱에 로그인·회원가입 화면이 없어요. 개인정보처리방침에도 로그인 없이 쓴다고 적혀 있어요.</p></div>
@@ -405,6 +423,8 @@
             <summary>최고 기록과 추정 1RM은 어떻게 계산해요?</summary>
             <div class="faq__answer"><p>무게 x 횟수로 기록한 세트에서 계산해요. 추정 1RM은 무게 x (1 + 횟수/30)이고, 1회면 무게 그대로예요. 어디까지나 추정값이에요. '최고 기록'은 가장 무거운 무게로 한 세트이고, 추정 1RM은 모든 세트 중 가장 높은 추정값이라서 서로 다른 세트에서 나올 수 있어요. 맨몸 횟수나 시간으로 기록하는 운동은 최고 기록·개인 기록에 들어가지 않아요.</p></div>
           </details>
+        </div>
+        <div class="wg-faq__col">
           <details class="faq__item">
             <summary>홈의 '연속 기록'은 어떻게 세요?</summary>
             <div class="faq__answer"><p>오늘부터 하루씩 거슬러 올라가며 기록이 있는 날을 세요. 오늘 기록이 없으면 0일로 보여요. 운동 타이머만 쓴 날도 기록이 있는 날로 세어져요.</p></div>
@@ -437,6 +457,7 @@
             <summary>의료기기예요?</summary>
             <div class="faq__answer"><p>아니요. 운동 기록을 돕는 앱이에요. 건강에 걱정이 있다면 운동 전에 전문가와 상담하세요.</p></div>
           </details>
+        </div>
       </div>
     </div>
   </section>
@@ -449,9 +470,9 @@
         <p class="section__lead">궁금한 점이 남았다면 <a href="mailto:onlyonetech@nate.com">onlyonetech@nate.com</a> 으로 문의해 주세요.</p>
       </div>
       <ul class="more-grid" role="list">
-        <li><a class="more-card" href="privacy-workout.html"><span class="more-card__label">Privacy</span><span class="more-card__title">운동 플래너 개인정보처리방침</span><span class="more-card__text">시행일 2026년 10월 1일</span></a></li>
-        <li><a class="more-card" href="ohneul-guide.html"><span class="more-card__label">Guide</span><span class="more-card__title">오늘뭐하개 사용방법</span><span class="more-card__text">안드로이드 · 토스 반려견 앱</span></a></li>
-        <li><a class="more-card" href="index.html#apps"><span class="more-card__label">Home</span><span class="more-card__title">OnlyOneTech 홈</span><span class="more-card__text">앱 소개와 문의</span></a></li>
+        <li><a class="more-card" href="privacy-workout.html"><span class="wg-more__ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" focusable="false"><path d="M12 3l7 3v5.5c0 4.2-2.9 7.6-7 9.5-4.1-1.9-7-5.3-7-9.5V6z"/><path d="M9 12l2.2 2.2L15.5 10"/></svg></span><span class="more-card__label">Privacy</span><span class="more-card__title">운동 플래너 개인정보처리방침</span><span class="more-card__text">시행일 2026년 10월 1일</span></a></li>
+        <li><a class="more-card" href="ohneul-guide.html"><span class="wg-more__ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" focusable="false"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H11v16H5.5A1.5 1.5 0 0 1 4 18.5zM20 5.5A1.5 1.5 0 0 0 18.5 4H13v16h5.5a1.5 1.5 0 0 0 1.5-1.5z"/></svg></span><span class="more-card__label">Guide</span><span class="more-card__title">오늘뭐하개 사용방법</span><span class="more-card__text">안드로이드 · 토스 반려견 앱</span></a></li>
+        <li><a class="more-card" href="index.html#apps"><span class="wg-more__ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" focusable="false"><path d="M4 11l8-7 8 7M6 9.5V20h12V9.5M10 20v-5h4v5"/></svg></span><span class="more-card__label">Home</span><span class="more-card__title">OnlyOneTech 홈</span><span class="more-card__text">앱 소개와 문의</span></a></li>
       </ul>
     </div>
   </section>
