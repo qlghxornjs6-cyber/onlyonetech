@@ -572,14 +572,7 @@
   .hm-shot--fit .hm-phone { width: 13.4rem; }
 }
 
-/* ---------- 6. Game zone: the card itself is untouched (style.css .apps-game) ---------- */
-.hm-game {
-  padding-block: clamp(3rem, 2rem + 4vw, 5.5rem);
-  border-top: 1px solid var(--color-border);
-  background:
-    radial-gradient(60rem 20rem at 50% 45%, rgb(21 60 53 / 0.13), transparent 70%),
-    var(--color-bg);
-}
+/* ---------- 6. Game stage: see the "Home game" block at the end of this file ---------- */
 
 /* ---------- 7. About ---------- */
 .hm-about {
@@ -765,4 +758,233 @@
 @media print {
   .hm-hero__stage, .hm-gal__bar, .hm-app__deco { display: none !important; }
   .hm-contact__panel { background: #fff; color: #000; box-shadow: none; border: 1px solid #000; }
+}
+
+/* ==========================================================================
+   Home game
+   Third stage of the showcase: the approval game's dark-green desk (grid
+   lines) with its red "결재" stamp. Same grammar as .hm-app: full-bleed stage,
+   copy + .hm-gal phone gallery. Always a dark surface, in light and dark mode.
+   ========================================================================== */
+.hm-game {
+  --g-desk: #153c35;
+  --g-desk-2: #0e2e28;
+  --g-ink: #f4f3e9;
+  --g-muted: #c3d6cd;
+  --g-seal: #ff9a8e;
+  --g-line: rgb(220 241 227 / 0.24);
+  --g-grid: rgb(220 241 227 / 0.06);
+  --g-btn: #aa302b;
+  --g-btn-hover: #8c2521;
+  --g-focus: #ffd29d;
+  /* variables the shared .hm-gal / .hm-shot rules read */
+  --card-accent: var(--g-seal);
+  --hm-on: #3a0d0a;
+  --hm-edge: max(var(--gutter), calc((100% - var(--container)) / 2 + var(--gutter)));
+  --gh: 21rem; /* height of the media row inside the gallery */
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  padding-block: clamp(3rem, 2rem + 4vw, 5.5rem);
+  border-top: 1px solid var(--color-border);
+  background-color: var(--g-desk);
+  background-image:
+    radial-gradient(48rem 32rem at 84% 46%, rgb(255 154 142 / 0.17), transparent 70%),
+    linear-gradient(180deg, transparent 50%, var(--g-desk-2));
+  color: var(--g-ink);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .hm-game { --g-desk: #0f2b26; --g-desk-2: #09201c; --g-grid: rgb(220 241 227 / 0.05); }
+}
+:root[data-theme="dark"] .hm-game { --g-desk: #0f2b26; --g-desk-2: #09201c; --g-grid: rgb(220 241 227 / 0.05); }
+
+.hm-game::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(var(--g-grid) 1px, transparent 1px) 0 0 / 32px 32px,
+    linear-gradient(90deg, var(--g-grid) 1px, transparent 1px) 0 0 / 32px 32px;
+  -webkit-mask-image: radial-gradient(75% 100% at 72% 50%, #000, transparent 88%);
+  mask-image: radial-gradient(75% 100% at 72% 50%, #000, transparent 88%);
+}
+.hm-game a:focus-visible,
+.hm-game button:focus-visible,
+.hm-game .hm-gal__scroll:focus-visible { outline-color: var(--g-focus); }
+
+/* faded stamp watermark, like the paw / dumbbell of the app stages */
+.hm-game__deco {
+  position: absolute;
+  z-index: -1;
+  left: -4rem;
+  bottom: -5.5rem;
+  width: 22rem;
+  height: 22rem;
+  fill: none;
+  stroke: var(--g-seal);
+  stroke-width: 2.5;
+  opacity: 0.12;
+  rotate: -12deg;
+}
+.hm-game__deco text { fill: var(--g-seal); stroke: none; font-size: 50px; font-weight: 700; }
+
+.hm-game__inner { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-8); min-width: 0; }
+.hm-game__copy { min-width: 0; padding-inline: var(--gutter); max-width: 42rem; }
+.hm-game__id { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--space-4); margin-bottom: var(--space-5); max-width: 27rem; }
+.hm-game__num {
+  font-family: var(--font-mono);
+  font-size: clamp(3.5rem, 3rem + 3vw, 5.5rem);
+  font-weight: var(--fw-bold);
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--g-seal);
+}
+.hm-game__seal {
+  display: grid;
+  place-content: center;
+  width: 5rem;
+  height: 5rem;
+  border: 3px double var(--g-seal);
+  border-radius: 6px;
+  background: var(--g-desk-2);
+  color: var(--g-seal);
+  text-align: center;
+  font-size: var(--fs-md);
+  font-weight: var(--fw-bold);
+  line-height: 1.2;
+  box-shadow: 0 14px 26px -12px rgb(0 0 0 / 0.7);
+  rotate: 8deg;
+}
+.hm-game__tagline {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+  color: var(--g-seal);
+}
+.hm-game__tagline::before { content: ""; width: 1.5rem; height: 3px; border-radius: 3px; background: var(--g-seal); }
+.hm-game__title {
+  margin-bottom: var(--space-4);
+  font-size: clamp(2.25rem, 1.6rem + 3vw, 3.5rem);
+  font-weight: var(--fw-bold);
+  line-height: 1.25;
+  letter-spacing: -0.045em;
+  word-break: keep-all;
+  text-wrap: balance;
+  color: var(--g-ink);
+}
+.hm-game__stamp {
+  display: inline-block;
+  margin-inline: 0.05em;
+  padding: 0 0.14em 0.04em;
+  border: 3px solid currentColor;
+  outline: 1.5px solid currentColor;
+  outline-offset: -7px;
+  color: var(--g-seal);
+  letter-spacing: -0.04em;
+  transform: rotate(-5deg);
+}
+.hm-game__desc { max-width: 27rem; color: var(--g-muted); }
+
+.hm-game__stats { display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: 0 var(--space-3); margin: var(--space-6) 0 0; padding: 0; list-style: none; }
+.hm-game__stats li { display: grid; gap: var(--space-1); }
+.hm-game__stats li + li { padding-left: var(--space-3); border-left: 1px dashed var(--g-line); }
+.hm-game__stats strong {
+  font-family: var(--font-mono);
+  font-size: clamp(1.75rem, 1.4rem + 1.4vw, 2.25rem);
+  font-weight: var(--fw-bold);
+  line-height: 1;
+  color: var(--g-seal);
+}
+.hm-game__stats span { font-size: var(--fs-xs); color: var(--g-muted); }
+
+.hm-game__tags { display: flex; flex-wrap: wrap; gap: var(--space-2); max-width: 27rem; margin: var(--space-5) 0 0; padding: 0; list-style: none; }
+.hm-game__tags li {
+  padding: 0.25rem 0.8rem;
+  border: 1px solid var(--g-line);
+  border-radius: var(--radius-pill);
+  background: rgb(255 255 255 / 0.06);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  line-height: 1.5;
+  color: var(--g-ink);
+}
+
+.hm-game__actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-6); }
+.hm-game .hm-game__btn {
+  border-color: #f3a098;
+  background: var(--g-btn);
+  color: #fff;
+  box-shadow: 0 12px 22px -12px #000;
+}
+.hm-game__btn > span[aria-hidden] { margin-left: 0.3em; }
+.hm-game .hm-game__btn:hover { background: var(--g-btn-hover); color: #fff; }
+.hm-game .hm-game__btn--ghost { border-color: var(--g-seal); background: transparent; color: var(--g-ink); box-shadow: none; }
+.hm-game .hm-game__btn--ghost:hover { background: rgb(255 154 142 / 0.16); color: #fff; }
+
+/* gallery on the dark desk */
+.hm-game .hm-gal__hint { color: var(--g-muted); }
+.hm-game .hm-gal__btn { background: rgb(255 255 255 / 0.08); color: var(--g-ink); }
+.hm-game .hm-shot figcaption { color: var(--g-ink); }
+.hm-gal--game::before { background: color-mix(in srgb, var(--g-seal) 13%, transparent); box-shadow: 0 0 0 2.5em color-mix(in srgb, var(--g-seal) 6%, transparent); }
+
+.hm-shot__media { position: relative; display: grid; place-items: center; height: var(--gh); }
+.hm-shot--game .hm-phone { width: calc((var(--gh) - 1rem) * 0.5625 + 1rem); }
+.hm-game__imprint {
+  position: absolute;
+  z-index: 2;
+  top: 17%;
+  right: -1.1rem;
+  display: grid;
+  place-items: center;
+  width: 3.75rem;
+  height: 3.75rem;
+  border: 3px double var(--g-seal);
+  border-radius: 6px;
+  background: var(--g-desk-2);
+  color: var(--g-seal);
+  font-size: var(--fs-md);
+  font-weight: var(--fw-bold);
+  box-shadow: 0 10px 18px -8px rgb(0 0 0 / 0.7);
+  rotate: 10deg;
+}
+.hm-paper {
+  display: block;
+  width: auto;
+  height: calc(var(--gh) * 0.8);
+  border: 0.4rem solid #f3f0e4;
+  border-radius: 6px;
+  box-shadow: 0 22px 36px -14px rgb(0 0 0 / 0.7), 0 3px 8px rgb(0 0 0 / 0.3);
+}
+.hm-paper--tall { height: calc(var(--gh) * 0.94); }
+.hm-paper--tilt-l { rotate: -2.5deg; }
+.hm-paper--tilt-r { rotate: 2deg; }
+
+@media (min-width: 48em) {
+  .hm-game { --gh: 25rem; }
+}
+@media (min-width: 64em) {
+  .hm-game { --gh: 27rem; }
+  .hm-game__inner { grid-template-columns: minmax(0, 27rem) minmax(0, 1fr); column-gap: var(--space-12); align-items: center; padding-left: var(--hm-edge); padding-right: 0; }
+  .hm-game__copy { padding-inline: 0; max-width: none; }
+  .hm-game__id { margin-bottom: var(--space-6); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hm-game__btn { transition: background-color var(--dur) var(--ease), transform var(--dur) var(--ease); }
+  .hm-game__btn:hover { transform: translateY(-2px); }
+  .hm-paper { transition: transform 250ms var(--ease); }
+  .hm-shot--game:hover .hm-paper { transform: translateY(-6px); }
+  .hm-game__seal { transition: rotate 250ms var(--ease); }
+  .hm-game:hover .hm-game__seal { rotate: 2deg; }
+}
+
+@media print {
+  .hm-game { background: #fff; color: #000; border-top: 1px solid #000; }
+  .hm-game *, .hm-game *::before, .hm-game *::after { color: #000 !important; border-color: #000 !important; -webkit-text-stroke-color: #000 !important; }
+  .hm-game::before, .hm-game__deco, .hm-gal--game, .hm-game__seal { display: none !important; }
 }
