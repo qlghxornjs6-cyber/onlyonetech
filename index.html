@@ -24,6 +24,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="home.css">
 </head>
 <body>
 <a class="skip-link" href="#main">본문으로 건너뛰기</a>
@@ -91,218 +92,332 @@
   </nav>
 </header>
 
-<main id="main" tabindex="-1">
+<main id="main" class="hm-page" tabindex="-1">
 
-  <section class="hero" aria-labelledby="hero-title">
-    <div class="container hero__inner">
-      <div class="hero__copy">
-        <p class="hero__eyebrow">모바일 앱</p>
-        <h1 id="hero-title" class="hero__title">일상에 도움이 되는 모바일 앱을 만드는 <span class="hero__brand">OnlyOneTech</span></h1>
-        <p class="hero__lead">&lsquo;오늘뭐하개&rsquo;는 반려견과의 하루를 기록하고 자랑하고 함께 걷는 반려견 앱(안드로이드 앱, 그리고 아이폰에서도 쓸 수 있는 토스 앱 속 미니앱), &lsquo;운동 플래너&rsquo;는 363가지 운동을 동작 애니메이션으로 보고 달력에 기록하는 안드로이드 앱입니다. 두 앱 모두 토스 앱 안의 미니앱으로 이용할 수 있습니다.</p>
-        <div class="hero__actions">
-          <a class="btn btn--primary" href="#apps">앱 보러 가기</a>
+  <!-- ===== Hero: 앱 화면 쇼케이스 ===== -->
+  <section class="hm-hero" aria-labelledby="hero-title">
+    <div class="container hm-hero__inner">
+
+      <div class="hm-hero__head">
+        <p class="hm-hero__eyebrow"><span class="hm-hero__eyebrow-dot" aria-hidden="true"></span>토스 앱 안의 미니앱으로 이용 가능</p>
+        <h1 id="hero-title" class="hm-hero__title">일상에 도움이 되는 <span class="hm-hero__line">모바일 앱을 만드는</span> <span class="hm-hero__brand">OnlyOneTech</span></h1>
+        <p class="hm-hero__lead">&lsquo;오늘뭐하개&rsquo;는 반려견과의 하루를 기록하고 자랑하고 함께 걷는 반려견 앱, &lsquo;운동 플래너&rsquo;는 363가지 운동을 동작 애니메이션으로 보고 달력에 기록하는 앱입니다. 두 앱 모두 토스 앱 안의 미니앱으로 이용할 수 있습니다.</p>
+      </div>
+
+      <div class="hm-hero__stage hm-stage">
+        <div class="hm-stage__in">
+          <span class="hm-stage__disc" aria-hidden="true"></span>
+
+          <figure class="hm-phone hm-phone--l">
+            <span class="hm-phone__screen"><img src="img/ohneul-3.webp" srcset="img/ohneul-3.webp 520w, img/ohneul-3-lg.webp 780w" sizes="(min-width: 64em) 220px, 130px" width="520" height="857" decoding="async" alt="오늘뭐하개 기록 상세 화면. &lsquo;2026년 9월 25일 금요일&rsquo; 제목 아래 흰 강아지 사진과 &lsquo;공원에서 새 친구를 만났어요. 두부가 제일 신났어요!&rsquo; 글이 보여요."></span>
+          </figure>
+          <figure class="hm-phone hm-phone--r">
+            <span class="hm-phone__screen"><img src="img/ohneul-6.webp" srcset="img/ohneul-6.webp 520w, img/ohneul-6-lg.webp 780w" sizes="(min-width: 64em) 220px, 130px" width="520" height="857" decoding="async" alt="오늘뭐하개 자랑하개 피드 화면. &lsquo;우리 집 주인공을 자랑해 주세요&rsquo; 안내 아래 주황색 강아지 사진과 &lsquo;오늘도 신나게 산책했어요. 두부 자랑 좀 할게요!&rsquo; 글, 하트 좋아요가 보여요."></span>
+          </figure>
+          <figure class="hm-phone hm-phone--c">
+            <span class="hm-phone__screen"><img src="img/workout-1.webp" srcset="img/workout-1.webp 675w, img/workout-1-lg.webp 1080w" sizes="(min-width: 64em) 250px, 150px" width="675" height="1412" fetchpriority="high" decoding="async" alt="운동 플래너 운동 캘린더 화면. 이번 주 운동 3일, 연속 기록 1일, 이번 달 볼륨 카드가 있고, 달력에는 운동한 날이 연두색 원과 가슴·등·하체 같은 부위 이름으로 표시돼요."></span>
+          </figure>
+
+          <div class="hm-float hm-float--a" aria-hidden="true">
+            <img src="img/icon-ohneul.webp" width="192" height="192" alt="" decoding="async">
+            <span><b>오늘 뭐했개</b>일기</span>
+          </div>
+          <div class="hm-float hm-float--b" aria-hidden="true">
+            <img src="img/icon-workout.webp" width="192" height="192" alt="" decoding="async">
+            <span><b>363가지</b>운동</span>
+          </div>
+          <div class="hm-float hm-float--c" aria-hidden="true">
+            <span class="hm-float__dot"></span>
+            <span><b>토스에서</b>이용 가능</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hm-hero__actions">
+        <div class="hm-launch">
+          <!-- 토스 진입 링크: 소유자가 직접 알려 준 공유 링크 (2026-11-02) -->
+          <a class="hm-launch__btn hm-launch__btn--today" href="https://tossminiapp.com/s/ZoPRP8Xx" target="_blank" rel="noopener">
+            <img src="img/icon-ohneul.webp" width="192" height="192" alt="" decoding="async">
+            <span class="hm-launch__txt"><small>오늘뭐하개</small><strong>토스에서 열기<span class="visually-hidden"> (새 창)</span></strong></span>
+            <svg class="hm-launch__arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 17 17 7M9 7h8v8"/></svg>
+          </a>
+          <a class="hm-launch__btn hm-launch__btn--fit" href="https://tossminiapp.com/s/D9om185s" target="_blank" rel="noopener">
+            <img src="img/icon-workout.webp" width="192" height="192" alt="" decoding="async">
+            <span class="hm-launch__txt"><small>운동 플래너</small><strong>토스에서 열기<span class="visually-hidden"> (새 창)</span></strong></span>
+            <svg class="hm-launch__arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 17 17 7M9 7h8v8"/></svg>
+          </a>
+        </div>
+        <div class="hm-hero__more">
+          <a class="btn btn--ghost" href="#apps">앱 둘러보기<svg class="hm-btn-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
           <a class="btn btn--ghost" href="#contact">문의하기</a>
         </div>
+        <a class="hm-gamepill" href="#game">
+          <span class="hm-gamepill__stamp" aria-hidden="true">결재</span>
+          <span class="hm-gamepill__txt">웹 게임도 있어요 · 대표님, 결재 부탁드립니다!</span>
+          <span class="hm-gamepill__go" aria-hidden="true">&rarr;</span>
+        </a>
       </div>
-      <div class="hero__visual" aria-hidden="true">
-        <div class="orbit">
-          <span class="orbit__cap">2개의 앱</span>
-          <svg class="orbit__lines" viewBox="0 0 100 100" preserveAspectRatio="none" focusable="false">
-            <path d="M24 50C50 50 50 24 76 24"/>
-            <path d="M24 50C50 50 50 70 76 70"/>
-          </svg>
-          <div class="orbit__node orbit__node--brand">
-            <span class="orbit__tile"><svg viewBox="0 0 32 32" focusable="false"><path d="M10.5 12.5 15.5 9.5v13.5"/><circle cx="21.5" cy="22.5" r="2.4"/></svg></span>
-            <span class="orbit__label">OnlyOneTech</span>
+
+    </div>
+  </section>
+
+  <!-- ===== 앱 쇼케이스 ===== -->
+  <section id="apps" class="hm-apps" aria-labelledby="apps-title">
+    <div class="container">
+      <div class="hm-apps__head">
+        <p class="hm-eyebrow" aria-hidden="true">01 / Apps</p>
+        <h2 id="apps-title" class="hm-h2">앱 소개</h2>
+        <p class="hm-lead">토스 앱 안의 미니앱으로 이용할 수 있는 두 가지 앱입니다. 앱마다 사용방법을 화면과 함께 안내합니다.</p>
+      </div>
+    </div>
+
+    <!-- 오늘뭐하개 -->
+    <article class="hm-app hm-app--today accent--today" aria-labelledby="app-today">
+      <svg class="hm-app__deco" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><use href="#i-paw"/></svg>
+      <div class="hm-app__inner">
+        <div class="hm-app__copy">
+          <div class="hm-app__id">
+            <span class="hm-app__num" aria-hidden="true">01</span>
+            <img class="hm-app__icon" src="img/icon-ohneul.webp" width="192" height="192" alt="" loading="lazy" decoding="async">
           </div>
-          <div class="orbit__node orbit__node--today">
-            <span class="orbit__tile"><svg class="pict" viewBox="0 0 32 32" focusable="false"><use href="#i-paw"/></svg></span>
-            <span class="orbit__label">오늘뭐하개</span>
+          <p class="hm-app__tagline">안드로이드 · 토스 반려견 앱</p>
+          <h3 id="app-today" class="hm-app__title">오늘뭐하개</h3>
+          <p class="hm-app__desc">반려견과의 하루를 기록하고(오늘 뭐했개), 자랑하고(자랑하개), 같이 걷는(같이걷개) 반려견 앱입니다. 안드로이드 앱과 토스 앱 안의 미니앱으로 이용할 수 있고, 아이폰에서는 토스 앱을 통해 이용합니다.</p>
+          <ul class="chip-list" role="list" aria-label="오늘뭐하개 주요 기능">
+            <li class="chip">오늘 뭐했개 일기</li>
+            <li class="chip">자랑하개</li>
+            <li class="chip">같이걷개 산책</li>
+            <li class="chip">코스 공유</li>
+          </ul>
+          <div class="hm-app__actions">
+            <!-- 토스 진입 링크: 소유자가 직접 알려 준 공유 링크 (2026-11-02) -->
+            <a class="btn btn--primary btn--toss" href="https://tossminiapp.com/s/ZoPRP8Xx" target="_blank" rel="noopener" aria-label="오늘뭐하개 토스에서 열기 (새 창)">토스에서 열기</a>
+            <a class="btn btn--ghost" href="ohneul-guide.html" aria-label="오늘뭐하개 사용방법 자세히 보기">사용방법 자세히 보기</a>
           </div>
-          <div class="orbit__node orbit__node--fit">
-            <span class="orbit__tile"><svg class="pict" viewBox="0 0 32 32" focusable="false"><use href="#i-dumbbell"/></svg></span>
-            <span class="orbit__label">운동 플래너</span>
+          <div class="hm-app__foot">
+            <span class="badge badge--status"><span class="badge__dot" aria-hidden="true"></span>토스에서 이용 가능</span>
+            <a class="hm-app__link" href="privacy-ohneul.html" aria-label="오늘뭐하개 개인정보처리방침">개인정보처리방침</a>
+          </div>
+        </div>
+
+        <div class="hm-gal hm-gal--today">
+          <div class="hm-gal__bar">
+            <p class="hm-gal__hint" aria-hidden="true">옆으로 넘겨 실제 화면을 보세요</p>
+            <div class="hm-gal__nav" data-hm-nav hidden>
+              <button type="button" class="hm-gal__btn" data-hm-dir="-1" aria-controls="gal-today" aria-label="오늘뭐하개 이전 화면"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m14 6-6 6 6 6"/></svg></button>
+              <button type="button" class="hm-gal__btn" data-hm-dir="1" aria-controls="gal-today" aria-label="오늘뭐하개 다음 화면"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m10 6 6 6-6 6"/></svg></button>
+            </div>
+          </div>
+          <div class="hm-gal__scroll" id="gal-today" role="region" aria-label="오늘뭐하개 앱 화면 갤러리, 좌우로 스크롤" tabindex="0">
+            <ul class="hm-gal__track" role="list">
+              <li class="hm-shot hm-shot--today">
+                <figure>
+                  <div class="hm-phone"><span class="hm-phone__screen"><img src="img/ohneul-1.webp" srcset="img/ohneul-1.webp 520w, img/ohneul-1-lg.webp 780w" sizes="250px" width="520" height="857" loading="lazy" decoding="async" alt="오늘뭐하개 시작 화면. 앱 아이콘과 &lsquo;반려견과의 하루를 기록하고, 자랑하고, 같이 걸어요&rsquo; 문구, 오늘 뭐했개·자랑하개·같이걷개 소개가 있고, 아래에 &lsquo;토스로 시작하기&rsquo; 버튼과 약관 링크가 보여요."></span></div>
+                  <figcaption><span class="hm-shot__n" aria-hidden="true">1</span>시작</figcaption>
+                </figure>
+              </li>
+              <li class="hm-shot hm-shot--today">
+                <figure>
+                  <div class="hm-phone"><span class="hm-phone__screen"><img src="img/ohneul-2.webp" srcset="img/ohneul-2.webp 520w, img/ohneul-2-lg.webp 780w" sizes="250px" width="520" height="857" loading="lazy" decoding="async" alt="오늘 뭐했개 홈 화면. 위쪽에 오늘 뭐했개·자랑하개·같이걷개 탭이 있고, &lsquo;오늘 기록하기&rsquo; 버튼, &lsquo;이 기록은 나만 볼 수 있어요&rsquo; 안내, 흰 강아지 사진 기록이 보여요."></span></div>
+                  <figcaption><span class="hm-shot__n" aria-hidden="true">2</span>기록</figcaption>
+                </figure>
+              </li>
+              <li class="hm-shot hm-shot--today">
+                <figure>
+                  <div class="hm-phone"><span class="hm-phone__screen"><img src="img/ohneul-3.webp" srcset="img/ohneul-3.webp 520w, img/ohneul-3-lg.webp 780w" sizes="250px" width="520" height="857" loading="lazy" decoding="async" alt="기록 상세 화면. &lsquo;2026년 9월 25일 금요일&rsquo; 제목 아래 흰 강아지 사진, &lsquo;공원에서 새 친구를 만났어요. 두부가 제일 신났어요!&rsquo; 글, &lsquo;이 기록은 나만 볼 수 있어요&rsquo; 안내가 보여요."></span></div>
+                  <figcaption><span class="hm-shot__n" aria-hidden="true">3</span>기록 상세</figcaption>
+                </figure>
+              </li>
+              <li class="hm-shot hm-shot--today">
+                <figure>
+                  <div class="hm-phone"><span class="hm-phone__screen"><img src="img/ohneul-4.webp" srcset="img/ohneul-4.webp 520w, img/ohneul-4-lg.webp 780w" sizes="250px" width="520" height="857" loading="lazy" decoding="async" alt="같이걷개 산책 화면. 지도 위에 지나온 경로가 그려져 있고, 아래에 &lsquo;기록 중&rsquo;, &lsquo;GPS 좋음&rsquo;, 거리 0.48km, 활동 시간 00:06:01, &lsquo;함께 걷는 친구 · 두부&rsquo;가 보여요."></span></div>
+                  <figcaption><span class="hm-shot__n" aria-hidden="true">4</span>산책</figcaption>
+                </figure>
+              </li>
+              <li class="hm-shot hm-shot--today">
+                <figure>
+                  <div class="hm-phone"><span class="hm-phone__screen"><img src="img/ohneul-5.webp" srcset="img/ohneul-5.webp 520w, img/ohneul-5-lg.webp 780w" sizes="250px" width="520" height="857" loading="lazy" decoding="async" alt="코스 상세 화면. &lsquo;두부와 걸은 9월 25일 산책&rsquo; 제목과 지도에 표시된 산책 경로, 거리 1.2km, 활동 시간 16분, 함께한 반려견 두부, 아래에 &lsquo;이 코스로 산책&rsquo; 버튼이 보여요."></span></div>
+                  <figcaption><span class="hm-shot__n" aria-hidden="true">5</span>코스 공유</figcaption>
+                </figure>
+              </li>
+              <li class="hm-shot hm-shot--today">
+                <figure>
+                  <div class="hm-phone"><span class="hm-phone__screen"><img src="img/ohneul-6.webp" srcset="img/ohneul-6.webp 520w, img/ohneul-6-lg.webp 780w" sizes="250px" width="520" height="857" loading="lazy" decoding="async" alt="자랑하개 피드 화면. &lsquo;우리 집 주인공을 자랑해 주세요&rsquo; 안내와 &lsquo;자랑하기&rsquo; 버튼, 주황색 강아지 사진과 &lsquo;오늘도 신나게 산책했어요. 두부 자랑 좀 할게요!&rsquo; 글, 하트 좋아요가 보여요."></span></div>
+                  <figcaption><span class="hm-shot__n" aria-hidden="true">6</span>자랑</figcaption>
+                </figure>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
+    </article>
+
+    <!-- 운동 플래너 -->
+    <article class="hm-app hm-app--fit accent--fit" aria-labelledby="app-fit">
+      <svg class="hm-app__deco" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><use href="#i-dumbbell"/></svg>
+      <div class="hm-app__inner">
+        <div class="hm-app__copy">
+          <div class="hm-app__id">
+            <span class="hm-app__num" aria-hidden="true">02</span>
+            <img class="hm-app__icon" src="img/icon-workout.webp" width="192" height="192" alt="" loading="lazy" decoding="async">
+          </div>
+          <p class="hm-app__tagline">안드로이드 운동 기록 앱</p>
+          <h3 id="app-fit" class="hm-app__title">운동 플래너</h3>
+          <p class="hm-app__desc">363가지 운동을 동작 애니메이션으로 보고, 세트·무게·횟수를 달력에 기록하는 안드로이드 앱입니다. 로그인 없이 사용하며 기록은 휴대폰에만 저장됩니다. 토스 앱 안의 미니앱으로도 이용할 수 있습니다.</p>
+          <ul class="chip-list" role="list" aria-label="운동 플래너 주요 기능">
+            <li class="chip">363가지 운동</li>
+            <li class="chip">동작 애니메이션</li>
+            <li class="chip">달력 기록</li>
+            <li class="chip">통계·인바디</li>
+          </ul>
+          <div class="hm-app__actions">
+            <!-- 토스 진입 링크: 소유자가 직접 알려 준 공유 링크 (2026-11-02) -->
+            <a class="btn btn--primary btn--toss" href="https://tossminiapp.com/s/D9om185s" target="_blank" rel="noopener" aria-label="운동 플래너 토스에서 열기 (새 창)">토스에서 열기</a>
+            <a class="btn btn--ghost" href="workout-guide.html" aria-label="운동 플래너 사용방법 자세히 보기">사용방법 자세히 보기</a>
+          </div>
+          <div class="hm-app__foot">
+            <span class="badge badge--status"><span class="badge__dot" aria-hidden="true"></span>토스에서 이용 가능</span>
+            <a class="hm-app__link" href="privacy-workout.html" aria-label="운동 플래너 개인정보처리방침">개인정보처리방침</a>
+            <!-- Google Play 링크: 소유자가 실제 링크를 확정하면 이 자리에 추가 (지금은 추가 금지) -->
+          </div>
+        </div>
+
+        <div class="hm-gal hm-gal--fit">
+          <div class="hm-gal__bar">
+            <p class="hm-gal__hint" aria-hidden="true">옆으로 넘겨 실제 화면을 보세요</p>
+            <div class="hm-gal__nav" data-hm-nav hidden>
+              <button type="button" class="hm-gal__btn" data-hm-dir="-1" aria-controls="gal-fit" aria-label="운동 플래너 이전 화면"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m14 6-6 6 6 6"/></svg></button>
+              <button type="button" class="hm-gal__btn" data-hm-dir="1" aria-controls="gal-fit" aria-label="운동 플래너 다음 화면"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m10 6 6 6-6 6"/></svg></button>
+            </div>
+          </div>
+          <div class="hm-gal__scroll" id="gal-fit" role="region" aria-label="운동 플래너 앱 화면 갤러리, 좌우로 스크롤" tabindex="0">
+            <ul class="hm-gal__track" role="list">
+              <li class="hm-shot hm-shot--fit">
+                <figure>
+                  <div class="hm-phone"><span class="hm-phone__screen"><img src="img/workout-1.webp" srcset="img/workout-1.webp 675w, img/workout-1-lg.webp 1080w" sizes="210px" width="675" height="1412" loading="lazy" decoding="async" alt="운동 플래너 홈, &lsquo;운동 캘린더&rsquo; 화면. 이번 주 운동 3일, 연속 기록 1일, 이번 달 볼륨 카드가 있고, 달력에는 운동한 날이 연두색 원과 부위 이름으로 표시돼요. 아래에 &lsquo;운동 선택하기&rsquo;, &lsquo;루틴&rsquo;, &lsquo;운동 시작&rsquo; 버튼이 보여요."></span></div>
+                  <figcaption><span class="hm-shot__n" aria-hidden="true">1</span>운동 캘린더</figcaption>
+                </figure>
+              </li>
+              <li class="hm-shot hm-shot--fit">
+                <figure>
+                  <div class="hm-phone"><span class="hm-phone__screen"><img src="img/workout-2.webp" srcset="img/workout-2.webp 675w, img/workout-2-lg.webp 1080w" sizes="210px" width="675" height="1412" loading="lazy" decoding="async" alt="&lsquo;운동 선택&rsquo; 화면. 위에 &lsquo;운동 검색&rsquo; 입력창과 전체·하체·등·가슴·팔·어깨 부위 칩이 있고, 즐겨찾기한 바벨 백스쿼트·벤치프레스 등이 하트와 함께 보이고, 아래로 하체 운동 목록이 이어져요."></span></div>
+                  <figcaption><span class="hm-shot__n" aria-hidden="true">2</span>운동 선택</figcaption>
+                </figure>
+              </li>
+              <li class="hm-shot hm-shot--fit">
+                <figure>
+                  <div class="hm-phone"><span class="hm-phone__screen"><img src="img/workout-4.webp" srcset="img/workout-4.webp 675w, img/workout-4-lg.webp 1080w" sizes="210px" width="675" height="1412" loading="lazy" decoding="async" alt="컨벤셔널 데드리프트 기록 화면. 위에 최고 기록과 추정 1RM이 있고, 무게와 횟수 입력 칸, &lsquo;세트 추가&rsquo;와 &lsquo;운동 팁&rsquo; 버튼, 다섯 세트 목록, 맨 아래 &lsquo;저장&rsquo; 버튼이 보여요."></span></div>
+                  <figcaption><span class="hm-shot__n" aria-hidden="true">3</span>세트 기록</figcaption>
+                </figure>
+              </li>
+              <li class="hm-shot hm-shot--fit">
+                <figure>
+                  <div class="hm-phone"><span class="hm-phone__screen"><img src="img/workout-3.webp" srcset="img/workout-3.webp 675w, img/workout-3-lg.webp 1080w" sizes="210px" width="675" height="1412" loading="lazy" decoding="async" alt="컨벤셔널 데드리프트 팁 화면. 자극받는 근육이 붉게 빛나는 인체 모형이 바벨을 드는 동작 애니메이션 아래에 &lsquo;유튜브에서 자세 영상 보기&rsquo; 버튼과 1번부터 6번까지 &lsquo;자세 순서&rsquo;가 보여요."></span></div>
+                  <figcaption><span class="hm-shot__n" aria-hidden="true">4</span>동작 애니메이션</figcaption>
+                </figure>
+              </li>
+              <li class="hm-shot hm-shot--fit">
+                <figure>
+                  <div class="hm-phone"><span class="hm-phone__screen"><img src="img/workout-5.webp" srcset="img/workout-5.webp 675w, img/workout-5-lg.webp 1080w" sizes="210px" width="675" height="1412" loading="lazy" decoding="async" alt="&lsquo;운동 통계&rsquo; 화면. 운동일수, 총 볼륨, 총 세트 수 카드와 개인 기록 5개, 아래에 볼륨 추이 꺾은선 그래프가 보여요."></span></div>
+                  <figcaption><span class="hm-shot__n" aria-hidden="true">5</span>운동 통계</figcaption>
+                </figure>
+              </li>
+              <li class="hm-shot hm-shot--fit">
+                <figure>
+                  <div class="hm-phone"><span class="hm-phone__screen"><img src="img/workout-6.webp" srcset="img/workout-6.webp 675w, img/workout-6-lg.webp 1080w" sizes="210px" width="675" height="1412" loading="lazy" decoding="async" alt="&lsquo;인바디 기록&rsquo; 화면. 최근 측정 카드에 체중, 골격근량, 체지방률과 직전 측정 대비 변화가 있고, 아래에 변화 추이 선 그래프, 날짜별 측정 기록 목록, &lsquo;측정 추가&rsquo; 버튼이 보여요."></span></div>
+                  <figcaption><span class="hm-shot__n" aria-hidden="true">6</span>인바디 기록</figcaption>
+                </figure>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 웹 게임: 카드 마크업은 그대로 (style.css의 .apps-game 규칙 재사용) -->
+    <div id="game" class="hm-game">
+      <div class="container">
+        <article class="apps-game" aria-labelledby="app-game">
+          <div class="apps-game__copy">
+            <p class="apps-game__kicker"><span class="apps-game__num" aria-hidden="true">03</span>웹 게임도 만들어요</p>
+            <h3 id="app-game" class="apps-game__title">대표님, <span class="apps-game__stamp">결재</span> 부탁드립니다!</h3>
+            <p class="apps-game__desc">창업과 결재를 풍자하고, 선택의 결과를 끝까지 체험하는 로그라이크 경영 시뮬레이터예요. 웹 브라우저에서 바로 플레이할 수 있어요.</p>
+            <ul class="apps-game__stats" role="list" aria-label="게임 규모">
+              <li><strong>330</strong><span>가지 업종</span></li>
+              <li><strong>55</strong><span>개 나라</span></li>
+              <li><strong>140</strong><span>가지 엔딩</span></li>
+            </ul>
+            <ul class="apps-game__tags" role="list" aria-label="게임 분류">
+              <li>경영 시뮬레이션</li>
+              <li>로그라이크</li>
+              <li>웹 브라우저에서 플레이</li>
+            </ul>
+            <div class="apps-game__actions">
+              <a class="apps-game__btn" href="startup-intro.html" aria-label="대표님, 결재 부탁드립니다! 게임 소개 보기">게임 소개 보기<span aria-hidden="true"> →</span></a>
+              <a class="apps-game__link" href="https://startup-with-you.com/" target="_blank" rel="noopener">게임 열기<span aria-hidden="true"> ↗</span><span class="visually-hidden"> (새 창)</span></a>
+            </div>
+          </div>
+          <figure class="apps-game__visual">
+            <img class="apps-game__paper apps-game__paper--back" src="img/game-promo-industries.webp" width="1080" height="1350" loading="lazy" decoding="async" alt="">
+            <img class="apps-game__paper apps-game__paper--front" src="img/game-promo-stamp.webp" width="1080" height="1350" loading="lazy" decoding="async" alt="'도장 하나에 회사의 운명이' 홍보 이미지. '① 고르고', '② 쾅!' 단계 아래에 결재 요청서 화면 두 장이 있고, 결재 요청서에는 담당·팀장·대표 결재 칸과 붉은 도장이 보여요.">
+            <span class="apps-game__seal" aria-hidden="true">결재<br>요청</span>
+          </figure>
+        </article>
+      </div>
     </div>
   </section>
 
-  <section id="apps" class="section" aria-labelledby="apps-title">
+  <!-- ===== 개발자 소개 ===== -->
+  <section id="about" class="hm-about" aria-labelledby="about-title">
     <div class="container">
-      <div class="section__head apps-head">
-        <p class="section__eyebrow" aria-hidden="true">01 / Apps</p>
-        <h2 id="apps-title" class="section__title">앱 소개</h2>
-        <p class="section__lead">토스 앱 안의 미니앱으로 이용할 수 있는 두 가지 앱입니다. 앱마다 사용방법을 화면과 함께 안내합니다.</p>
-      </div>
-      <ul class="apps-grid" role="list">
-        <li class="apps-grid__item">
-          <article class="apps-card apps-card--today" aria-labelledby="app-today">
-            <div class="apps-card__cover" aria-hidden="true">
-              <svg class="apps-card__art" viewBox="0 0 480 112" preserveAspectRatio="xMaxYMid slice" focusable="false">
-                <defs>
-                  <g id="paw">
-                    <ellipse cx="0" cy="6" rx="9" ry="7.5"/>
-                    <circle cx="-10.5" cy="-5" r="3.6"/>
-                    <circle cx="-3.8" cy="-11.5" r="3.8"/>
-                    <circle cx="3.8" cy="-11.5" r="3.8"/>
-                    <circle cx="10.5" cy="-5" r="3.6"/>
-                  </g>
-                </defs>
-                <circle class="r" cx="436" cy="36" r="64"/>
-                <circle class="r" cx="436" cy="36" r="48"/>
-                <circle class="a" cx="436" cy="36" r="28"/>
-                <use class="b" href="#paw" transform="translate(176 80) rotate(-14)"/>
-                <use class="b" href="#paw" transform="translate(224 46) rotate(12)"/>
-                <use class="b" href="#paw" transform="translate(272 76) rotate(-16) scale(1.3)"/>
-                <use class="b" href="#paw" transform="translate(320 44) rotate(12)"/>
-                <use class="b" href="#paw" transform="translate(364 82) rotate(-8) scale(1.15)"/>
-              </svg>
-              <span class="apps-card__num">01</span>
-              <span class="apps-card__icon"><img src="img/icon-ohneul.webp" width="192" height="192" alt="" decoding="async"></span>
-            </div>
-            <div class="apps-card__body">
-              <p class="apps-card__tagline">안드로이드 · 토스 반려견 앱</p>
-              <h3 id="app-today" class="apps-card__title">오늘뭐하개</h3>
-              <p class="apps-card__desc">반려견과의 하루를 기록하고(오늘 뭐했개), 자랑하고(자랑하개), 같이 걷는(같이걷개) 반려견 앱입니다. 안드로이드 앱과 토스 앱 안의 미니앱으로 이용할 수 있고, 아이폰에서는 토스 앱을 통해 이용합니다.</p>
-              <ul class="chip-list" role="list" aria-label="주요 기능">
-                <li class="chip">오늘 뭐했개 일기</li>
-                <li class="chip">자랑하개</li>
-                <li class="chip">같이걷개 산책</li>
-                <li class="chip">코스 공유</li>
-              </ul>
-            </div>
-            <div class="apps-card__actions">
-              <!-- 토스 진입 링크: 소유자가 직접 알려 준 공유 링크 (2026-11-02) -->
-              <a class="btn btn--primary btn--toss" href="https://tossminiapp.com/s/ZoPRP8Xx" target="_blank" rel="noopener" aria-label="오늘뭐하개 토스에서 열기 (새 창)">토스에서 열기</a>
-              <a class="btn btn--ghost" href="ohneul-guide.html" aria-label="오늘뭐하개 사용방법 자세히 보기">사용방법 자세히 보기</a>
-            </div>
-            <div class="apps-card__foot">
-              <span class="badge badge--status"><span class="badge__dot" aria-hidden="true"></span>토스에서 이용 가능</span>
-              <a class="apps-card__link" href="privacy-ohneul.html" aria-label="오늘뭐하개 개인정보처리방침">개인정보처리방침</a>
-            </div>
-          </article>
-        </li>
-        <li class="apps-grid__item">
-          <article class="apps-card apps-card--fit" aria-labelledby="app-fit">
-            <div class="apps-card__cover" aria-hidden="true">
-              <svg class="apps-card__art" viewBox="0 0 480 112" preserveAspectRatio="xMaxYMid slice" focusable="false">
-                <defs>
-                  <pattern id="fit-stripes" width="16" height="16" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
-                    <rect class="s" width="6" height="16"/>
-                  </pattern>
-                </defs>
-                <rect width="480" height="112" fill="url(#fit-stripes)"/>
-                <circle class="r" cx="396" cy="52" r="50"/>
-                <g transform="translate(396 52) rotate(-18)">
-                  <rect class="a" x="-44" y="-3.5" width="88" height="7" rx="3.5"/>
-                  <rect class="a" x="-56" y="-19" width="11" height="38" rx="4"/>
-                  <rect class="b" x="-68" y="-13" width="9" height="26" rx="3"/>
-                  <rect class="a" x="45" y="-19" width="11" height="38" rx="4"/>
-                  <rect class="b" x="59" y="-13" width="9" height="26" rx="3"/>
-                </g>
-              </svg>
-              <span class="apps-card__num">02</span>
-              <span class="apps-card__icon"><img src="img/icon-workout.webp" width="192" height="192" alt="" decoding="async"></span>
-            </div>
-            <div class="apps-card__body">
-              <p class="apps-card__tagline">안드로이드 운동 기록 앱</p>
-              <h3 id="app-fit" class="apps-card__title">운동 플래너</h3>
-              <p class="apps-card__desc">363가지 운동을 동작 애니메이션으로 보고, 세트·무게·횟수를 달력에 기록하는 안드로이드 앱입니다. 로그인 없이 사용하며 기록은 휴대폰에만 저장됩니다. 토스 앱 안의 미니앱으로도 이용할 수 있습니다.</p>
-              <ul class="chip-list" role="list" aria-label="주요 기능">
-                <li class="chip">363가지 운동</li>
-                <li class="chip">동작 애니메이션</li>
-                <li class="chip">달력 기록</li>
-                <li class="chip">통계·인바디</li>
-              </ul>
-            </div>
-            <div class="apps-card__actions">
-              <!-- 토스 진입 링크: 소유자가 직접 알려 준 공유 링크 (2026-11-02) -->
-              <a class="btn btn--primary btn--toss" href="https://tossminiapp.com/s/D9om185s" target="_blank" rel="noopener" aria-label="운동 플래너 토스에서 열기 (새 창)">토스에서 열기</a>
-              <a class="btn btn--ghost" href="workout-guide.html" aria-label="운동 플래너 사용방법 자세히 보기">사용방법 자세히 보기</a>
-            </div>
-            <div class="apps-card__foot">
-              <span class="badge badge--status"><span class="badge__dot" aria-hidden="true"></span>토스에서 이용 가능</span>
-              <a class="apps-card__link" href="privacy-workout.html" aria-label="운동 플래너 개인정보처리방침">개인정보처리방침</a>
-              <!-- Google Play 링크: 소유자가 실제 링크를 확정하면 이 자리에 추가 (지금은 추가 금지) -->
-            </div>
-          </article>
-        </li>
-        <li class="apps-grid__item apps-grid__item--wide">
-          <article class="apps-game" aria-labelledby="app-game">
-            <div class="apps-game__copy">
-              <p class="apps-game__kicker"><span class="apps-game__num" aria-hidden="true">03</span>웹 게임도 만들어요</p>
-              <h3 id="app-game" class="apps-game__title">대표님, <span class="apps-game__stamp">결재</span> 부탁드립니다!</h3>
-              <p class="apps-game__desc">창업과 결재를 풍자하고, 선택의 결과를 끝까지 체험하는 로그라이크 경영 시뮬레이터예요. 웹 브라우저에서 바로 플레이할 수 있어요.</p>
-              <ul class="apps-game__stats" role="list" aria-label="게임 규모">
-                <li><strong>330</strong><span>가지 업종</span></li>
-                <li><strong>55</strong><span>개 나라</span></li>
-                <li><strong>140</strong><span>가지 엔딩</span></li>
-              </ul>
-              <ul class="apps-game__tags" role="list" aria-label="게임 분류">
-                <li>경영 시뮬레이션</li>
-                <li>로그라이크</li>
-                <li>웹 브라우저에서 플레이</li>
-              </ul>
-              <div class="apps-game__actions">
-                <a class="apps-game__btn" href="startup-intro.html" aria-label="대표님, 결재 부탁드립니다! 게임 소개 보기">게임 소개 보기<span aria-hidden="true"> →</span></a>
-                <a class="apps-game__link" href="https://startup-with-you.com/" target="_blank" rel="noopener">게임 열기<span aria-hidden="true"> ↗</span><span class="visually-hidden"> (새 창)</span></a>
-              </div>
-            </div>
-            <figure class="apps-game__visual">
-              <img class="apps-game__paper apps-game__paper--back" src="img/game-promo-industries.webp" width="1080" height="1350" loading="lazy" decoding="async" alt="">
-              <img class="apps-game__paper apps-game__paper--front" src="img/game-promo-stamp.webp" width="1080" height="1350" loading="lazy" decoding="async" alt="'도장 하나에 회사의 운명이' 홍보 이미지. '① 고르고', '② 쾅!' 단계 아래에 결재 요청서 화면 두 장이 있고, 결재 요청서에는 담당·팀장·대표 결재 칸과 붉은 도장이 보여요.">
-              <span class="apps-game__seal" aria-hidden="true">결재<br>요청</span>
-            </figure>
-          </article>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="about" class="section section--alt" aria-labelledby="about-title">
-    <div class="container">
-      <div class="section__head">
-        <p class="section__eyebrow" aria-hidden="true">02 / About</p>
-        <h2 id="about-title" class="section__title">개발자 소개</h2>
-        <p class="section__lead">OnlyOneTech는 일상에 도움이 되는 모바일 앱을 만듭니다.</p>
+      <div class="hm-about__head">
+        <p class="hm-eyebrow" aria-hidden="true">02 / About</p>
+        <h2 id="about-title" class="hm-h2">개발자 소개</h2>
+        <p class="hm-lead">OnlyOneTech는 일상에 도움이 되는 모바일 앱을 만듭니다.</p>
       </div>
 
-      <div class="about-block">
-        <h3 class="about-block__title">운영자 정보</h3>
-        <dl class="info-list">
-          <div class="info-list__row">
-            <dt>상호</dt>
-            <dd>투오티</dd>
-          </div>
-          <div class="info-list__row">
-            <dt>소재지</dt>
-            <dd>대한민국 대전광역시</dd>
-          </div>
-          <div class="info-list__row">
-            <dt>제작 앱</dt>
-            <dd>오늘뭐하개, 운동 플래너 (토스 앱 안의 미니앱)</dd>
-          </div>
-          <div class="info-list__row">
-            <dt>문의</dt>
-            <dd><a href="mailto:onlyonetech@nate.com">onlyonetech@nate.com</a></dd>
-          </div>
-          <div class="info-list__row">
-            <dt>개인정보처리방침</dt>
-            <dd>
-              <ul class="info-list__links" role="list">
-                <li><a href="privacy-ohneul.html">오늘뭐하개</a> (시행일 2026년 9월 23일)</li>
-                <li><a href="privacy-workout.html">운동 플래너</a> (시행일 2026년 10월 1일)</li>
-              </ul>
-            </dd>
-          </div>
-          <!--
-            소유자가 직접 확인한 사실만 아래 형식으로 추가하세요. 확인되지 않은 항목은 넣지 말고 항목 자체를 생략합니다.
-            (코드로 확인된 것은 상호 투오티, 사업장 소재지 대전광역시, 문의 이메일뿐입니다. 개인/법인 구분, 1인 개발 여부, 'OnlyOneTech'라는 이름과 '투오티'의 관계는 소유자 확인 전까지 쓰지 않습니다.)
-            <div class="info-list__row"><dt>사업자 구분</dt><dd>개인 개발자 / 사업자등록번호 ○○○-○○-○○○○○</dd></div>
-            <div class="info-list__row"><dt>이름 유래</dt><dd>OnlyOneTech은 ...에서 따온 이름이며 ‘투오티’로 읽습니다</dd></div>
-          -->
-        </dl>
+      <div class="about-block hm-ident">
+        <div class="hm-ident__card">
+          <h3 class="about-block__title">운영자 정보</h3>
+          <dl class="info-list">
+            <div class="info-list__row">
+              <dt>상호</dt>
+              <dd>투오티</dd>
+            </div>
+            <div class="info-list__row">
+              <dt>소재지</dt>
+              <dd>대한민국 대전광역시</dd>
+            </div>
+            <div class="info-list__row">
+              <dt>제작 앱</dt>
+              <dd>오늘뭐하개, 운동 플래너 (토스 앱 안의 미니앱)</dd>
+            </div>
+            <div class="info-list__row">
+              <dt>문의</dt>
+              <dd><a href="mailto:onlyonetech@nate.com">onlyonetech@nate.com</a></dd>
+            </div>
+            <div class="info-list__row">
+              <dt>개인정보처리방침</dt>
+              <dd>
+                <ul class="info-list__links" role="list">
+                  <li><a href="privacy-ohneul.html">오늘뭐하개</a> (시행일 2026년 9월 23일)</li>
+                  <li><a href="privacy-workout.html">운동 플래너</a> (시행일 2026년 10월 1일)</li>
+                </ul>
+              </dd>
+            </div>
+            <!--
+              소유자가 직접 확인한 사실만 아래 형식으로 추가하세요. 확인되지 않은 항목은 넣지 말고 항목 자체를 생략합니다.
+              (코드로 확인된 것은 상호 투오티, 사업장 소재지 대전광역시, 문의 이메일뿐입니다. 개인/법인 구분, 1인 개발 여부, 'OnlyOneTech'라는 이름과 '투오티'의 관계는 소유자 확인 전까지 쓰지 않습니다.)
+              <div class="info-list__row"><dt>사업자 구분</dt><dd>개인 개발자 / 사업자등록번호 ○○○-○○-○○○○○</dd></div>
+              <div class="info-list__row"><dt>이름 유래</dt><dd>OnlyOneTech은 ...에서 따온 이름이며 ‘투오티’로 읽습니다</dd></div>
+            -->
+          </dl>
+        </div>
+        <div class="hm-ident__art" aria-hidden="true">
+          <svg class="hm-ident__mark" viewBox="0 0 32 32" focusable="false"><rect width="32" height="32" rx="9"/><path d="M10.5 12.5 15.5 9.5v13.5"/><circle cx="21.5" cy="22.5" r="2.4"/></svg>
+          <img class="hm-ident__icon hm-ident__icon--a" src="img/icon-ohneul.webp" width="192" height="192" alt="" loading="lazy" decoding="async">
+          <img class="hm-ident__icon hm-ident__icon--b" src="img/icon-workout.webp" width="192" height="192" alt="" loading="lazy" decoding="async">
+        </div>
       </div>
 
       <div class="about-block">
@@ -361,26 +476,30 @@
     </div>
   </section>
 
-  <section id="contact" class="section" aria-labelledby="contact-title">
+  <!-- ===== 문의 ===== -->
+  <section id="contact" class="hm-contact" aria-labelledby="contact-title">
     <div class="container">
-      <div class="section__head">
-        <p class="section__eyebrow" aria-hidden="true">03 / Contact</p>
-        <h2 id="contact-title" class="section__title">문의</h2>
-        <p class="section__lead">앱 이용이나 개인정보와 관련한 문의는 아래 이메일로 보내 주세요.</p>
-      </div>
-      <!-- 응답 시간 안내(예: "영업일 기준 N일 이내 답변")는 소유자가 지킬 수 있는 기간일 때만 이 위치에 추가하세요 -->
-      <div class="contact-card">
-        <span class="contact-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7.5 8 6 8-6"/></svg></span>
-        <div class="contact-card__body">
-          <p class="contact-card__label">이메일</p>
-          <p class="contact-card__email"><a href="mailto:onlyonetech@nate.com">onlyonetech@nate.com</a></p>
+      <div class="hm-contact__panel">
+        <svg class="hm-contact__deco" viewBox="0 0 200 140" aria-hidden="true" focusable="false"><rect x="10" y="20" width="180" height="110" rx="14"/><path d="m16 32 84 62 84-62"/><circle class="dot" cx="168" cy="26" r="14"/></svg>
+        <div class="hm-contact__head">
+          <p class="hm-eyebrow" aria-hidden="true">03 / Contact</p>
+          <h2 id="contact-title" class="hm-h2">문의</h2>
+          <p class="hm-lead">앱 이용이나 개인정보와 관련한 문의는 아래 이메일로 보내 주세요.</p>
         </div>
-        <div class="contact-card__actions">
-          <a class="btn btn--primary" href="mailto:onlyonetech@nate.com?subject=%5B%EB%AC%B8%EC%9D%98%5D">메일 보내기</a>
-          <button type="button" class="btn btn--ghost" data-copy-email="onlyonetech@nate.com" hidden>주소 복사</button>
+        <!-- 응답 시간 안내(예: "영업일 기준 N일 이내 답변")는 소유자가 지킬 수 있는 기간일 때만 이 위치에 추가하세요 -->
+        <div class="contact-card">
+          <span class="contact-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7.5 8 6 8-6"/></svg></span>
+          <div class="contact-card__body">
+            <p class="contact-card__label">이메일</p>
+            <p class="contact-card__email"><a href="mailto:onlyonetech@nate.com">onlyonetech@nate.com</a></p>
+          </div>
+          <div class="contact-card__actions">
+            <a class="btn btn--primary" href="mailto:onlyonetech@nate.com?subject=%5B%EB%AC%B8%EC%9D%98%5D">메일 보내기</a>
+            <button type="button" class="btn btn--ghost" data-copy-email="onlyonetech@nate.com" hidden>주소 복사</button>
+          </div>
+          <p class="contact-card__hint" data-copy-hint hidden>메일 앱이 열리지 않으면 &lsquo;주소 복사&rsquo;를 눌러 사용하는 메일 서비스에 붙여넣어 주세요.</p>
+          <p class="contact-card__status" role="status" data-copy-status></p>
         </div>
-        <p class="contact-card__hint" data-copy-hint hidden>메일 앱이 열리지 않으면 &lsquo;주소 복사&rsquo;를 눌러 사용하는 메일 서비스에 붙여넣어 주세요.</p>
-        <p class="contact-card__status" role="status" data-copy-status></p>
       </div>
     </div>
   </section>
@@ -460,6 +579,25 @@
       s.textContent='이메일 주소를 복사했습니다.';
     },function(){ s.textContent='복사하지 못했습니다. 주소를 직접 선택해 주세요.'; });
     setTimeout(function(){ s.textContent=''; },2500);
+  });
+})();
+</script>
+<script>
+(function(){
+  var reduce=false; try{reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;}catch(e){}
+  document.querySelectorAll('.hm-gal').forEach(function(g){
+    var sc=g.querySelector('.hm-gal__scroll'), nav=g.querySelector('[data-hm-nav]');
+    if(!sc||!nav) return;
+    var prev=nav.querySelector('[data-hm-dir="-1"]'), next=nav.querySelector('[data-hm-dir="1"]');
+    function step(){var li=sc.querySelector('li'),gap=parseFloat(getComputedStyle(sc.firstElementChild).columnGap)||0;return li?li.getBoundingClientRect().width+gap:sc.clientWidth*0.8;}
+    function sync(){var max=sc.scrollWidth-sc.clientWidth; prev.disabled=sc.scrollLeft<=2; next.disabled=sc.scrollLeft>=max-2;}
+    nav.addEventListener('click',function(e){
+      var b=e.target.closest('[data-hm-dir]'); if(!b) return;
+      sc.scrollBy({left:Number(b.getAttribute('data-hm-dir'))*step(),behavior:reduce?'auto':'smooth'});
+    });
+    sc.addEventListener('scroll',sync,{passive:true});
+    window.addEventListener('resize',sync);
+    nav.hidden=false; sync();
   });
 })();
 </script>
