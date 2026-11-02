@@ -2357,3 +2357,8 @@ html:has(.jump-bar) { --header-h: 3.75rem; }
   .apps-game *, .apps-game *::before, .apps-game *::after { color: #000 !important; }
   .apps-game__visual, .apps-game__btn { display: none !important; }
 }
+
+/* Home apps: Toss entry button + guide button stacked in the card actions */
+.apps-card__actions { display: grid; gap: var(--space-3); }
+.apps-card__actions .btn--toss::after { content: "\2197"; }
+.apps-card__actions .btn--ghost:hover { border-color: var(--card-accent, var(--color-primary)); }
