@@ -20,7 +20,7 @@
   --wg-glow: rgb(190 230 40 / 0.4);
   --wg-line: color-mix(in srgb, var(--app-fit-accent) 62%, transparent);
   --wg-ring: var(--color-bg);
-  --wg-gap: 3.5rem;
+  --wg-gap: 2.5rem;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) .wg-page {
@@ -498,6 +498,7 @@
   .wg-page .step:nth-child(even) {
     display: grid;
     grid-template-columns: 3.5rem minmax(0, 1fr);
+    grid-template-rows: auto;
     grid-template-areas: "num card";
     column-gap: var(--space-5);
     align-items: start;
@@ -526,14 +527,14 @@
     background: repeating-linear-gradient(to bottom, var(--wg-line) 0 7px, transparent 7px 13px);
   }
   .wg-step__card {
-    grid-template-columns: minmax(0, 17.5rem) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 15.5rem) minmax(0, 1fr);
     grid-template-rows: 1fr auto auto 1fr;
     grid-template-areas: "shot ." "shot head" "shot body" "shot .";
     gap: 0 var(--space-8);
     padding: var(--space-3);
   }
   .wg-page .step:nth-child(even) .wg-step__card {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 17.5rem);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 15.5rem);
     grid-template-areas: ". shot" "head shot" "body shot" ". shot";
   }
   .wg-page .step__shot { grid-area: shot; padding-inline: var(--space-4); }
@@ -546,16 +547,16 @@
   .wg-page .step:nth-child(even) .step__title { padding: 0 0 0 var(--space-6); }
   .wg-page .step__body { grid-area: body; padding-right: var(--space-6); padding-bottom: var(--space-4); }
   .wg-page .step:nth-child(even) .step__body { padding: 0 0 var(--space-4) var(--space-6); }
-  .wg-page .step__zoom { width: min(100%, 15.5rem); }
+  .wg-page .step__zoom { width: min(100%, 13.5rem); }
 }
 @media (min-width: 64em) {
   .wg-page .step,
   .wg-page .step:nth-child(even) { grid-template-columns: 4.5rem minmax(0, 1fr); column-gap: var(--space-6); }
   .wg-page .step__num { width: 4rem; height: 4rem; font-size: 1.75rem; }
   .wg-page .step:not(:last-child)::before { top: calc(var(--space-5) + 4rem + 0.5rem); left: calc(2.25rem - 1.5px); }
-  .wg-step__card { grid-template-columns: minmax(0, 21.5rem) minmax(0, 1fr); gap: 0 var(--space-12); padding: var(--space-4); }
-  .wg-page .step:nth-child(even) .wg-step__card { grid-template-columns: minmax(0, 1fr) minmax(0, 21.5rem); }
-  .wg-page .step__zoom { width: min(100%, 18rem); }
+  .wg-step__card { grid-template-columns: minmax(0, 19rem) minmax(0, 1fr); gap: 0 var(--space-12); padding: var(--space-4); }
+  .wg-page .step:nth-child(even) .wg-step__card { grid-template-columns: minmax(0, 1fr) minmax(0, 19rem); }
+  .wg-page .step__zoom { width: min(100%, 15.5rem); }
   .wg-page .step__title { padding-right: var(--space-8); font-size: 1.875rem; }
   .wg-page .step__list li, .wg-page .step__note { font-size: 1.0625rem; }
   .wg-page .step:nth-child(even) .step__title { padding: 0 0 0 var(--space-8); }
