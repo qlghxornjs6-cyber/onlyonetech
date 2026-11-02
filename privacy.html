@@ -32,10 +32,10 @@
     </a>
     <nav class="site-nav" aria-label="주요 메뉴">
       <ul class="site-nav__list">
-        <li><a href="index.html#apps">앱</a></li>
-        <li><a href="ohneul-guide.html" aria-label="오늘뭐하개 사용방법">오늘뭐하개</a></li>
-        <li><a href="workout-guide.html" aria-label="운동 플래너 사용방법">운동 플래너</a></li>
-        <li><a href="startup-intro.html" aria-label="대표님, 결재 부탁드립니다! 게임 소개">결재 게임</a></li>
+        <li class="site-nav__group">
+          <a href="index.html#apps" data-subnav-link>앱</a>
+          <button type="button" class="site-nav__toggle" aria-expanded="false" aria-controls="site-subnav" hidden>앱</button>
+        </li>
         <li><a href="index.html#about">소개</a></li>
         <li><a href="index.html#contact">문의</a></li>
         <li><a href="privacy.html" aria-current="page">개인정보처리방침</a></li>
@@ -48,6 +48,25 @@
     </button>
     <span class="visually-hidden" role="status" data-theme-status></span>
   </div>
+  <nav class="site-subnav" id="site-subnav" aria-label="앱 하위 메뉴">
+    <div class="container site-subnav__inner">
+    <ul class="site-subnav__list" role="list">
+      <li><a class="site-subnav__link" href="ohneul-guide.html">
+        <img class="site-subnav__icon" src="img/icon-ohneul.webp" width="40" height="40" alt="" loading="lazy" decoding="async">
+        <span class="site-subnav__text"><span class="site-subnav__name">오늘뭐하개</span><span class="site-subnav__desc">반려견 앱 · 사용방법</span></span>
+      </a></li>
+      <li><a class="site-subnav__link" href="workout-guide.html">
+        <img class="site-subnav__icon" src="img/icon-workout.webp" width="40" height="40" alt="" loading="lazy" decoding="async">
+        <span class="site-subnav__text"><span class="site-subnav__name">운동 플래너</span><span class="site-subnav__desc">운동 기록 앱 · 사용방법</span></span>
+      </a></li>
+      <li><a class="site-subnav__link" href="startup-intro.html">
+        <span class="site-subnav__icon site-subnav__icon--game" aria-hidden="true">결</span>
+        <span class="site-subnav__text"><span class="site-subnav__name">결재 게임</span><span class="site-subnav__desc">웹 게임 · 소개</span></span>
+      </a></li>
+    </ul>
+    <a class="site-subnav__all" href="index.html#apps">앱 전체 보기 <span aria-hidden="true">→</span></a>
+    </div>
+  </nav>
 </header>
 
 <main id="main" tabindex="-1" class="doc-page">
@@ -163,5 +182,6 @@
   btn.hidden=false; sync(false);
 })();
 </script>
+<script src="nav.js"></script>
 </body>
 </html>
