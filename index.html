@@ -130,16 +130,16 @@
 
   <section id="apps" class="section" aria-labelledby="apps-title">
     <div class="container">
-      <div class="section__head">
+      <div class="section__head apps-head">
         <p class="section__eyebrow" aria-hidden="true">01 / Apps</p>
         <h2 id="apps-title" class="section__title">앱 소개</h2>
         <p class="section__lead">현재 출시를 준비 중인 두 가지 앱입니다. 앱마다 사용방법을 화면과 함께 안내합니다.</p>
       </div>
-      <ul class="app-grid" role="list">
-        <li>
-          <article class="app-card app-card--today" aria-labelledby="app-today">
-            <div class="app-card__cover" aria-hidden="true">
-              <svg class="app-card__art" viewBox="0 0 480 112" preserveAspectRatio="xMaxYMid slice" focusable="false">
+      <ul class="apps-grid" role="list">
+        <li class="apps-grid__item">
+          <article class="apps-card apps-card--today" aria-labelledby="app-today">
+            <div class="apps-card__cover" aria-hidden="true">
+              <svg class="apps-card__art" viewBox="0 0 480 112" preserveAspectRatio="xMaxYMid slice" focusable="false">
                 <defs>
                   <g id="paw">
                     <ellipse cx="0" cy="6" rx="9" ry="7.5"/>
@@ -158,13 +158,13 @@
                 <use class="b" href="#paw" transform="translate(320 44) rotate(12)"/>
                 <use class="b" href="#paw" transform="translate(364 82) rotate(-8) scale(1.15)"/>
               </svg>
-              <span class="app-card__num">01</span>
-              <span class="app-card__icon app-card__icon--img"><img src="img/icon-ohneul.webp" width="192" height="192" alt="" decoding="async"></span>
+              <span class="apps-card__num">01</span>
+              <span class="apps-card__icon"><img src="img/icon-ohneul.webp" width="192" height="192" alt="" decoding="async"></span>
             </div>
-            <div class="app-card__body">
-              <p class="app-card__tagline">안드로이드 · 토스 반려견 앱</p>
-              <h3 id="app-today" class="app-card__title">오늘뭐하개</h3>
-              <p class="app-card__desc">반려견과의 하루를 기록하고(오늘 뭐했개), 자랑하고(자랑하개), 같이 걷는(같이걷개) 반려견 앱입니다. 안드로이드 앱과 토스 앱 안의 미니앱으로 이용할 수 있고, 아이폰에서는 토스 앱을 통해 이용합니다.</p>
+            <div class="apps-card__body">
+              <p class="apps-card__tagline">안드로이드 · 토스 반려견 앱</p>
+              <h3 id="app-today" class="apps-card__title">오늘뭐하개</h3>
+              <p class="apps-card__desc">반려견과의 하루를 기록하고(오늘 뭐했개), 자랑하고(자랑하개), 같이 걷는(같이걷개) 반려견 앱입니다. 안드로이드 앱과 토스 앱 안의 미니앱으로 이용할 수 있고, 아이폰에서는 토스 앱을 통해 이용합니다.</p>
               <ul class="chip-list" role="list" aria-label="주요 기능">
                 <li class="chip">오늘 뭐했개 일기</li>
                 <li class="chip">자랑하개</li>
@@ -172,21 +172,21 @@
                 <li class="chip">코스 공유</li>
               </ul>
             </div>
-            <div class="app-card__actions">
+            <div class="apps-card__actions">
               <a class="btn btn--primary" href="ohneul-guide.html" aria-label="오늘뭐하개 사용방법 자세히 보기">사용방법 자세히 보기</a>
             </div>
-            <div class="app-card__foot">
+            <div class="apps-card__foot">
               <span class="badge badge--status"><span class="badge__dot" aria-hidden="true"></span>출시 준비 중</span>
-              <a class="app-card__link" href="privacy-ohneul.html" aria-label="오늘뭐하개 개인정보처리방침">개인정보처리방침</a>
+              <a class="apps-card__link" href="privacy-ohneul.html" aria-label="오늘뭐하개 개인정보처리방침">개인정보처리방침</a>
               <!-- 출시 후: 토스 앱 안에서 여는 실제 진입 링크가 확정되면 이 자리에 추가 (지금은 추가 금지) -->
               <!-- 소유자 승인 시에만 추가 가능한 한 줄 안내: "출시되면 이 카드에 실행 방법을 안내합니다" (이메일 수집·대기자 폼은 추가하지 않음) -->
             </div>
           </article>
         </li>
-        <li>
-          <article class="app-card app-card--fit" aria-labelledby="app-fit">
-            <div class="app-card__cover" aria-hidden="true">
-              <svg class="app-card__art" viewBox="0 0 480 112" preserveAspectRatio="xMaxYMid slice" focusable="false">
+        <li class="apps-grid__item">
+          <article class="apps-card apps-card--fit" aria-labelledby="app-fit">
+            <div class="apps-card__cover" aria-hidden="true">
+              <svg class="apps-card__art" viewBox="0 0 480 112" preserveAspectRatio="xMaxYMid slice" focusable="false">
                 <defs>
                   <pattern id="fit-stripes" width="16" height="16" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
                     <rect class="s" width="6" height="16"/>
@@ -202,13 +202,13 @@
                   <rect class="b" x="59" y="-13" width="9" height="26" rx="3"/>
                 </g>
               </svg>
-              <span class="app-card__num">02</span>
-              <span class="app-card__icon app-card__icon--img"><img src="img/icon-workout.webp" width="192" height="192" alt="" decoding="async"></span>
+              <span class="apps-card__num">02</span>
+              <span class="apps-card__icon"><img src="img/icon-workout.webp" width="192" height="192" alt="" decoding="async"></span>
             </div>
-            <div class="app-card__body">
-              <p class="app-card__tagline">안드로이드 운동 기록 앱</p>
-              <h3 id="app-fit" class="app-card__title">운동 플래너</h3>
-              <p class="app-card__desc">363가지 운동을 동작 애니메이션으로 보고, 세트·무게·횟수를 달력에 기록하는 안드로이드 앱입니다. 로그인 없이 사용하며 기록은 휴대폰에만 저장됩니다.</p>
+            <div class="apps-card__body">
+              <p class="apps-card__tagline">안드로이드 운동 기록 앱</p>
+              <h3 id="app-fit" class="apps-card__title">운동 플래너</h3>
+              <p class="apps-card__desc">363가지 운동을 동작 애니메이션으로 보고, 세트·무게·횟수를 달력에 기록하는 안드로이드 앱입니다. 로그인 없이 사용하며 기록은 휴대폰에만 저장됩니다.</p>
               <ul class="chip-list" role="list" aria-label="주요 기능">
                 <li class="chip">363가지 운동</li>
                 <li class="chip">동작 애니메이션</li>
@@ -216,25 +216,45 @@
                 <li class="chip">통계·인바디</li>
               </ul>
             </div>
-            <div class="app-card__actions">
+            <div class="apps-card__actions">
               <a class="btn btn--primary" href="workout-guide.html" aria-label="운동 플래너 사용방법 자세히 보기">사용방법 자세히 보기</a>
             </div>
-            <div class="app-card__foot">
+            <div class="apps-card__foot">
               <span class="badge badge--status"><span class="badge__dot" aria-hidden="true"></span>출시 준비 중</span>
-              <a class="app-card__link" href="privacy-workout.html" aria-label="운동 플래너 개인정보처리방침">개인정보처리방침</a>
+              <a class="apps-card__link" href="privacy-workout.html" aria-label="운동 플래너 개인정보처리방침">개인정보처리방침</a>
               <!-- 출시 후: 이 자리에 실제 Google Play 링크를 추가 (지금은 추가 금지) -->
             </div>
           </article>
         </li>
+        <li class="apps-grid__item apps-grid__item--wide">
+          <article class="apps-game" aria-labelledby="app-game">
+            <div class="apps-game__copy">
+              <p class="apps-game__kicker"><span class="apps-game__num" aria-hidden="true">03</span>웹 게임도 만들어요</p>
+              <h3 id="app-game" class="apps-game__title">대표님, <span class="apps-game__stamp">결재</span> 부탁드립니다!</h3>
+              <p class="apps-game__desc">창업과 결재를 풍자하고, 선택의 결과를 끝까지 체험하는 로그라이크 경영 시뮬레이터예요. 웹 브라우저에서 바로 플레이할 수 있어요.</p>
+              <ul class="apps-game__stats" role="list" aria-label="게임 규모">
+                <li><strong>330</strong><span>가지 업종</span></li>
+                <li><strong>55</strong><span>개 나라</span></li>
+                <li><strong>140</strong><span>가지 엔딩</span></li>
+              </ul>
+              <ul class="apps-game__tags" role="list" aria-label="게임 분류">
+                <li>경영 시뮬레이션</li>
+                <li>로그라이크</li>
+                <li>웹 브라우저에서 플레이</li>
+              </ul>
+              <div class="apps-game__actions">
+                <a class="apps-game__btn" href="startup-intro.html" aria-label="대표님, 결재 부탁드립니다! 게임 소개 보기">게임 소개 보기<span aria-hidden="true"> →</span></a>
+                <a class="apps-game__link" href="https://startup-with-you.com/" target="_blank" rel="noopener">게임 열기<span aria-hidden="true"> ↗</span><span class="visually-hidden"> (새 창)</span></a>
+              </div>
+            </div>
+            <figure class="apps-game__visual">
+              <img class="apps-game__paper apps-game__paper--back" src="img/game-promo-industries.webp" width="1080" height="1350" loading="lazy" decoding="async" alt="">
+              <img class="apps-game__paper apps-game__paper--front" src="img/game-promo-stamp.webp" width="1080" height="1350" loading="lazy" decoding="async" alt="'도장 하나에 회사의 운명이' 홍보 이미지. '① 고르고', '② 쾅!' 단계 아래에 결재 요청서 화면 두 장이 있고, 결재 요청서에는 담당·팀장·대표 결재 칸과 붉은 도장이 보여요.">
+              <span class="apps-game__seal" aria-hidden="true">결재<br>요청</span>
+            </figure>
+          </article>
+        </li>
       </ul>
-      <div class="notice">
-        <span class="notice__icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 11v5.5M12 7.6v.1"/></svg></span>
-        <div class="notice__body">
-          <p class="notice__title">웹 게임도 만들어요: 대표님, 결재 부탁드립니다!</p>
-          <p class="notice__text">창업과 결재를 풍자하고, 선택의 결과를 끝까지 체험하는 로그라이크 경영 시뮬레이터예요. 웹 브라우저에서 바로 플레이할 수 있어요.</p>
-        </div>
-        <a class="btn btn--ghost notice__btn" href="startup-intro.html">게임 소개 보기</a>
-      </div>
     </div>
   </section>
 
