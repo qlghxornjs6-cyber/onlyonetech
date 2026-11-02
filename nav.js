@@ -17,8 +17,19 @@
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && isOpen()) setOpen(false, true);
   });
-  document.addEventListener('click', function (e) {
+  function closeIfOutside(e) {
     if (isOpen() && !panel.contains(e.target) && !btn.contains(e.target)) setOpen(false);
+  }
+  /* pointerdown as well as click: iOS Safari does not deliver "click" to document for taps on plain (non-link) areas */
+  document.addEventListener('pointerdown', closeIfOutside);
+  document.addEventListener('click', closeIfOutside);
+  /* a same-page link (the "all apps" link) must not leave the panel hanging open */
+  panel.addEventListener('click', function (e) {
+    if (e.target.closest && e.target.closest('a')) setOpen(false);
+  });
+  /* back/forward cache restores the page exactly as it was left */
+  window.addEventListener('pageshow', function (e) {
+    if (e.persisted && isOpen()) setOpen(false);
   });
   panel.addEventListener('focusout', function (e) {
     var next = e.relatedTarget;

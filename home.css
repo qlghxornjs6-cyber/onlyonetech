@@ -204,7 +204,7 @@
   box-shadow: 0 12px 24px -12px color-mix(in srgb, var(--b) 80%, transparent), 0 2px 4px rgb(0 0 0 / 0.12);
 }
 .hm-launch__btn--fit { --b: var(--hm-fit-btn); --o: var(--hm-fit-on); }
-.hm-launch__btn:hover { color: var(--o); filter: brightness(1.07); }
+@media (hover: hover) { .hm-launch__btn:hover { color: var(--o); filter: brightness(1.07); } }
 .hm-launch__btn img {
   flex: none;
   width: 3rem;
@@ -246,7 +246,7 @@
   line-height: 1.35;
   text-decoration: none;
 }
-.hm-gamepill:hover { color: #fff; background: #1b4a41; }
+@media (hover: hover) { .hm-gamepill:hover { color: #fff; background: #1b4a41; } }
 .hm-gamepill:focus-visible { outline-color: #ffd29d; }
 .hm-gamepill__stamp {
   flex: none;
@@ -302,7 +302,7 @@
   border-radius: 1.2em;
   background: var(--hm-float-bg);
   color: var(--color-text);
-  font-size: max(11.5px, 1.15em);
+  font-size: max(13px, 1.15em); /* was 11.5px on phones */
   line-height: 1.2;
   box-shadow: var(--shadow-md);
 }
@@ -473,13 +473,13 @@
 .hm-app .chip-list { margin-top: var(--space-5); max-width: 27rem; }
 .hm-app__actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-6); }
 .hm-app .btn--primary { background: var(--hm-btn); color: var(--hm-on); box-shadow: 0 12px 22px -12px var(--hm-btn); }
-.hm-app .btn--primary:hover { background: var(--hm-btn); color: var(--hm-on); filter: brightness(1.08); }
+@media (hover: hover) { .hm-app .btn--primary:hover { background: var(--hm-btn); color: var(--hm-on); filter: brightness(1.08); } }
 .hm-app .btn--toss::after { content: "\2197"; margin-left: var(--space-2); }
 .hm-app .btn--ghost { background: color-mix(in srgb, var(--color-surface) 55%, transparent); border-color: var(--card-accent); }
-.hm-app .btn--ghost:hover { background: var(--color-surface); }
+@media (hover: hover) { .hm-app .btn--ghost:hover { background: var(--color-surface); } }
 .hm-app__foot { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-5); margin-top: var(--space-5); }
 .hm-app__link { color: var(--card-text); font-size: var(--fs-sm); font-weight: var(--fw-medium); }
-.hm-app__link:hover { color: var(--color-text); }
+@media (hover: hover) { .hm-app__link:hover { color: var(--color-text); } }
 
 /* gallery: horizontal scroll-snap track of phone mockups */
 .hm-gal { position: relative; min-width: 0; font-size: 1rem; }
@@ -512,7 +512,7 @@
   cursor: pointer;
 }
 .hm-gal__btn svg { width: 1.375rem; height: 1.375rem; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
-.hm-gal__btn:hover:not(:disabled) { background: var(--card-accent); color: var(--hm-on); }
+@media (hover: hover) { .hm-gal__btn:hover:not(:disabled) { background: var(--card-accent); color: var(--hm-on); } }
 .hm-gal__btn:disabled { opacity: 0.4; cursor: default; }
 
 .hm-gal__scroll {
@@ -522,6 +522,7 @@
   scroll-snap-type: x mandatory;
   scroll-padding-inline: var(--gutter);
   overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
   scrollbar-width: thin;
   scrollbar-color: var(--card-accent) transparent;
 }
@@ -726,13 +727,13 @@
 .hm-contact .contact-card__status { color: var(--hm-panel-muted); }
 .hm-contact .contact-card__email { font-size: clamp(1.25rem, 1rem + 1.4vw, 1.875rem); letter-spacing: -0.01em; }
 .hm-contact .contact-card__email a { color: var(--hm-panel-ink); text-decoration-color: rgb(255 255 255 / 0.55); }
-.hm-contact .contact-card__email a:hover { color: #fff; text-decoration-color: #f5b23c; }
+@media (hover: hover) { .hm-contact .contact-card__email a:hover { color: #fff; text-decoration-color: #f5b23c; } }
 .hm-contact a:focus-visible,
 .hm-contact .btn:focus-visible { outline-color: #fff; }
 .hm-contact .btn--primary { background: #fff; color: #17358f; }
-.hm-contact .btn--primary:hover { background: #fff3d6; color: #17358f; }
+@media (hover: hover) { .hm-contact .btn--primary:hover { background: #fff3d6; color: #17358f; } }
 .hm-contact .btn--ghost { background: transparent; color: #fff; border-color: rgb(255 255 255 / 0.7); }
-.hm-contact .btn--ghost:hover { background: rgb(255 255 255 / 0.16); color: #fff; }
+@media (hover: hover) { .hm-contact .btn--ghost:hover { background: rgb(255 255 255 / 0.16); color: #fff; } }
 
 /* ---------- 9. Motion (only when the user has no reduced-motion preference) ---------- */
 @media (prefers-reduced-motion: no-preference) {
@@ -743,14 +744,14 @@
   .hm-float--b { animation: hm-bob 7s -2s ease-in-out infinite; }
   .hm-float--c { animation: hm-bob 6.5s -4s ease-in-out infinite; }
   .hm-launch__btn, .hm-gamepill, .hm-gal__btn { transition: transform var(--dur) var(--ease), filter var(--dur) var(--ease), background-color var(--dur) var(--ease); }
-  .hm-launch__btn:hover { transform: translateY(-2px); }
-  .hm-gamepill:hover { transform: translateX(2px); }
+  @media (hover: hover) { .hm-launch__btn:hover { transform: translateY(-2px); } }
+  @media (hover: hover) { .hm-gamepill:hover { transform: translateX(2px); } }
   .hm-launch__arrow { transition: transform var(--dur) var(--ease); }
-  .hm-launch__btn:hover .hm-launch__arrow { transform: translate(2px, -2px); }
+  @media (hover: hover) { .hm-launch__btn:hover .hm-launch__arrow { transform: translate(2px, -2px); } }
   .hm-shot .hm-phone { transition: transform 250ms var(--ease); }
-  .hm-shot:hover .hm-phone { transform: translateY(-6px); }
+  @media (hover: hover) { .hm-shot:hover .hm-phone { transform: translateY(-6px); } }
   .hm-app__icon { transition: rotate 250ms var(--ease); }
-  .hm-app:hover .hm-app__icon { rotate: -4deg; }
+  @media (hover: hover) { .hm-app:hover .hm-app__icon { rotate: -4deg; } }
 }
 @keyframes hm-rise { from { translate: 0 2.2em; } to { translate: 0 0; } }
 @keyframes hm-bob { 0%, 100% { translate: 0 0; } 50% { translate: 0 -0.5em; } }
@@ -922,9 +923,9 @@
   box-shadow: 0 12px 22px -12px #000;
 }
 .hm-game__btn > span[aria-hidden] { margin-left: 0.3em; }
-.hm-game .hm-game__btn:hover { background: var(--g-btn-hover); color: #fff; }
+@media (hover: hover) { .hm-game .hm-game__btn:hover { background: var(--g-btn-hover); color: #fff; } }
 .hm-game .hm-game__btn--ghost { border-color: var(--g-seal); background: transparent; color: var(--g-ink); box-shadow: none; }
-.hm-game .hm-game__btn--ghost:hover { background: rgb(255 154 142 / 0.16); color: #fff; }
+@media (hover: hover) { .hm-game .hm-game__btn--ghost:hover { background: rgb(255 154 142 / 0.16); color: #fff; } }
 
 /* gallery on the dark desk */
 .hm-game .hm-gal__hint { color: var(--g-muted); }
@@ -976,15 +977,32 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .hm-game__btn { transition: background-color var(--dur) var(--ease), transform var(--dur) var(--ease); }
-  .hm-game__btn:hover { transform: translateY(-2px); }
+  @media (hover: hover) { .hm-game__btn:hover { transform: translateY(-2px); } }
   .hm-paper { transition: transform 250ms var(--ease); }
-  .hm-shot--game:hover .hm-paper { transform: translateY(-6px); }
+  @media (hover: hover) { .hm-shot--game:hover .hm-paper { transform: translateY(-6px); } }
   .hm-game__seal { transition: rotate 250ms var(--ease); }
-  .hm-game:hover .hm-game__seal { rotate: 2deg; }
+  @media (hover: hover) { .hm-game:hover .hm-game__seal { rotate: 2deg; } }
 }
 
 @media print {
   .hm-game { background: #fff; color: #000; border-top: 1px solid #000; }
   .hm-game *, .hm-game *::before, .hm-game *::after { color: #000 !important; border-color: #000 !important; -webkit-text-stroke-color: #000 !important; }
   .hm-game::before, .hm-game__deco, .hm-gal--game, .hm-game__seal { display: none !important; }
+}
+
+/* ---------- 10. Phones (mobile optimisation, appended last) ---------- */
+@media (max-width: 39.999em) {
+  /* per-app privacy link: was a 25px-high text link */
+  .hm-app__link { display: inline-flex; align-items: center; min-height: var(--tap); }
+  /* the e-mail address has to fit on one line down to 320px (it broke as "...nate.co" + "m") */
+  .hm-contact .contact-card { padding: var(--space-4); -webkit-backdrop-filter: none; backdrop-filter: none; }
+  .hm-contact .contact-card__email { font-size: clamp(1rem, 5.2vw, 1.25rem); }
+}
+
+/* long stages far below the first screen: the browser skips their rendering until they are near.
+   "auto <length>" remembers the real height after the first render, so scrolling back does not jump. */
+@media (max-width: 63.99em) {
+  .hm-app,
+  .hm-game { content-visibility: auto; contain-intrinsic-size: auto 1250px; }
+  .hm-contact { content-visibility: auto; contain-intrinsic-size: auto 720px; }
 }

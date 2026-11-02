@@ -396,10 +396,12 @@
   font-weight: var(--fw-bold);
 }
 .og-page .jump__list .og-ico { width: 1.05rem; height: 1.05rem; }
-.og-page .jump__list a:hover {
-  border-color: var(--og-fill);
-  background: var(--og-fill);
-  color: var(--og-on-fill);
+@media (hover: hover) {
+  .og-page .jump__list a:hover {
+    border-color: var(--og-fill);
+    background: var(--og-fill);
+    color: var(--og-on-fill);
+  }
 }
 
 /* ---------- 4. Steps ---------- */
@@ -592,11 +594,17 @@
   backdrop-filter: blur(6px);
 }
 .og-page .step__zoom-hint .og-ico { width: 1rem; height: 1rem; }
-.og-page .step__zoom:hover .step__zoom-hint,
 .og-page .step__zoom:focus-visible .step__zoom-hint {
   border-color: var(--tone-fill);
   background: var(--tone-fill);
   color: var(--tone-on);
+}
+@media (hover: hover) {
+  .og-page .step__zoom:hover .step__zoom-hint {
+    border-color: var(--tone-fill);
+    background: var(--tone-fill);
+    color: var(--tone-on);
+  }
 }
 
 /* text card */
@@ -731,7 +739,7 @@
   background: radial-gradient(circle at 35% 65%, color-mix(in srgb, var(--tone-accent) 22%, var(--tone-soft)), var(--tone-soft) 70%);
   opacity: 0.85;
 }
-.og-page .feature:hover { border-color: color-mix(in srgb, var(--tone-accent) 60%, var(--color-border)); box-shadow: var(--shadow-md); }
+@media (hover: hover) { .og-page .feature:hover { border-color: color-mix(in srgb, var(--tone-accent) 60%, var(--color-border)); box-shadow: var(--shadow-md); } }
 .og-feature__ico {
   position: relative;
   z-index: 1;
@@ -780,7 +788,7 @@
   height: 4px;
   background: var(--tone-accent);
 }
-.og-page .tip:hover { border-color: color-mix(in srgb, var(--tone-accent) 55%, var(--color-border)); box-shadow: var(--shadow-md); }
+@media (hover: hover) { .og-page .tip:hover { border-color: color-mix(in srgb, var(--tone-accent) 55%, var(--color-border)); box-shadow: var(--shadow-md); } }
 .og-tip__head { display: flex; align-items: center; gap: var(--space-2); margin-bottom: var(--space-3); }
 .og-tip__ico {
   display: grid;
@@ -821,6 +829,10 @@
 }
 .og-page .limit-list dt { color: var(--tone-text); font-size: var(--fs-xs); font-weight: var(--fw-bold); letter-spacing: 0.02em; }
 .og-page .limit-list dd { color: var(--color-text); font-size: 0.9375rem; font-weight: var(--fw-medium); line-height: 1.55; }
+@media (max-width: 29.99em) {
+  /* two ~120px tiles made the limits wrap into 7-letter lines; one column reads better */
+  .og-page .limit-list { grid-template-columns: minmax(0, 1fr); }
+}
 @media (min-width: 40em) {
   .og-page .limit-list .info-list__row,
   .og-page .limit-list .info-list__row + .info-list__row { padding: var(--space-3) var(--space-4); }
@@ -851,7 +863,7 @@
   box-shadow: var(--shadow-sm);
   transition: border-color var(--dur) var(--ease), box-shadow 250ms var(--ease);
 }
-.og-page .faq__item:hover { border-color: color-mix(in srgb, var(--card-accent) 55%, var(--color-border)); }
+@media (hover: hover) { .og-page .faq__item:hover { border-color: color-mix(in srgb, var(--card-accent) 55%, var(--color-border)); } }
 .og-page .faq__item[open] {
   border-color: var(--card-accent);
   background: var(--color-surface);
@@ -908,7 +920,7 @@
   transform: none;
 }
 .og-page .faq__item[open] summary { background: color-mix(in srgb, var(--card-soft) 55%, var(--color-surface)); }
-.og-page .faq__item summary:hover::after { border-color: var(--card-accent); }
+@media (hover: hover) { .og-page .faq__item summary:hover::after { border-color: var(--card-accent); } }
 .og-page .faq__item summary:focus-visible { outline-offset: -3px; border-radius: 1.25rem; }
 .og-page .faq__answer {
   margin-inline: var(--space-4);
@@ -965,10 +977,12 @@
   box-shadow: var(--shadow-sm);
   transition: border-color var(--dur) var(--ease), box-shadow 250ms var(--ease), background-color var(--dur) var(--ease);
 }
-.og-page .more-card:hover {
-  border-color: var(--card-accent);
-  background: color-mix(in srgb, var(--card-soft) 50%, var(--color-surface));
-  box-shadow: var(--shadow-md);
+@media (hover: hover) {
+  .og-page .more-card:hover {
+    border-color: var(--card-accent);
+    background: color-mix(in srgb, var(--card-soft) 50%, var(--color-surface));
+    box-shadow: var(--shadow-md);
+  }
 }
 .og-page .more-card:focus-visible { border-radius: 1.5rem; }
 .og-more__ico {
@@ -1003,7 +1017,7 @@
   font-weight: var(--fw-bold);
   transition: background-color var(--dur) var(--ease), color var(--dur) var(--ease), transform 250ms var(--ease);
 }
-.og-page .more-card:hover::after { border-color: var(--og-fill); background: var(--og-fill); color: var(--og-on-fill); }
+@media (hover: hover) { .og-page .more-card:hover::after { border-color: var(--og-fill); background: var(--og-fill); color: var(--og-on-fill); } }
 
 /* ---------- 9. Motion (only when the visitor has not asked to reduce it), print ---------- */
 @media (prefers-reduced-motion: no-preference) {
@@ -1038,4 +1052,22 @@
   .og-page .step::before, .og-page .step::after { display: none; }
   .og-page .step__zoom-hint { display: none; }
   .og-page .feature, .og-page .tip, .og-page .step__body, .og-page .step__zoom { box-shadow: none; }
+}
+
+/* ---------- 10. Phones (mobile optimisation, appended last) ---------- */
+@media (max-width: 39.999em) {
+  /* six blurred pills in a long scrolling page; the pill is 90% opaque anyway */
+  .og-page .step__zoom-hint { -webkit-backdrop-filter: none; backdrop-filter: none; }
+}
+/* browsers without color-mix(): keep the card surface instead of a transparent one */
+@supports not (color: color-mix(in srgb, red 50%, blue)) {
+  .og-page { --og-warm: var(--color-surface); }
+}
+
+/* sections after the step timeline are rendered only when they come near (size is remembered after the first render) */
+@media (max-width: 63.99em) {
+  .og-page #features { content-visibility: auto; contain-intrinsic-size: auto 2550px; }
+  .og-page #tips { content-visibility: auto; contain-intrinsic-size: auto 5100px; }
+  .og-page #faq { content-visibility: auto; contain-intrinsic-size: auto 1600px; }
+  .og-page #more { content-visibility: auto; contain-intrinsic-size: auto 900px; }
 }
