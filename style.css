@@ -213,7 +213,7 @@ a {
   text-decoration-thickness: 0.08em;
   text-underline-offset: 0.2em;
 }
-a:hover { color: var(--color-primary-hover); }
+@media (hover: hover) { a:hover { color: var(--color-primary-hover); } }
 
 :focus-visible {
   outline: 3px solid var(--color-focus);
@@ -223,12 +223,18 @@ a:hover { color: var(--color-primary-hover); }
 
 [hidden] { display: none !important; }
 
+/* touch: no 300ms tap delay / double-tap zoom on controls (pinch zoom still works), one calm tap flash */
+html { -webkit-tap-highlight-color: rgb(36 86 216 / 0.14); }
+a, button, summary, label, [role="button"] { touch-action: manipulation; }
+
 /* ---------- 3. Layout primitives ---------- */
 .container {
   width: 100%;
   max-width: var(--container);
   margin-inline: auto;
   padding-inline: var(--gutter);
+  /* notched phones in landscape: keep text out of the sensor area (0 everywhere else) */
+  padding-inline: max(var(--gutter), env(safe-area-inset-left, 0px)) max(var(--gutter), env(safe-area-inset-right, 0px));
 }
 .section { padding-block: var(--section-y); }
 .section--alt {
@@ -294,7 +300,7 @@ a:hover { color: var(--color-primary-hover); }
   font-size: var(--fs-md);
   letter-spacing: -0.01em;
 }
-.brand:hover { color: var(--color-text); }
+@media (hover: hover) { .brand:hover { color: var(--color-text); } }
 .brand__mark { flex: none; }
 .brand__mark rect { fill: var(--mark-bg); }
 .brand__mark path { fill: none; stroke: var(--mark-fg); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
@@ -322,7 +328,7 @@ a:hover { color: var(--color-primary-hover); }
   border-bottom: 2px solid transparent;
   border-radius: 0;
 }
-.site-nav a:hover { color: var(--color-primary-text); border-bottom-color: var(--color-border-strong); }
+@media (hover: hover) { .site-nav a:hover { color: var(--color-primary-text); border-bottom-color: var(--color-border-strong); } }
 .site-nav a[aria-current="page"] {
   font-weight: var(--fw-bold);
   color: var(--color-primary-text);
@@ -343,7 +349,7 @@ a:hover { color: var(--color-primary-hover); }
   cursor: pointer;
   transition: background-color var(--dur) var(--ease), color var(--dur) var(--ease), border-color var(--dur) var(--ease);
 }
-.theme-toggle:hover { background: var(--color-surface-2); color: var(--color-text); border-color: var(--color-border-strong); }
+@media (hover: hover) { .theme-toggle:hover { background: var(--color-surface-2); color: var(--color-text); border-color: var(--color-border-strong); } }
 .theme-toggle:focus-visible { outline-offset: 2px; border-radius: var(--radius-pill); }
 .theme-toggle__ico {
   display: none;
@@ -397,9 +403,9 @@ a:hover { color: var(--color-primary-hover); }
   transition: background-color var(--dur) var(--ease), border-color var(--dur) var(--ease), color var(--dur) var(--ease);
 }
 .btn--primary { background: var(--color-primary); color: var(--color-on-primary); }
-.btn--primary:hover { background: var(--color-primary-hover); color: var(--color-on-primary); }
+@media (hover: hover) { .btn--primary:hover { background: var(--color-primary-hover); color: var(--color-on-primary); } }
 .btn--ghost { background: transparent; color: var(--color-text); border-color: var(--color-border-strong); }
-.btn--ghost:hover { background: var(--color-surface-2); color: var(--color-text); }
+@media (hover: hover) { .btn--ghost:hover { background: var(--color-surface-2); color: var(--color-text); } }
 
 /* badge */
 .badge {
@@ -871,6 +877,7 @@ a:hover { color: var(--color-primary-hover); }
 .site-footer {
   flex: none;
   padding-block: var(--space-12) var(--space-8);
+  padding-bottom: calc(var(--space-8) + env(safe-area-inset-bottom, 0px)); /* home-indicator phones */
   background: var(--color-surface-2);
   border-top: 1px solid var(--color-border);
 }
@@ -920,7 +927,7 @@ a:hover { color: var(--color-primary-hover); }
   font-size: var(--fs-sm);
   text-decoration: none;
 }
-.back-link:hover { text-decoration: underline; }
+@media (hover: hover) { .back-link:hover { text-decoration: underline; } }
 
 .doc__header {
   padding-bottom: var(--space-6);
@@ -996,7 +1003,7 @@ a:hover { color: var(--color-primary-hover); }
   line-height: 1.4;
   text-decoration: none;
 }
-.doc-toc-m__list a:hover { background: var(--color-primary-soft); color: var(--color-primary-text); }
+@media (hover: hover) { .doc-toc-m__list a:hover { background: var(--color-primary-soft); color: var(--color-primary-text); } }
 .doc-toc-m__list a:focus-visible { border-radius: 0; outline-offset: -3px; }
 
 /* summary: three core points, each linking to the full clause below */
@@ -1022,7 +1029,7 @@ a:hover { color: var(--color-primary-hover); }
   line-height: 1.45;
   text-decoration: none;
 }
-.doc-summary__item:hover .doc-summary__text { text-decoration: underline; text-underline-offset: 0.2em; }
+@media (hover: hover) { .doc-summary__item:hover .doc-summary__text { text-decoration: underline; text-underline-offset: 0.2em; } }
 .doc-summary__check {
   flex: none;
   display: grid;
@@ -1097,7 +1104,7 @@ a:hover { color: var(--color-primary-hover); }
     color: var(--color-text-muted);
     text-decoration: none;
   }
-  .doc-toc__list a:hover { color: var(--color-primary-text); border-left-color: var(--color-primary); }
+  @media (hover: hover) { .doc-toc__list a:hover { color: var(--color-primary-text); border-left-color: var(--color-primary); } }
 }
 
 /* ---------- 6. Utilities, reduced motion, print ---------- */
@@ -1372,7 +1379,7 @@ html:has(.jump-bar) { --header-h: 3.75rem; }
   font-weight: var(--fw-medium);
   text-decoration: none;
 }
-.jump__list a:hover { background: var(--card-soft); border-color: var(--card-accent); color: var(--card-text); }
+@media (hover: hover) { .jump__list a:hover { background: var(--card-soft); border-color: var(--card-accent); color: var(--card-text); } }
 .jump__list a:focus-visible { border-radius: var(--radius-pill); }
 @media (min-width: 40em) {
   .app-icon--xl { width: 6rem; height: 6rem; }
@@ -1460,7 +1467,7 @@ html:has(.jump-bar) { --header-h: 3.75rem; }
   line-height: 1.5;
   text-align: center;
 }
-.step__zoom:hover .step__zoom-hint { color: var(--color-text); }
+@media (hover: hover) { .step__zoom:hover .step__zoom-hint { color: var(--color-text); } }
 .step__body { grid-area: body; min-width: 0; }
 .step__list { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-3); }
 .step__list li { position: relative; padding-left: 1.25rem; }
@@ -1551,7 +1558,8 @@ html:has(.jump-bar) { --header-h: 3.75rem; }
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
 }
-.faq__item:hover, .faq__item[open] { border-color: var(--color-border-strong); }
+.faq__item[open] { border-color: var(--color-border-strong); }
+@media (hover: hover) { .faq__item:hover { border-color: var(--color-border-strong); } }
 .faq__item summary {
   display: flex;
   align-items: flex-start;
@@ -1603,7 +1611,7 @@ html:has(.jump-bar) { --header-h: 3.75rem; }
   color: var(--color-text);
   text-decoration: none;
 }
-.more-card:hover { background: var(--color-surface-2); border-color: var(--color-border-strong); color: var(--color-text); }
+@media (hover: hover) { .more-card:hover { background: var(--color-surface-2); border-color: var(--color-border-strong); color: var(--color-text); } }
 .more-card:focus-visible { border-radius: var(--radius-lg); }
 .more-card__label { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--color-text-muted); }
 .more-card__title { font-size: var(--fs-md); font-weight: var(--fw-bold); line-height: var(--lh-snug); }
@@ -1626,7 +1634,7 @@ html:has(.jump-bar) { --header-h: 3.75rem; }
 .doc-related__title { margin-bottom: var(--space-3); font-size: var(--fs-md); font-weight: var(--fw-bold); }
 .doc-related__list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-3); }
 @media (min-width: 60em) {
-  .doc-toc { max-height: calc(100vh - var(--header-h) - var(--space-8)); overflow-y: auto; }
+  .doc-toc { max-height: calc(100vh - var(--header-h) - var(--space-8)); max-height: calc(100dvh - var(--header-h) - var(--space-8)); overflow-y: auto; }
 }
 
 /* 7.13 Policy hub (privacy.html) */
@@ -1671,7 +1679,8 @@ html:has(.jump-bar) { --header-h: 3.75rem; }
 /* 7.14b Header: six links no longer fit one row between 40em and 52em, so keep the two-row (phone) layout there */
 @media (min-width: 40em) and (max-width: 51.99em) {
   :root { --header-h: 0rem; }
-  .site-header { position: static; -webkit-backdrop-filter: none; backdrop-filter: none; }
+  /* relative (not static) so the absolutely placed "app" drop-down is anchored to the header, not to the page */
+  .site-header { position: relative; z-index: var(--z-header); -webkit-backdrop-filter: none; backdrop-filter: none; }
   .site-header__inner {
     grid-template-columns: minmax(0, 1fr) auto;
     grid-template-areas: "brand toggle" "nav nav";
@@ -1760,9 +1769,9 @@ html:has(.jump-bar) { --header-h: 3.75rem; }
   text-decoration: none;
   box-shadow: 3px 3px 0 #091f1a;
 }
-.game-button:hover { color: #fff; background: #8c2521; }
+@media (hover: hover) { .game-button:hover { color: #fff; background: #8c2521; } }
 .game-text-link { color: var(--game-desk-ink); font-size: var(--fs-sm); padding-block: var(--space-3); }
-.game-text-link:hover { color: var(--game-seal-bright); }
+@media (hover: hover) { .game-text-link:hover { color: var(--game-seal-bright); } }
 .game-hero a:focus-visible { outline-color: #ffd29d; }
 .game-dossier a:focus-visible { outline-color: var(--color-focus); }
 .game-dossier {
@@ -1834,7 +1843,7 @@ html:has(.jump-bar) { --header-h: 3.75rem; }
 .game-more .game-section__eyebrow { color: var(--game-seal-bright); }
 .game-more .game-section__lead { color: var(--game-desk-muted); }
 .game-more a { color: var(--game-desk-ink); }
-.game-more a:hover { color: var(--game-seal-bright); }
+@media (hover: hover) { .game-more a:hover { color: var(--game-seal-bright); } }
 .game-more a:focus-visible { outline-color: #ffd29d; }
 .game-links { list-style: none; display: grid; border-top: 1px solid var(--game-desk-muted); }
 .game-link { display: grid; gap: var(--space-1); padding-block: var(--space-5); border-bottom: 1px solid var(--game-desk-muted); text-decoration: none; }
@@ -1881,11 +1890,11 @@ html:has(.jump-bar) { --header-h: 3.75rem; }
 .game-preview__gallery { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); min-width: 0; }
 .game-shot { min-width: 0; }
 .game-shot > a { display: block; height: 100%; padding: 5px 5px var(--space-2); background: var(--game-desk-ink); color: #18221f; border-radius: var(--radius-sm); text-decoration: none; box-shadow: 0 6px 18px rgb(0 0 0 / 0.3); }
-.game-shot > a:hover { color: #18221f; box-shadow: 0 8px 22px rgb(0 0 0 / 0.45); }
+@media (hover: hover) { .game-shot > a:hover { color: #18221f; box-shadow: 0 8px 22px rgb(0 0 0 / 0.45); } }
 .game-shot img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: top center; background: #0b1a17; }
 .game-shot__cap { display: block; margin-top: var(--space-2); padding-inline: var(--space-1); font-size: var(--fs-xs); font-weight: var(--fw-bold); line-height: 1.4; }
 .game-shot--cta > a { display: grid; align-content: center; gap: var(--space-2); min-height: 100%; padding: var(--space-5); background: var(--game-seal-bright); border: 2px dashed #18221f; }
-.game-shot--cta > a:hover { background: #ffb3a9; }
+@media (hover: hover) { .game-shot--cta > a:hover { background: #ffb3a9; } }
 .game-shot__cta-title { font-size: var(--fs-lg); font-weight: var(--fw-bold); line-height: 1.25; }
 .game-shot__cta-text { font-size: var(--fs-sm); }
 .game-shot__cta-url { font-family: var(--font-mono); font-size: var(--fs-xs); font-weight: var(--fw-bold); overflow-wrap: anywhere; }
@@ -1927,7 +1936,7 @@ html:has(.jump-bar) { --header-h: 3.75rem; }
   transform: rotate(45deg);
   transition: transform var(--dur) var(--ease), margin var(--dur) var(--ease);
 }
-.site-nav__toggle:hover { color: var(--color-primary-text); border-bottom-color: var(--color-border-strong); }
+@media (hover: hover) { .site-nav__toggle:hover { color: var(--color-primary-text); border-bottom-color: var(--color-border-strong); } }
 .site-nav__toggle[aria-expanded="true"] { color: var(--color-primary-text); border-bottom-color: var(--color-primary); }
 .site-nav__toggle[aria-expanded="true"]::after { margin-top: 0.2rem; transform: rotate(-135deg); }
 .site-nav__toggle.is-current { font-weight: var(--fw-bold); color: var(--color-primary-text); border-bottom-color: var(--color-primary); }
@@ -1962,7 +1971,7 @@ html:has(.jump-bar) { --header-h: 3.75rem; }
   color: var(--color-text);
   text-decoration: none;
 }
-.site-subnav__link:hover { border-color: var(--color-primary); background: var(--color-primary-soft); color: var(--color-text); }
+@media (hover: hover) { .site-subnav__link:hover { border-color: var(--color-primary); background: var(--color-primary-soft); color: var(--color-text); } }
 .site-subnav__link[aria-current="page"] { border-color: var(--color-primary); box-shadow: inset 3px 0 0 var(--color-primary); }
 .site-subnav__icon { flex: none; width: 2.5rem; height: 2.5rem; border-radius: 22%; object-fit: cover; border: 1px solid var(--color-border); }
 .site-subnav__icon--game { display: grid; place-items: center; background: #153c35; border-color: #153c35; color: #ff9a8e; font-weight: var(--fw-bold); font-size: 1.25rem; line-height: 1; }
@@ -2067,9 +2076,15 @@ html:has(.jump-bar) { --header-h: 3.75rem; }
   overflow: hidden;
   transition: border-color var(--dur) var(--ease), box-shadow 250ms var(--ease);
 }
-.apps-card:hover, .apps-card:focus-within {
+.apps-card:focus-within {
   border-color: color-mix(in srgb, var(--card-accent) 55%, var(--color-border));
   box-shadow: var(--shadow-md);
+}
+@media (hover: hover) {
+  .apps-card:hover {
+    border-color: color-mix(in srgb, var(--card-accent) 55%, var(--color-border));
+    box-shadow: var(--shadow-md);
+  }
 }
 .apps-card__cover {
   position: relative;
@@ -2282,7 +2297,7 @@ html:has(.jump-bar) { --header-h: 3.75rem; }
   text-decoration: none;
   box-shadow: 3px 3px 0 #091f1a;
 }
-.apps-game__btn:hover { background: #8c2521; color: #fff; }
+@media (hover: hover) { .apps-game__btn:hover { background: #8c2521; color: #fff; } }
 .apps-game__link {
   display: inline-flex;
   align-items: center;
@@ -2291,7 +2306,7 @@ html:has(.jump-bar) { --header-h: 3.75rem; }
   font-size: var(--fs-sm);
   font-weight: var(--fw-medium);
 }
-.apps-game__link:hover { color: var(--apps-game-seal); }
+@media (hover: hover) { .apps-game__link:hover { color: var(--apps-game-seal); } }
 
 .apps-game__visual {
   position: relative;
@@ -2361,7 +2376,7 @@ html:has(.jump-bar) { --header-h: 3.75rem; }
 /* Home apps: Toss entry button + guide button stacked in the card actions */
 .apps-card__actions { display: grid; gap: var(--space-3); }
 .apps-card__actions .btn--toss::after { content: "\2197"; }
-.apps-card__actions .btn--ghost:hover { border-color: var(--card-accent, var(--color-primary)); }
+@media (hover: hover) { .apps-card__actions .btn--ghost:hover { border-color: var(--card-accent, var(--color-primary)); } }
 
 /* Privacy: web game (no app icon image) */
 .app-icon--game {
@@ -2373,4 +2388,50 @@ html:has(.jump-bar) { --header-h: 3.75rem; }
   font-size: 1.75rem;
   font-weight: var(--fw-bold);
   line-height: 1;
+}
+
+/* ==========================================================================
+   8. Phones (mobile optimisation, appended last)
+      Everything below is scoped to small screens, touch or short landscape
+      screens; the desktop layout (>= 52em, normal height) is not affected.
+   ========================================================================== */
+
+/* menu: four items on one row down to 320px (it wrapped to a second row on the smallest phones) */
+@media (max-width: 21.25em) {
+  .site-nav a,
+  .site-nav__toggle { font-size: 0.875rem; padding-inline: 0.375rem; }
+  .site-nav__list { gap: 0; }
+}
+
+/* tap targets that were a few pixels short; the negative margin keeps the visible layout unchanged */
+@media (max-width: 39.999em) {
+  .crumbs a { padding-inline: calc(var(--space-2) + 0.5rem); margin-inline: -0.5rem; }
+  .site-footer__nav a { min-width: var(--tap); justify-content: center; }
+  /* a blurred sticky bar repaints on every scroll frame; the bar is 92% opaque, so the blur is not missed */
+  .jump-bar { -webkit-backdrop-filter: none; backdrop-filter: none; }
+}
+
+/* landscape phones: a sticky header would cover about a sixth of a ~375px-high screen, so let it scroll away */
+@media (min-width: 52em) and (max-height: 30em) {
+  :root { --header-h: 0rem; }
+  html:has(.jump-bar) { --header-h: 0rem; }
+  .site-header { position: relative; -webkit-backdrop-filter: none; backdrop-filter: none; }
+  .jump-bar { top: 0; }
+}
+
+/* browsers without :has(): the sticky section chips on guide pages would hide the target of an anchor jump */
+@supports not selector(:has(*)) {
+  @media (max-width: 39.999em) {
+    :root { --header-h: 3.75rem; }
+  }
+}
+
+/* game intro: the long sections below the first one are rendered only when they come near */
+@media (max-width: 63.99em) {
+  .accent--game #preview { content-visibility: auto; contain-intrinsic-size: auto 1650px; }
+  .accent--game #modes { content-visibility: auto; contain-intrinsic-size: auto 830px; }
+  .accent--game #start { content-visibility: auto; contain-intrinsic-size: auto 1900px; }
+  .accent--game #records { content-visibility: auto; contain-intrinsic-size: auto 690px; }
+  .accent--game #notice { content-visibility: auto; contain-intrinsic-size: auto 430px; }
+  .accent--game #more { content-visibility: auto; contain-intrinsic-size: auto 790px; }
 }
