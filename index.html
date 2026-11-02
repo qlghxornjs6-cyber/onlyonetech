@@ -59,7 +59,7 @@
           <a href="#apps" data-subnav-link>앱</a>
           <button type="button" class="site-nav__toggle" aria-expanded="false" aria-controls="site-subnav" hidden>앱</button>
         </li>
-        <li><a href="#about">소개</a></li>
+        <li><a href="company.html">회사소개</a></li>
         <li><a href="#contact">문의</a></li>
         <li><a href="privacy.html">개인정보처리방침</a></li>
       </ul>
@@ -418,122 +418,13 @@
     </article>
   </section>
 
-  <!-- ===== 개발자 소개 ===== -->
-  <section id="about" class="hm-about" aria-labelledby="about-title">
-    <div class="container">
-      <div class="hm-about__head">
-        <p class="hm-eyebrow" aria-hidden="true">02 / About</p>
-        <h2 id="about-title" class="hm-h2">개발자 소개</h2>
-        <p class="hm-lead">OnlyOneTech는 일상에 도움이 되는 모바일 앱을 만듭니다.</p>
-      </div>
-
-      <div class="about-block hm-ident">
-        <div class="hm-ident__card">
-          <h3 class="about-block__title">운영자 정보</h3>
-          <dl class="info-list">
-            <div class="info-list__row">
-              <dt>상호</dt>
-              <dd>투오티</dd>
-            </div>
-            <div class="info-list__row">
-              <dt>소재지</dt>
-              <dd>대한민국 대전광역시</dd>
-            </div>
-            <div class="info-list__row">
-              <dt>제작 앱</dt>
-              <dd>오늘뭐하개, 운동 플래너 (토스 앱 안의 미니앱)</dd>
-            </div>
-            <div class="info-list__row">
-              <dt>문의</dt>
-              <dd><a href="mailto:onlyonetech@nate.com">onlyonetech@nate.com</a></dd>
-            </div>
-            <div class="info-list__row">
-              <dt>개인정보처리방침</dt>
-              <dd>
-                <ul class="info-list__links" role="list">
-                  <li><a href="privacy-ohneul.html">오늘뭐하개</a> (시행일 2026년 9월 23일)</li>
-                  <li><a href="privacy-workout.html">운동 플래너</a> (시행일 2026년 10월 1일)</li>
-                </ul>
-              </dd>
-            </div>
-            <!--
-              소유자가 직접 확인한 사실만 아래 형식으로 추가하세요. 확인되지 않은 항목은 넣지 말고 항목 자체를 생략합니다.
-              (코드로 확인된 것은 상호 투오티, 사업장 소재지 대전광역시, 문의 이메일뿐입니다. 개인/법인 구분, 1인 개발 여부, 'OnlyOneTech'라는 이름과 '투오티'의 관계는 소유자 확인 전까지 쓰지 않습니다.)
-              <div class="info-list__row"><dt>사업자 구분</dt><dd>개인 개발자 / 사업자등록번호 ○○○-○○-○○○○○</dd></div>
-              <div class="info-list__row"><dt>이름 유래</dt><dd>OnlyOneTech은 ...에서 따온 이름이며 ‘투오티’로 읽습니다</dd></div>
-            -->
-          </dl>
-        </div>
-        <div class="hm-ident__art" aria-hidden="true">
-          <svg class="hm-ident__mark" viewBox="0 0 32 32" focusable="false"><rect width="32" height="32" rx="9"/><path d="M10.5 12.5 15.5 9.5v13.5"/><circle cx="21.5" cy="22.5" r="2.4"/></svg>
-          <img class="hm-ident__icon hm-ident__icon--a" src="img/icon-ohneul.webp" width="192" height="192" alt="" loading="lazy" decoding="async">
-          <img class="hm-ident__icon hm-ident__icon--b" src="img/icon-workout.webp" width="192" height="192" alt="" loading="lazy" decoding="async">
-        </div>
-      </div>
-
-      <div class="about-block">
-        <h3 class="about-block__title">앱별 개인정보 처리</h3>
-        <p class="about-block__lead">두 앱은 정보를 저장하는 방식과 사용하는 서비스가 달라, 개인정보처리방침을 앱별로 나누어 두었습니다. 아래는 요약이며 전문은 각 방침에서 확인할 수 있습니다.</p>
-        <ul class="privacy-grid" role="list">
-          <li>
-            <article class="privacy-card accent--today" aria-labelledby="pv-today">
-              <div class="privacy-card__head">
-                <img class="app-icon app-icon--md" src="img/icon-ohneul.webp" width="192" height="192" alt="" loading="lazy" decoding="async">
-                <div>
-                  <h4 id="pv-today" class="privacy-card__name">오늘뭐하개</h4>
-                  <p class="privacy-card__kind">안드로이드 · 토스 미니앱</p>
-                </div>
-              </div>
-              <ul class="check-list" role="list">
-                <li>토스 앱 안에서는 토스 로그인으로 시작하며, 로그인 사용자 식별값(암호화해 저장)과 약관 동의 내역 등을 처리합니다. 토스 로그인이 제공하는 이름은 저장하거나 이용하지 않습니다.</li>
-                <li>반려견 정보, 일기, 산책 기록, 게시물, 사진은 서버(처리 위탁: Supabase)에 저장됩니다.</li>
-                <li>위치정보는 산책을 기록할 때 별도 동의를 받은 뒤에 수집합니다.</li>
-                <li>일기는 나만 볼 수 있습니다. 자랑하개에 올린 글이나 공유한 코스는 이용자가 선택한 내용이 다른 이용자에게 공개됩니다.</li>
-                <li>탈퇴하거나 토스 로그인 연결을 해제하면 정보와 사진을 지체 없이 삭제합니다.</li>
-              </ul>
-              <a class="btn btn--ghost" href="privacy-ohneul.html" aria-label="오늘뭐하개 개인정보처리방침 전문 보기">방침 전문 보기</a>
-            </article>
-          </li>
-          <li>
-            <article class="privacy-card accent--fit" aria-labelledby="pv-fit">
-              <div class="privacy-card__head">
-                <img class="app-icon app-icon--md" src="img/icon-workout.webp" width="192" height="192" alt="" loading="lazy" decoding="async">
-                <div>
-                  <h4 id="pv-fit" class="privacy-card__name">운동 플래너</h4>
-                  <p class="privacy-card__kind">안드로이드 앱</p>
-                </div>
-              </div>
-              <ul class="check-list" role="list">
-                <li>회원가입이나 로그인 없이 사용합니다.</li>
-                <li>홈·통계·인바디 화면 아래에 Google AdMob 배너 광고가 1개 표시되며, 광고를 불러오기 위해 인터넷 권한을 씁니다. 이때 Google이 광고 ID 등 기기 정보를 처리할 수 있습니다.</li>
-                <li>입력한 정보는 개발자의 서버로 보내지 않습니다. 위치 정보와, 개발자가 따로 넣은 이용 통계 분석 도구는 사용하지 않습니다.</li>
-                <li>운동 기록, 인바디 기록, 앱 설정은 휴대폰 안에만 저장되고 광고에 쓰이지 않으며, 앱을 삭제하면 함께 지워집니다.</li>
-                <li>백업 파일은 이용자가 고른 위치에 저장되거나 이용자가 고른 앱으로 전달되며, 개발자에게는 전달되지 않습니다.</li>
-              </ul>
-              <a class="btn btn--ghost" href="privacy-workout.html" aria-label="운동 플래너 개인정보처리방침 전문 보기">방침 전문 보기</a>
-            </article>
-          </li>
-        </ul>
-
-        <div class="notice">
-          <span class="notice__icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 11v5.5M12 7.6v.1"/></svg></span>
-          <div class="notice__body">
-            <p class="notice__title">전체 내용은 앱별 방침에서 확인하세요</p>
-            <p class="notice__text">처리 항목, 보유 기간, 이용자의 권리 등 자세한 내용은 앱별 개인정보처리방침에 있습니다.</p>
-          </div>
-          <a class="btn btn--ghost notice__btn" href="privacy.html">개인정보처리방침 목록</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ===== 문의 ===== -->
   <section id="contact" class="hm-contact" aria-labelledby="contact-title">
     <div class="container">
       <div class="hm-contact__panel">
         <svg class="hm-contact__deco" viewBox="0 0 200 140" aria-hidden="true" focusable="false"><rect x="10" y="20" width="180" height="110" rx="14"/><path d="m16 32 84 62 84-62"/><circle class="dot" cx="168" cy="26" r="14"/></svg>
         <div class="hm-contact__head">
-          <p class="hm-eyebrow" aria-hidden="true">03 / Contact</p>
+          <p class="hm-eyebrow" aria-hidden="true">04 / Contact</p>
           <h2 id="contact-title" class="hm-h2">문의</h2>
           <p class="hm-lead">앱 이용이나 개인정보와 관련한 문의는 아래 이메일로 보내 주세요.</p>
         </div>
@@ -571,7 +462,7 @@
         <nav class="site-footer__nav" aria-label="푸터 메뉴">
           <ul>
             <li><a href="index.html#apps">앱 소개</a></li>
-            <li><a href="index.html#about">개발자 소개</a></li>
+            <li><a href="company.html">회사소개</a></li>
             <li><a href="index.html#contact">문의</a></li>
           </ul>
           <ul>
@@ -583,6 +474,7 @@
             <li><a href="privacy.html">개인정보처리방침</a></li>
             <li><a href="privacy-ohneul.html">오늘뭐하개 개인정보처리방침</a></li>
             <li><a href="privacy-workout.html">운동 플래너 개인정보처리방침</a></li>
+            <li><a href="https://startup-with-you.com/privacy.html" target="_blank" rel="noopener">결재 게임 개인정보처리방침<span class="visually-hidden"> (새 창)</span></a></li>
           </ul>
         </nav>
         <p class="site-footer__contact">문의 <a href="mailto:onlyonetech@nate.com">onlyonetech@nate.com</a></p>

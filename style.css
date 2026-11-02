@@ -2362,3 +2362,15 @@ html:has(.jump-bar) { --header-h: 3.75rem; }
 .apps-card__actions { display: grid; gap: var(--space-3); }
 .apps-card__actions .btn--toss::after { content: "\2197"; }
 .apps-card__actions .btn--ghost:hover { border-color: var(--card-accent, var(--color-primary)); }
+
+/* Privacy: web game (no app icon image) */
+.app-icon--game {
+  display: grid;
+  place-items: center;
+  background: #153c35;
+  border-color: #153c35;
+  color: #ff9a8e;
+  font-size: 1.75rem;
+  font-weight: var(--fw-bold);
+  line-height: 1;
+}
