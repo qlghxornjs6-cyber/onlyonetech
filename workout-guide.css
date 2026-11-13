@@ -253,10 +253,9 @@
   content: counter(wgj, decimal-leading-zero);
   content: counter(wgj, decimal-leading-zero) / "";
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   color: var(--app-fit-text);
 }
-.wg-page .jump-bar .jump__list a:hover,
 .wg-page:has(#steps:target) .jump__list a[href="#steps"],
 .wg-page:has(#features:target) .jump__list a[href="#features"],
 .wg-page:has(#tips:target) .jump__list a[href="#tips"],
@@ -265,11 +264,18 @@
   background: var(--wg-lime);
   color: var(--wg-ink);
 }
-.wg-page .jump-bar .jump__list a:hover::before,
+@media (hover: hover) {
+  .wg-page .jump-bar .jump__list a:hover {
+    border-color: var(--wg-ink);
+    background: var(--wg-lime);
+    color: var(--wg-ink);
+  }
+}
 .wg-page:has(#steps:target) .jump__list a[href="#steps"]::before,
 .wg-page:has(#features:target) .jump__list a[href="#features"]::before,
 .wg-page:has(#tips:target) .jump__list a[href="#tips"]::before,
 .wg-page:has(#faq:target) .jump__list a[href="#faq"]::before { color: var(--wg-ink); }
+@media (hover: hover) { .wg-page .jump-bar .jump__list a:hover::before { color: var(--wg-ink); } }
 
 /* ---------- 4. Steps: 타임라인 + 휴대폰 프레임 ---------- */
 .wg-page #steps {
@@ -332,6 +338,9 @@
 /* 휴대폰이 놓이는 무대 */
 .wg-page .step__shot {
   grid-area: auto;
+  /* stretch (not the shared "center"): a centred grid item is only as wide as its content, so before the lazy
+     screenshot loaded the stage collapsed to ~48px and every step grew by ~520px when its image arrived */
+  justify-self: stretch;
   position: relative;
   isolation: isolate;
   display: flex;
@@ -456,8 +465,8 @@
     linear-gradient(currentColor, currentColor) 50% 50% / 55% 2px no-repeat,
     linear-gradient(currentColor, currentColor) 50% 50% / 2px 55% no-repeat;
 }
-.wg-page .step__zoom:hover .step__zoom-hint,
 .wg-page .step__zoom:focus-visible .step__zoom-hint { border-color: var(--wg-lime); background: var(--wg-lime); color: var(--wg-ink); }
+@media (hover: hover) { .wg-page .step__zoom:hover .step__zoom-hint { border-color: var(--wg-lime); background: var(--wg-lime); color: var(--wg-ink); } }
 
 /* 본문 목록 */
 .wg-page .step__list { gap: var(--space-3); }
@@ -756,7 +765,7 @@
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
 }
-.wg-page .faq__item:hover { border-color: color-mix(in srgb, var(--app-fit-accent) 55%, var(--color-border)); }
+@media (hover: hover) { .wg-page .faq__item:hover { border-color: color-mix(in srgb, var(--app-fit-accent) 55%, var(--color-border)); } }
 .wg-page .faq__item[open] {
   border-color: var(--app-fit-accent);
   background: color-mix(in srgb, var(--app-fit-soft) 45%, var(--color-surface));
@@ -844,7 +853,7 @@
   background: repeating-linear-gradient(135deg, color-mix(in srgb, var(--app-fit-accent) 30%, transparent) 0 3px, transparent 3px 9px);
   pointer-events: none;
 }
-.wg-page .more-card:hover { border-color: var(--app-fit-accent); background: var(--color-surface); box-shadow: var(--shadow-md); }
+@media (hover: hover) { .wg-page .more-card:hover { border-color: var(--app-fit-accent); background: var(--color-surface); box-shadow: var(--shadow-md); } }
 .wg-more__ico {
   display: grid;
   place-items: center;
@@ -911,4 +920,23 @@
   .wg-page #features .section__title, .wg-page .feature__title, .wg-page .feature__text, .wg-page #features .section__lead { color: #000; }
   .wg-page .step__zoom-hint { display: none; }
   .wg-page .step__shot { padding-bottom: var(--space-4); }
+}
+
+/* ---------- 11. Phones (mobile optimisation, appended last) ---------- */
+@media (max-width: 39.999em) {
+  .wg-page .guide-hero__side { -webkit-backdrop-filter: none; backdrop-filter: none; }
+}
+/* browsers without color-mix(): keep a solid stage tint and line colour instead of dropping them */
+@supports not (color: color-mix(in srgb, red 50%, blue)) {
+  .wg-page,
+  :root:not([data-theme="light"]) .wg-page,
+  :root[data-theme="dark"] .wg-page { --wg-tint: var(--app-fit-soft); --wg-line: var(--app-fit-accent); }
+}
+
+/* sections after the step timeline are rendered only when they come near (size is remembered after the first render) */
+@media (max-width: 63.99em) {
+  .wg-page #features { content-visibility: auto; contain-intrinsic-size: auto 3550px; }
+  .wg-page #tips { content-visibility: auto; contain-intrinsic-size: auto 5300px; }
+  .wg-page #faq { content-visibility: auto; contain-intrinsic-size: auto 1580px; }
+  .wg-page #more { content-visibility: auto; contain-intrinsic-size: auto 1010px; }
 }

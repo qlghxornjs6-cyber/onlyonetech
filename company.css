@@ -262,7 +262,7 @@
 .co-svc__desc { margin-top: var(--space-4); color: var(--color-text-muted); }
 .co-svc__actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: auto; padding-top: var(--space-6); }
 .co-svc .btn--primary { background: var(--co-btn); color: var(--co-on); box-shadow: 0 12px 22px -12px var(--co-btn); }
-.co-svc .btn--primary:hover { background: var(--co-btn); color: var(--co-on); filter: brightness(1.08); }
+@media (hover: hover) { .co-svc .btn--primary:hover { background: var(--co-btn); color: var(--co-on); filter: brightness(1.08); } }
 .co-svc .btn--ext::after { content: "\2197"; margin-left: var(--space-2); }
 .co-svc .btn--ghost { border-color: var(--card-accent); }
 .co-svc--game .btn--primary { box-shadow: 0 12px 22px -12px var(--co-game-btn); }
@@ -289,7 +289,7 @@
   display: flex; align-items: center; gap: var(--space-4); min-height: 4.5rem; padding: var(--space-3) var(--space-4);
   border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: var(--color-bg); color: var(--color-text); text-decoration: none;
 }
-.co-policy__link:hover { border-color: var(--color-primary); background: var(--color-primary-soft); color: var(--color-text); }
+@media (hover: hover) { .co-policy__link:hover { border-color: var(--color-primary); background: var(--color-primary-soft); color: var(--color-text); } }
 .co-policy__txt { display: grid; flex: 1 1 auto; min-width: 0; line-height: 1.35; }
 .co-policy__txt strong { font-weight: var(--fw-bold); }
 .co-policy__txt small { font-size: var(--fs-sm); color: var(--color-text-muted); }
@@ -306,12 +306,20 @@
   .co-float--a { animation: hm-bob 6.5s -1s ease-in-out infinite; }
   .co-float--b { animation: hm-bob 7s -3s ease-in-out infinite; }
   .co-svc, .co-policy__link { transition: transform 250ms var(--ease), box-shadow 250ms var(--ease), border-color var(--dur) var(--ease), background-color var(--dur) var(--ease); }
-  .co-svc:hover { transform: translateY(-4px); }
+  @media (hover: hover) { .co-svc:hover { transform: translateY(-4px); } }
   .co-policy__go { transition: transform var(--dur) var(--ease); }
-  .co-policy__link:hover .co-policy__go { transform: translateX(3px); }
+  @media (hover: hover) { .co-policy__link:hover .co-policy__go { transform: translateX(3px); } }
 }
 @keyframes co-bob { 0%, 100% { translate: 0 0; } 50% { translate: 0 -0.5em; } }
 
 @media print {
   .co-emblem, .co-svc__vis, .co-since { display: none !important; }
+}
+
+/* ---------- 8. Phones (mobile optimisation, appended last) ---------- */
+/* sections far below the first screen are rendered only when they come near (see the note in home.css) */
+@media (max-width: 63.99em) {
+  .co-biz { content-visibility: auto; contain-intrinsic-size: auto 1000px; }
+  .co-services { content-visibility: auto; contain-intrinsic-size: auto 2000px; }
+  .co-policy { content-visibility: auto; contain-intrinsic-size: auto 720px; }
 }
